@@ -4,36 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Farm management app</title>
-    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="../styles/main.css" />
   </head>
   <body>
     <div class="container">
       <header>
         <!-- LOGO -->
-        <a href="#" aria-label="Homepage">
-          <img src="images/logo.png" alt="Site logo" />
+        <a href="../index.html" aria-label="Homepage">
+          <img src="../images/logo.png" alt="Site logo" />
           <h1>Aggr</h1>
         </a>
         <!-- NAVIGATION -->
         <nav aria-label="Primary Navigation">
           <ul>
             <li>
-              <a href="#" aria-current="page">
+              <a href="../index.html" aria-current="page">
                 <i class="fa-solid fa-house" aria-hidden="true"></i> Home
               </a>
             </li>
             <li>
-              <a href="pages/fields.html">
+              <a href="#" aria-current="page">
                 <i class="fa-solid fa-wheat-awn" aria-hidden="true"></i> Pola
               </a>
             </li>
             <li>
-              <a href="pages/herds.html">
+              <a href="herds.html">
                 <i class="fa-solid fa-cow" aria-hidden="true"></i> Stada
               </a>
             </li>
             <li>
-              <a href="pages/machines.html">
+              <a href="machines.html">
                 <i class="fa-solid fa-tractor" aria-hidden="true"></i> Maszyny
               </a>
             </li>
@@ -43,12 +43,32 @@
           <i class="fa-solid fa-user" aria-hidden="true"></i> Artur
         </a>
       </header>
-      <main>Strona główna</main>
+      <main>
+        <section
+          aria-labelledby="map-heading"
+          aria-describedby="map-instructions"
+        >
+          <h2 id="map-heading">Mapa</h2>
+          <p id="map-instructions">
+            Kliknij na obiekt na mapie, aby zobaczyć szczegóły.
+          </p>
+          <div
+            id="map"
+            aria-label="Interaktywna mapa lokalizacji"
+            role="region"
+            tabindex="0"
+          ></div>
+        </section>
+        <aside aria-labelledby="details-heading">
+          <h2 id="details-heading">Szczegóły obiektu</h2>
+          <section id="object-details" aria-live="polite"></section>
+        </aside>
+      </main>
     </div>
     <script
       src="https://kit.fontawesome.com/dc197bfaa7.js"
       crossorigin="anonymous"
     ></script>
-    <script src="scripts/main.js"></script>
+    <script src="../scripts/main.js"></script>
   </body>
 </html>
