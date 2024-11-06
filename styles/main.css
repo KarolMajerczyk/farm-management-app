@@ -1,1 +1,27 @@
 @import url("reset.css");
+
+/* HEADER STYLES */
+@import url("main-header.css");
+@import url("app-logo.css");
+@import url("main-nav.css");
+
+body {
+  height: 100%;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  height: 100vh;
+}
+
+#map {
+  height: 100%;
+}
+
+/* Level 2 Grid or Flexbox? */
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 500px;
+  background: #444444;
+}

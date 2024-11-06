@@ -4,25 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Farm management app</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.14.0/proj4.js"></script>
+
+    <script src="https://unpkg.com/terraformer@1.0.8"></script>
+    <script src="https://unpkg.com/terraformer-arcgis-parser@1.0.5"></script>
+    <script src="https://unpkg.com/terraformer-wkt-parser@1.1.2"></script>
+
     <link rel="stylesheet" href="../styles/main.css" />
   </head>
   <body>
     <div class="container">
-      <header>
+      <header class="main-header">
         <!-- LOGO -->
-        <a href="../index.html" aria-label="Homepage">
+        <a class="app-logo" href="../index.html" aria-label="Homepage">
           <img src="../images/logo.png" alt="Site logo" />
           <h1>Aggr</h1>
         </a>
         <!-- NAVIGATION -->
-        <nav aria-label="Primary Navigation">
+        <nav class="main-nav" aria-label="Primary Navigation">
           <ul>
             <li>
               <a href="../index.html" aria-current="page">
                 <i class="fa-solid fa-house" aria-hidden="true"></i> Home
               </a>
             </li>
-            <li>
+            <li class="active">
               <a href="#" aria-current="page">
                 <i class="fa-solid fa-wheat-awn" aria-hidden="true"></i> Pola
               </a>
@@ -39,19 +56,20 @@
             </li>
           </ul>
         </nav>
+        <!-- USER ACCOUNT -->
         <a href="#" aria-label="Profil użytkownika">
           <i class="fa-solid fa-user" aria-hidden="true"></i> Artur
         </a>
       </header>
-      <main>
+      <main class="main-content">
         <section
           aria-labelledby="map-heading"
           aria-describedby="map-instructions"
         >
-          <h2 id="map-heading">Mapa</h2>
+          <!-- <h2 id="map-heading">Mapa</h2>
           <p id="map-instructions">
             Kliknij na obiekt na mapie, aby zobaczyć szczegóły.
-          </p>
+          </p> -->
           <div
             id="map"
             aria-label="Interaktywna mapa lokalizacji"
