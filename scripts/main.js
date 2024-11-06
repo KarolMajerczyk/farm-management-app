@@ -26,19 +26,35 @@ initializeMap();
 
 map.on("drag", () => map.panInsideBounds(bounds, { animate: false }));
 
+const markedFields = [];
+
 map.on("click", async (e) => {
   const epsg4326Coord = [e.latlng.lng, e.latlng.lat];
   const epsg2180Coord = convertEPSG4326ToEPSG2180(epsg4326Coord);
 
   const field = await fetchFieldData(epsg2180Coord);
-  const geojson = convertWKTToGeoJSON(field.geometry);
+
+  if (markedFields.includes(field.id)) {
+    return;
+  }
+
+  const fieldLayer = L.geoJSON(field.geometry).addTo(map);
+  map.flyTo(fieldLayer.getBounds().getCenter(), 15, {
+    duration: 1,
+  });
+
+  markedFields.push(field.id);
+});
+
+function convertToLeafletGeometryCoords(wkt) {
+  const geojson = convertWKTToGeoJSON(wkt);
 
   geojson.coordinates[0] = geojson.coordinates[0].map((coord) => {
     return convertEPSG2180ToEPSG4326(coord);
   });
 
-  L.geoJSON(geojson).addTo(map);
-});
+  return geojson;
+}
 
 // Converts world geodetic system to poland geodetic system.
 function convertEPSG4326ToEPSG2180(coord) {
@@ -56,20 +72,22 @@ async function fetchFieldData(coord) {
     `https://uldk.gugik.gov.pl/?request=GetParcelByXY&xy=${coord}&result=geom_wkt,id,voivodeship,county,commune,region,parcel`
   );
 
-  let data = await res.text();
-  data = data.split("|");
+  const data = await res.text();
+  const field = createFieldObject(data.split("|"));
 
-  const field = {
+  return field;
+}
+
+function createFieldObject(data) {
+  return {
     id: data[1],
-    geometry: data[0].split(";")[1],
+    geometry: convertToLeafletGeometryCoords(data[0].split(";")[1]),
     voivodeship: data[2],
     county: data[3],
     commune: data[4],
     region: data[5],
     parcel: data[6].replace("\n", ""),
   };
-
-  return field;
 }
 
 // Convert WKT to GeoJSON
