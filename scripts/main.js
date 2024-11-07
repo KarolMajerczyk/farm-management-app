@@ -26,7 +26,7 @@ initializeMap();
 
 map.on("drag", () => map.panInsideBounds(bounds, { animate: false }));
 
-const markedFields = [];
+const fieldsList = [];
 
 map.on("click", async (e) => {
   const epsg4326Coord = [e.latlng.lng, e.latlng.lat];
@@ -34,16 +34,16 @@ map.on("click", async (e) => {
 
   const field = await fetchFieldData(epsg2180Coord);
 
-  if (markedFields.includes(field.id)) {
+  if (fieldsList.find((obj) => obj.id === field.id)) {
+    flyToFieldBounds(field);
     return;
   }
 
-  const fieldLayer = L.geoJSON(field.geometry).addTo(map);
-  map.flyTo(fieldLayer.getBounds().getCenter(), 15, {
-    duration: 1,
-  });
+  L.geoJSON(field.geometry).addTo(map);
 
-  markedFields.push(field.id);
+  flyToFieldBounds(field);
+  fieldsList.push(field);
+  renderFieldsList();
 });
 
 function convertToLeafletGeometryCoords(wkt) {
@@ -93,4 +93,41 @@ function createFieldObject(data) {
 // Convert WKT to GeoJSON
 function convertWKTToGeoJSON(wkt) {
   return Terraformer.WKT.parse(wkt);
+}
+
+//
+
+//
+
+//
+
+function renderFieldsList() {
+  const fieldsDiv = document.querySelector(".fields");
+  let html = "";
+
+  fieldsList.forEach((field) => {
+    html += `<div id=${field.id} class="field"><p>${field.id}</p></div>`;
+  });
+
+  fieldsDiv.innerHTML = html;
+}
+
+document.querySelector(".fields").addEventListener("click", (e) => {
+  e.stopPropagation();
+
+  if (!e.target.classList.contains("field")) {
+    return;
+  }
+
+  const field = fieldsList.find((field) => field.id === e.target.id);
+
+  flyToFieldBounds(field);
+});
+
+function flyToFieldBounds({ geometry }) {
+  const fieldLayer = L.geoJSON(geometry);
+
+  map.flyToBounds(fieldLayer.getBounds(), {
+    duration: 2,
+  });
 }
