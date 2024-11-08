@@ -54,15 +54,24 @@ body {
 
 .field {
   background: white;
-  padding: 10px 20px;
   box-shadow: 0px 0px 10px black;
   cursor: pointer;
   transition: all 0.5s ease;
 
-  min-height: 150px;
-  min-width: 150px;
+  height: 200px;
+  min-width: 200px;
+
+  padding: 10px;
 }
 
 .fields p:hover {
   transform: scale(1.05);
+}
+
+.hide {
+  z-index: -1;
+}
+
+.field p {
+  /* pointer-events: none; */
 }

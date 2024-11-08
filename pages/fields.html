@@ -21,6 +21,11 @@
     <script src="https://unpkg.com/terraformer-arcgis-parser@1.0.5"></script>
     <script src="https://unpkg.com/terraformer-wkt-parser@1.1.2"></script>
 
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/geojson2svg/2.0.1/geojson2svg.min.js"
+    ></script>
+
     <link rel="stylesheet" href="../styles/main.css" />
   </head>
   <body>
@@ -82,6 +87,7 @@
         <aside aria-labelledby="details-heading">
           <h2 id="details-heading">Szczegóły obiektu</h2>
           <section id="object-details" aria-live="polite"></section>
+          <img src="" alt="" class="screenshot" />
         </aside>
       </main>
     </div>
@@ -89,6 +95,6 @@
       src="https://kit.fontawesome.com/dc197bfaa7.js"
       crossorigin="anonymous"
     ></script>
-    <script src="../scripts/main.js"></script>
+    <script src="../scripts/main.js" type="module"></script>
   </body>
 </html>
