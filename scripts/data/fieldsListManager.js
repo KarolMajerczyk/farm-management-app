@@ -5,7 +5,7 @@ export function addField(field) {
 }
 
 export function findFieldById(id) {
-  fieldsList.find((field) => field.id === id);
+  return fieldsList.find((field) => field.id === id);
 }
 
 export function getFieldsList() {
