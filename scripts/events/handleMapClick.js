@@ -1,6 +1,6 @@
 import { convertEPSG4326ToEPSG2180 } from "../utils/convertEPSG4326ToEPSG2180.js";
 import { fetchFieldData } from "../services/fetchFieldData.js";
-import { findFieldById, addField } from "../data/fieldsListManager.js";
+import { fieldsList } from "../data/fieldsManager.js";
 import { flyToFieldBounds } from "../map/flyToFieldBounds.js";
 import { convertWKTToGeoJSON } from "../utils/convertWKTToGeoJSON.js";
 import { createField } from "../models/FieldFactory.js";
@@ -18,13 +18,13 @@ export async function handleMapClick(e) {
   const fieldGeoJSON = convertWKTToGeoJSON(fieldGeometry);
   flyToFieldBounds(fieldGeoJSON);
 
-  if (findFieldById(fieldId)) {
+  if (fieldsList.findFieldById(fieldId)) {
     return;
   }
 
   const field = createField(fieldId, fieldGeoJSON, fieldData);
   renderFieldOnMap(field.geojson);
 
-  addField(field);
+  fieldsList.addField(field);
   renderFieldsList();
 }

@@ -1,4 +1,4 @@
-import { getFieldsList } from "../data/fieldsListManager.js";
+import { fieldsList } from "../data/fieldsManager.js";
 import { flyToFieldBounds } from "../map/flyToFieldBounds.js";
 
 export function handleFieldItemClick(e) {
@@ -8,8 +8,7 @@ export function handleFieldItemClick(e) {
     return;
   }
 
-  const fieldsList = getFieldsList();
-  const field = fieldsList.find((field) => field.id === e.target.id);
+  const field = fieldsList.findFieldById(e.target.id);
 
   flyToFieldBounds(field.geojson);
 }

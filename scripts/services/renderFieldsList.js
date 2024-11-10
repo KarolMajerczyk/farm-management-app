@@ -1,12 +1,12 @@
-import { getFieldsList } from "../data/fieldsListManager.js";
+import { fieldsList } from "../data/fieldsManager.js";
 
 export function renderFieldsList() {
   const fieldsDiv = document.querySelector(".fields");
   let html = "";
 
-  const fieldsList = getFieldsList();
+  const fields = fieldsList.getAllFields();
 
-  fieldsList.forEach((field) => {
+  fields.forEach((field) => {
     html += `<div id=${field.id} class="field"><p>${field.id}</p></div>`;
   });
 
