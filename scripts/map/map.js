@@ -1,3 +1,5 @@
+// Map settings
+
 export const map = L.map("map").setView([51.919, 19.134], 7);
 
 export const bounds = [
@@ -14,3 +16,18 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 
 map.setMaxBounds(bounds);
 
+// Map functions
+
+const flyToFieldBounds = (geometry) => {
+  const fieldLayer = L.geoJSON(geometry);
+
+  map.flyToBounds(fieldLayer.getBounds(), {
+    duration: 2,
+  });
+};
+
+const renderFieldOnMap = (geojson) => L.geoJSON(geojson).addTo(map);
+
+// Export
+
+export const mapbox = { flyToFieldBounds, renderFieldOnMap };

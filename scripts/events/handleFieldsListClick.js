@@ -1,5 +1,5 @@
-import { fieldsList } from "../data/fieldsManager.js";
-import { flyToFieldBounds } from "../map/flyToFieldBounds.js";
+import { fieldsDB } from "../db/fieldsDB.js";
+import { mapbox } from "../map/map.js";
 
 export function handleFieldItemClick(e) {
   e.stopPropagation();
@@ -8,7 +8,7 @@ export function handleFieldItemClick(e) {
     return;
   }
 
-  const field = fieldsList.findFieldById(e.target.id);
+  const field = fieldsDB.getFieldById(e.target.id);
 
-  flyToFieldBounds(field.geojson);
+  mapbox.flyToFieldBounds(field.geojson);
 }

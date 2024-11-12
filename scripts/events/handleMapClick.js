@@ -1,30 +1,29 @@
-import { convertEPSG4326ToEPSG2180 } from "../utils/convertEPSG4326ToEPSG2180.js";
-import { fetchFieldData } from "../services/fetchFieldData.js";
-import { fieldsList } from "../data/fieldsManager.js";
-import { flyToFieldBounds } from "../map/flyToFieldBounds.js";
-import { convertWKTToGeoJSON } from "../utils/convertWKTToGeoJSON.js";
-import { createField } from "../models/FieldFactory.js";
-import { renderFieldOnMap } from "../map/renderFieldOnMap.js";
+import { fieldsDB } from "../db/fieldsDB.js";
+import { fetchFieldData } from "../api/fetchFieldData.js";
+import { converter } from "../utils/converter.js";
+import { mapbox } from "../map/map.js";
+
+import { createField } from "../models/fieldFactory.js";
 import { renderFieldsList } from "../services/renderFieldsList.js";
 
 export async function handleMapClick(e) {
   const epsg4326Coord = [e.latlng.lng, e.latlng.lat];
-  const epsg2180Coord = convertEPSG4326ToEPSG2180(epsg4326Coord);
+  const epsg2180Coord = converter.EPSG4326ToEPSG2180(epsg4326Coord);
 
   const { fieldId, fieldGeometry, fieldData } = await fetchFieldData(
     epsg2180Coord
   );
 
-  const fieldGeoJSON = convertWKTToGeoJSON(fieldGeometry);
-  flyToFieldBounds(fieldGeoJSON);
+  const fieldGeoJSON = converter.WKTToGeoJSON(fieldGeometry);
+  mapbox.flyToFieldBounds(fieldGeoJSON);
 
-  if (fieldsList.findFieldById(fieldId)) {
+  if (fieldsDB.getFieldById(fieldId)) {
     return;
   }
 
   const field = createField(fieldId, fieldGeoJSON, fieldData);
-  renderFieldOnMap(field.geojson);
+  mapbox.renderFieldOnMap(field.geojson);
 
-  fieldsList.addField(field);
+  fieldsDB.addField(field);
   renderFieldsList();
 }
