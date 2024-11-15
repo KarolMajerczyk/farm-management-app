@@ -68,10 +68,17 @@ body {
   transform: scale(1.05);
 }
 
-.hide {
-  z-index: -1;
-}
-
 .field p {
   /* pointer-events: none; */
+}
+
+.form {
+  position: absolute;
+  top: 25px;
+  z-index: 999;
+}
+
+.form button,
+.form input {
+  padding: 5px 10px;
 }

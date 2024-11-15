@@ -1,13 +1,20 @@
-export async function fetchFieldData(coord) {
-  const res = await fetch(
-    `https://uldk.gugik.gov.pl/?request=GetParcelByXY&xy=${coord}&result=geom_wkt,id,voivodeship,county,commune,region,parcel`
-  );
+export async function fetchFieldData({ id, coord }) {
+  let url = "https://uldk.gugik.gov.pl/?request=";
 
+  if (id) {
+    url += `GetParcelById&id=${id}`;
+  } else if (coord) {
+    url += `GetParcelByXY&xy=${coord}`;
+  }
+
+  url += "&result=geom_wkt,id,voivodeship,county,commune,region,parcel";
+
+  const res = await fetch(url);
   const data = await res.text();
 
-  const fieldData = data.split("|");
-  const fieldId = fieldData[1];
-  const fieldGeometry = fieldData[0].split(";")[1];
-
-  return { fieldId, fieldGeometry, fieldData };
+  return {
+    fieldId: data.split("|")[1],
+    fieldGeometry: data.split("|")[0].split(";")[1],
+    fieldData: data.split("|"),
+  };
 }

@@ -1,7 +1,9 @@
+import { convertWKTToGeoJSON } from "../utils/converter.js";
+
 export function createField(id, geojson, data) {
   return {
     id,
-    geojson,
+    polygon: convertWKTToGeoJSON(geojson),
     voivodeship: data[2],
     county: data[3],
     commune: data[4],
