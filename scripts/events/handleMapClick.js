@@ -13,7 +13,7 @@ export async function handleMapClick(e) {
   const epsg4326Coord = [e.latlng.lng, e.latlng.lat];
   const epsg2180Coord = convertEPSG4326ToEPSG2180(epsg4326Coord);
 
-  const { fieldGeometry, fieldData } = await fetchFieldData({
+  const { fieldId, fieldGeometry, fieldData } = await fetchFieldData({
     coord: epsg2180Coord,
   });
 
@@ -22,4 +22,6 @@ export async function handleMapClick(e) {
   flyToFieldBounds(fieldPolygon);
   renderFieldOnMap(fieldPolygon);
   setMapSearchFormValue(fieldData);
+
+  console.log(fieldId);
 }

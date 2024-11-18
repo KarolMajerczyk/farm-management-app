@@ -4,85 +4,65 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Farm management app</title>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-      crossorigin=""
-    />
+
+    <!-- SCRIPT IMPORTS -->
     <script
       src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.14.0/proj4.js"></script>
-
     <script src="https://unpkg.com/terraformer@1.0.8"></script>
     <script src="https://unpkg.com/terraformer-arcgis-parser@1.0.5"></script>
     <script src="https://unpkg.com/terraformer-wkt-parser@1.1.2"></script>
-
     <script
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/geojson2svg/2.0.1/geojson2svg.min.js"
     ></script>
-
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script src="https://unpkg.com/@turf/turf/turf.min.js"></script>
 
+    <!-- STYLE IMPORTS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
     <link rel="stylesheet" href="../styles/main.css" />
   </head>
   <body>
     <div class="container">
+      <!-- SIDEBAR -->
       <header class="main-header">
-        <!-- LOGO -->
-        <a class="app-logo" href="../index.html" aria-label="Homepage">
-          <img src="../images/logo.png" alt="Site logo" />
-          <h1>Aggr</h1>
-        </a>
         <!-- NAVIGATION -->
-        <nav class="main-nav" aria-label="Primary Navigation">
+        <nav class="main-nav">
           <ul>
             <li>
-              <a href="../index.html" aria-current="page">
-                <i class="fa-solid fa-house" aria-hidden="true"></i> Home
+              <a href="../index.html">
+                <i class="fa-solid fa-house"></i> Home
               </a>
             </li>
             <li class="active">
-              <a href="#" aria-current="page">
-                <i class="fa-solid fa-wheat-awn" aria-hidden="true"></i> Pola
-              </a>
+              <a href="#"> <i class="fa-solid fa-wheat-awn"></i> Pola </a>
             </li>
             <li>
-              <a href="herds.html">
-                <i class="fa-solid fa-cow" aria-hidden="true"></i> Stada
-              </a>
+              <a href="herds.html"> <i class="fa-solid fa-cow"></i> Stada </a>
             </li>
             <li>
               <a href="machines.html">
-                <i class="fa-solid fa-tractor" aria-hidden="true"></i> Maszyny
+                <i class="fa-solid fa-tractor"></i> Maszyny
               </a>
             </li>
           </ul>
         </nav>
-        <!-- USER ACCOUNT -->
-        <a href="#" aria-label="Profil użytkownika">
-          <i class="fa-solid fa-user" aria-hidden="true"></i> Artur
-        </a>
       </header>
+
+      <!-- MAIN CONTENT -->
       <main class="main-content">
-        <section
-          aria-labelledby="map-heading"
-          aria-describedby="map-instructions"
-        >
-          <!-- <h2 id="map-heading">Mapa</h2>
-          <p id="map-instructions">
-            Kliknij na obiekt na mapie, aby zobaczyć szczegóły.
-          </p> -->
-          <div
-            id="map"
-            aria-label="Interaktywna mapa lokalizacji"
-            role="region"
-            tabindex="0"
-          >
+        <!-- MAP -->
+        <section>
+          <div id="map">
             <form class="form" action="">
               <input
                 id="teryt-input"
@@ -96,9 +76,11 @@
             <div class="fields"></div>
           </div>
         </section>
-        <aside aria-labelledby="details-heading">
+
+        <!-- FIELD INFO -->
+        <aside>
           <h2 id="details-heading">Szczegóły obiektu</h2>
-          <section id="object-details" aria-live="polite"></section>
+          <section id="object-details"></section>
           <img src="" alt="" class="screenshot" />
         </aside>
       </main>
