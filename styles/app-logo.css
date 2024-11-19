@@ -1,16 +1,4 @@
-/* app logo */
 .app-logo {
-  background: white;
-  padding: 10px 30px;
-
-  display: grid;
-  place-content: center;
-}
-
-.app-logo img {
-  width: 100px;
-}
-
-.app-logo h1 {
-  text-align: center;
+  cursor: pointer;
+  padding: 16px;
 }

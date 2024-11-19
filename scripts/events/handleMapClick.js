@@ -22,6 +22,4 @@ export async function handleMapClick(e) {
   flyToFieldBounds(fieldPolygon);
   renderFieldOnMap(fieldPolygon);
   setMapSearchFormValue(fieldData);
-
-  console.log(fieldId);
 }

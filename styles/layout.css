@@ -1,0 +1,25 @@
+.container {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+
+  height: 100vh;
+
+  color: var(--clr-100);
+  background-color: var(--clr-800);
+}
+
+.app-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  border-right: 1px solid var(--clr-600);
+}
+
+.app-content {
+  display: grid;
+  grid-template-columns: 300px 1fr 400px;
+
+  height: 100%;
+}

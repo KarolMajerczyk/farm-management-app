@@ -15,12 +15,10 @@
     <script src="https://unpkg.com/terraformer@1.0.8"></script>
     <script src="https://unpkg.com/terraformer-arcgis-parser@1.0.5"></script>
     <script src="https://unpkg.com/terraformer-wkt-parser@1.1.2"></script>
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/geojson2svg/2.0.1/geojson2svg.min.js"
-    ></script>
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
-    <script src="https://unpkg.com/@turf/turf/turf.min.js"></script>
+
+    <!-- Very slow page loading -->
+    <!-- <script src="https://unpkg.com/@turf/turf/turf.min.js"></script> -->
 
     <!-- STYLE IMPORTS -->
     <link
@@ -33,34 +31,42 @@
   </head>
   <body>
     <div class="container">
-      <!-- SIDEBAR -->
-      <header class="main-header">
+      <!-- HEADER -->
+      <header class="app-header">
+        <!-- APP LOGO -->
+        <img class="app-logo" src="../images/logo.webp" alt="" />
+
         <!-- NAVIGATION -->
-        <nav class="main-nav">
-          <ul>
-            <li>
-              <a href="../index.html">
-                <i class="fa-solid fa-house"></i> Home
-              </a>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="../index.html"><i class="fa-solid fa-house"></i></a>
             </li>
-            <li class="active">
-              <a href="#"> <i class="fa-solid fa-wheat-awn"></i> Pola </a>
+            <li class="nav-item active-item">
+              <a href="#"><i class="fa-solid fa-wheat-awn"></i></a>
             </li>
-            <li>
-              <a href="herds.html"> <i class="fa-solid fa-cow"></i> Stada </a>
+            <li class="nav-item">
+              <a href="herds.html"><i class="fa-solid fa-cow"></i></a>
             </li>
-            <li>
-              <a href="machines.html">
-                <i class="fa-solid fa-tractor"></i> Maszyny
-              </a>
+            <li class="nav-item">
+              <a href="machines.html"><i class="fa-solid fa-tractor"></i></a>
             </li>
           </ul>
         </nav>
+
+        <!-- USER Avatar -->
+        <img class="user-avatar" src="../images/account.webp" alt="" />
       </header>
 
-      <!-- MAIN CONTENT -->
-      <main class="main-content">
-        <!-- MAP -->
+      <!-- APP CONTENT -->
+      <main class="app-content">
+        <!-- ITEMS PANEL -->
+        <aside class="items-panel">
+          <h2 class="secondary-heading">Pola</h2>
+          <ul id="fields-list" class="items-list"></ul>
+        </aside>
+
+        <!-- MAP CONTAINER -->
         <section>
           <div id="map">
             <form class="form" action="">
@@ -70,21 +76,45 @@
                 placeholder="120709_2.0007.4719"
               />
 
-              <button id="goto-field" type="submit">Go</button>
-              <button id="add-field" type="submit">Add</button>
+              <button id="goto-field" type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+              <button id="add-field" type="submit">Dodaj</button>
             </form>
-            <div class="fields"></div>
           </div>
         </section>
 
-        <!-- FIELD INFO -->
-        <aside>
-          <h2 id="details-heading">Szczegóły obiektu</h2>
-          <section id="object-details"></section>
-          <img src="" alt="" class="screenshot" />
+        <!-- DETAILS PANEL -->
+        <aside class="details-panel">
+          <h2 class="secondary-heading">Działka nr. 4187</h2>
+
+          <section class="details-section">Section 1</section>
+          <!-- <section class="details-section">Section 2</section>
+          <section class="details-section">Section 3</section>
+          <section class="details-section">Section 4</section> -->
+
+          <!-- MENU -->
+          <nav class="nav">
+            <ul class="nav-list nav-list-horizontal">
+              <li class="nav-item">
+                <i class="fa-solid fa-house"></i>
+              </li>
+              <li class="nav-item active-item">
+                <i class="fa-solid fa-wheat-awn"></i>
+              </li>
+              <li class="nav-item">
+                <i class="fa-solid fa-cow"></i>
+              </li>
+              <li class="nav-item">
+                <i class="fa-solid fa-tractor"></i>
+              </li>
+            </ul>
+          </nav>
         </aside>
       </main>
     </div>
+
+    <!-- SCRIPTS -->
     <script
       src="https://kit.fontawesome.com/dc197bfaa7.js"
       crossorigin="anonymous"
