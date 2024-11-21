@@ -1,6 +1,6 @@
 import { DOM } from "../dom/domElements.js";
 
-import { fetchFieldData } from "../api/fetchFieldData.js";
+import { getFieldData } from "../api/getFieldData.js";
 import { convertWKTToGeoJSON } from "../utils/converter.js";
 
 import { flyToFieldBounds } from "../services/flyToFieldBounds.js";
@@ -14,7 +14,7 @@ export const handleGoToFieldClick = async (e) => {
 
   const terytValue = DOM.terytInput.value;
 
-  const { fieldGeometry } = await fetchFieldData({
+  const { fieldGeometry } = await getFieldData({
     id: terytValue,
   });
 

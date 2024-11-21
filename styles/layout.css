@@ -19,5 +19,5 @@
 
 .app-content {
   display: grid;
-  grid-template-columns: 300px 1fr 400px;
+  grid-template-columns: 350px 1fr 400px;
 }

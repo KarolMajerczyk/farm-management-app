@@ -1,4 +1,4 @@
-export async function fetchFieldData({ id, coord }) {
+export async function getFieldData({ id, coord }) {
   let url = "https://uldk.gugik.gov.pl/?request=";
 
   if (id) {

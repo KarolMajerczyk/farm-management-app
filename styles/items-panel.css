@@ -17,8 +17,3 @@
 
   border-top: 1px solid var(--clr-600);
 }
-
-/* Delete, and add instead a class .active on item when click */
-.items-list > *:first-child {
-  border-left: 8px solid var(--clr-accent-1);
-}

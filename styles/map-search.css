@@ -1,50 +1,42 @@
-#map {
-  height: 100%;
-  background-color: #121212;
-}
-
-.form {
+.map-search {
   position: absolute;
   top: 20px;
-  z-index: 999;
   left: 50%;
   transform: translate(-50%);
+  z-index: 999;
 
   padding: 8px;
-  border-radius: 10px;
+  border-radius: 8px;
 
   display: flex;
-  gap: 10px;
+  gap: 16px;
 
-  background-color: #1f1f1f;
-  color: #e0e0e0;
+  background-color: var(--clr-800);
 }
 
-.form button,
-.form input {
-  padding: 8px 16px;
+.map-search input,
+.map-search button {
   font-size: 16px;
-
-  outline: none;
   border: none;
+  border-radius: 5px;
+}
 
+.map-search input {
+  background-color: var(--clr-700);
+  color: var(--clr-100);
+
+  padding: 8px 16px;
   text-align: center;
 }
 
-.form input {
-  background-color: #2a2a2a;
-  color: #e0e0e0;
-  border: 1px solid #333333;
-}
+.map-search button {
+  background-color: var(--clr-accent-1);
+  color: var(--clr-900);
 
-.form button {
-  background-color: #4caf50;
-  color: #121212;
-  border-radius: 5px;
   padding: 8px 12px;
-  margin-left: 5px;
+  cursor: pointer;
 }
 
-.form button:hover {
-  background-color: #1e88e5;
+.map-search button:hover {
+  background-color: var(--clr-accent-2);
 }

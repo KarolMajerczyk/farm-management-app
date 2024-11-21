@@ -34,7 +34,71 @@
         <!-- USER Avatar -->
         <img class="user-avatar" src="../images/account.webp" alt="" />
       </header>
-      <main>Maszyny</main>
+      <!-- APP CONTENT -->
+      <main class="app-content">
+        <!-- ITEMS PANEL -->
+        <aside class="items-panel">
+          <h2 class="secondary-heading">Maszyny</h2>
+          <ul id="machines-list" class="items-list">
+            <!-- CARD TILE -->
+            <div class="card-tile">
+              <div class="card-header">
+                <img src="../images/tractor.png" />
+                <p>Ursus C360</p>
+              </div>
+              <hr class="card-separator" />
+              <div class="card-details">
+                <img src="../images/license-plate.png" />
+                <p>Tablica nr. <span>KLI 4341C</span></p>
+              </div>
+            </div>
+            <div class="card-tile">
+              <div class="card-header">
+                <img src="../images/delivery.png" />
+                <p>Renault Traffic</p>
+              </div>
+              <hr class="card-separator" />
+              <div class="card-details">
+                <img src="../images/license-plate.png" />
+                <p>Tablica nr. <span>KLI 3827A</span></p>
+              </div>
+            </div>
+          </ul>
+        </aside>
+
+        <!-- MAP CONTAINER -->
+        <section>
+          <div id="map"></div>
+        </section>
+
+        <!-- DETAILS PANEL -->
+        <aside class="details-panel">
+          <h2 class="secondary-heading">Maszyna nr. 47</h2>
+
+          <section class="details-section">Section 1</section>
+          <!-- <section class="details-section">Section 2</section>
+          <section class="details-section">Section 3</section>
+          <section class="details-section">Section 4</section> -->
+
+          <!-- MENU -->
+          <nav class="nav">
+            <ul class="nav-list nav-list-horizontal">
+              <li class="nav-item">
+                <i class="fa-solid fa-house"></i>
+              </li>
+              <li class="nav-item active-item">
+                <i class="fa-solid fa-wheat-awn"></i>
+              </li>
+              <li class="nav-item">
+                <i class="fa-solid fa-cow"></i>
+              </li>
+              <li class="nav-item">
+                <i class="fa-solid fa-tractor"></i>
+              </li>
+            </ul>
+          </nav>
+        </aside>
+      </main>
     </div>
     <script
       src="https://kit.fontawesome.com/dc197bfaa7.js"

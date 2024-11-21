@@ -1,8 +1,9 @@
-const localDB = [
+export const fields = [
   {
     id: "120709_2.0007.4719",
-    seed: "potato",
-    polygon: {
+    number: 4719,
+    area: 2.5,
+    location: {
       type: "Polygon",
       coordinates: [
         [
@@ -34,8 +35,9 @@ const localDB = [
   },
   {
     id: "120709_2.0007.4902",
-    seed: "blueberry",
-    polygon: {
+    number: 4902,
+    area: 2.5,
+    location: {
       type: "Polygon",
       coordinates: [
         [
@@ -67,8 +69,9 @@ const localDB = [
   },
   {
     id: "120709_2.0007.4893",
-    seed: "cabbage",
-    polygon: {
+    number: 4893,
+    area: 2.5,
+    location: {
       type: "Polygon",
       coordinates: [
         [
@@ -92,8 +95,9 @@ const localDB = [
   },
   {
     id: "120709_2.0007.4165",
-    seed: "strawberry",
-    polygon: {
+    number: 4165,
+    area: 2.5,
+    location: {
       type: "Polygon",
       coordinates: [
         [
@@ -113,8 +117,9 @@ const localDB = [
   },
   {
     id: "120709_2.0007.4182",
-    seed: "wheat",
-    polygon: {
+    number: 4182,
+    area: 2.5,
+    location: {
       type: "Polygon",
       coordinates: [
         [
@@ -136,8 +141,9 @@ const localDB = [
   },
   {
     id: "120709_2.0007.4184/1",
-    seed: "potato",
-    polygon: {
+    number: 4184 / 1,
+    area: 2.5,
+    location: {
       type: "Polygon",
       coordinates: [
         [
@@ -161,8 +167,9 @@ const localDB = [
   },
   {
     id: "120709_2.0007.4184/2",
-    seed: "blueberry",
-    polygon: {
+    number: 4184 / 2,
+    area: 2.5,
+    location: {
       type: "Polygon",
       coordinates: [
         [
@@ -184,8 +191,9 @@ const localDB = [
   },
   {
     id: "120709_2.0007.4187",
-    seed: "cabbage",
-    polygon: {
+    number: 4187,
+    area: 2.5,
+    location: {
       type: "Polygon",
       coordinates: [
         [
@@ -219,8 +227,9 @@ const localDB = [
   },
   {
     id: "120709_2.0007.4875",
-    seed: "strawberry",
-    polygon: {
+    number: 4875,
+    area: 2.5,
+    location: {
       type: "Polygon",
       coordinates: [
         [
@@ -241,8 +250,9 @@ const localDB = [
   },
   {
     id: "120709_2.0007.4881",
-    seed: "wheat",
-    polygon: {
+    number: 4881,
+    area: 2.5,
+    location: {
       type: "Polygon",
       coordinates: [
         [
@@ -265,8 +275,9 @@ const localDB = [
   },
   {
     id: "120709_2.0007.4915",
-    seed: "potato",
-    polygon: {
+    number: 4915,
+    area: 2.5,
+    location: {
       type: "Polygon",
       coordinates: [
         [
@@ -288,8 +299,9 @@ const localDB = [
   },
   {
     id: "120709_2.0007.4916",
-    seed: "blueberry",
-    polygon: {
+    number: 4916,
+    area: 2.5,
+    location: {
       type: "Polygon",
       coordinates: [
         [
@@ -317,8 +329,9 @@ const localDB = [
   },
   {
     id: "120709_2.0007.4919",
-    seed: "cabbage",
-    polygon: {
+    number: 4919,
+    area: 2.5,
+    location: {
       type: "Polygon",
       coordinates: [
         [
@@ -348,8 +361,9 @@ const localDB = [
   },
   {
     id: "120709_2.0007.4940",
-    seed: "strawberry",
-    polygon: {
+    number: 4940,
+    area: 2.5,
+    location: {
       type: "Polygon",
       coordinates: [
         [
@@ -371,8 +385,9 @@ const localDB = [
   },
   {
     id: "120709_2.0007.4982",
-    seed: "wheat",
-    polygon: {
+    number: 4982,
+    area: 2.5,
+    location: {
       type: "Polygon",
       coordinates: [
         [
@@ -406,8 +421,9 @@ const localDB = [
   },
   {
     id: "120709_2.0007.4994",
-    seed: "potato",
-    polygon: {
+    number: 4994,
+    area: 2.5,
+    location: {
       type: "Polygon",
       coordinates: [
         [
@@ -439,8 +455,9 @@ const localDB = [
   },
   {
     id: "120709_2.0007.4995",
-    seed: "blueberry",
-    polygon: {
+    number: 4995,
+    area: 2.5,
+    location: {
       type: "Polygon",
       coordinates: [
         [
@@ -468,8 +485,9 @@ const localDB = [
   },
   {
     id: "120709_2.0007.4999",
-    seed: "cabbage",
-    polygon: {
+    number: 4999,
+    area: 2.5,
+    location: {
       type: "Polygon",
       coordinates: [
         [
@@ -497,8 +515,9 @@ const localDB = [
   },
   {
     id: "120709_2.0007.5813",
-    seed: "strawberry",
-    polygon: {
+    number: 5813,
+    area: 2.5,
+    location: {
       type: "Polygon",
       coordinates: [
         [
@@ -527,8 +546,9 @@ const localDB = [
   },
   {
     id: "120709_2.0007.5815",
-    seed: "wheat",
-    polygon: {
+    number: 5815,
+    area: 2.5,
+    location: {
       type: "Polygon",
       coordinates: [
         [
@@ -553,30 +573,3 @@ const localDB = [
     },
   },
 ];
-
-export const addField = async (field) => {
-  if (localDB.find((obj) => obj.id === field.id)) {
-    return;
-  }
-
-  localDB.push(field);
-};
-
-export const deleteField = async (id) => {
-  const fieldIndex = localDB.findIndex((field) => field.id === id);
-  localDB.splice(fieldIndex);
-};
-
-export const editField = async (id, field) => {
-  const fieldIndex = localDB.findIndex((field) => field.id === id);
-  localDB[fieldIndex] = field;
-};
-
-export const getFieldById = async (id) => {
-  const field = localDB.find((field) => field.id === id);
-  return field;
-};
-
-export const getFields = async () => {
-  return [...localDB];
-};

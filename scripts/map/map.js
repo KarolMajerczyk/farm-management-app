@@ -10,8 +10,8 @@ export const bounds = [
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 20,
   minZoom: 7,
-  attribution:
-    '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  // attribution:
+  //   '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(map);
 
 L.tileLayer(
@@ -19,8 +19,8 @@ L.tileLayer(
   {
     maxZoom: 20,
     minZoom: 7,
-    attribution:
-      "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
+    // attribution:
+    //   "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
   }
 ).addTo(map);
 

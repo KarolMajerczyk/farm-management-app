@@ -27,6 +27,7 @@
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
       crossorigin=""
     />
+
     <link rel="stylesheet" href="../styles/main.css" />
   </head>
   <body>
@@ -63,13 +64,37 @@
         <!-- ITEMS PANEL -->
         <aside class="items-panel">
           <h2 class="secondary-heading">Pola</h2>
-          <ul id="fields-list" class="items-list"></ul>
+          <ul id="fields-list" class="items-list">
+            <!-- CARD TILE -->
+            <div class="card-tile">
+              <div class="card-header">
+                <img src="../images/blueberry.png" />
+                <p>Borówka amerykańska</p>
+              </div>
+              <hr class="card-separator" />
+              <div class="card-details">
+                <img src="../images/location.png" />
+                <p>Działka nr. <span>4187</span></p>
+              </div>
+            </div>
+            <div class="card-tile">
+              <div class="card-header">
+                <img src="../images/cabbage.png" />
+                <p>Kapusta biała</p>
+              </div>
+              <hr class="card-separator" />
+              <div class="card-details">
+                <img src="../images/location.png" />
+                <p>Działka nr. <span>4719</span></p>
+              </div>
+            </div>
+          </ul>
         </aside>
 
         <!-- MAP CONTAINER -->
         <section>
           <div id="map">
-            <form class="form" action="">
+            <form class="map-search" action="">
               <input
                 id="teryt-input"
                 type="text"
@@ -79,7 +104,6 @@
               <button id="goto-field" type="submit">
                 <i class="fa-solid fa-magnifying-glass"></i>
               </button>
-              <button id="add-field" type="submit">Dodaj</button>
             </form>
           </div>
         </section>
