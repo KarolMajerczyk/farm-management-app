@@ -64,31 +64,7 @@
         <!-- ITEMS PANEL -->
         <aside class="items-panel">
           <h2 class="secondary-heading">Pola</h2>
-          <ul id="fields-list" class="items-list">
-            <!-- CARD TILE -->
-            <div class="card-tile">
-              <div class="card-header">
-                <img src="../images/blueberry.png" />
-                <p>Borówka amerykańska</p>
-              </div>
-              <hr class="card-separator" />
-              <div class="card-details">
-                <img src="../images/location.png" />
-                <p>Działka nr. <span>4187</span></p>
-              </div>
-            </div>
-            <div class="card-tile">
-              <div class="card-header">
-                <img src="../images/cabbage.png" />
-                <p>Kapusta biała</p>
-              </div>
-              <hr class="card-separator" />
-              <div class="card-details">
-                <img src="../images/location.png" />
-                <p>Działka nr. <span>4719</span></p>
-              </div>
-            </div>
-          </ul>
+          <ul id="fields-list" class="items-list"></ul>
         </aside>
 
         <!-- MAP CONTAINER -->
@@ -105,32 +81,28 @@
                 <i class="fa-solid fa-magnifying-glass"></i>
               </button>
             </form>
+            <button id="add-field" class="button">Dodaj działkę</button>
           </div>
         </section>
 
         <!-- DETAILS PANEL -->
         <aside class="details-panel">
-          <h2 class="secondary-heading">Działka nr. 4187</h2>
-
-          <section class="details-section">Section 1</section>
-          <!-- <section class="details-section">Section 2</section>
-          <section class="details-section">Section 3</section>
-          <section class="details-section">Section 4</section> -->
+          <h2 class="secondary-heading">Przegląd</h2>
+          <section class="details-section overview visible">Page 1</section>
+          <section class="details-section budget">Page 2</section>
+          <section class="details-section todo">Page 3</section>
 
           <!-- MENU -->
           <nav class="nav">
             <ul class="nav-list nav-list-horizontal">
-              <li class="nav-item">
-                <i class="fa-solid fa-house"></i>
+              <li class="nav-item active-item" data-page="overview">
+                <i class="fa-solid fa-chart-pie"></i>
               </li>
-              <li class="nav-item active-item">
-                <i class="fa-solid fa-wheat-awn"></i>
+              <li class="nav-item" data-page="budget">
+                <i class="fa-solid fa-wallet"></i>
               </li>
-              <li class="nav-item">
-                <i class="fa-solid fa-cow"></i>
-              </li>
-              <li class="nav-item">
-                <i class="fa-solid fa-tractor"></i>
+              <li class="nav-item" data-page="todo">
+                <i class="fa-solid fa-list-ul"></i>
               </li>
             </ul>
           </nav>

@@ -5,5 +5,7 @@ export function toggleCardTileActive(el) {
     curEl.classList.remove("active");
   }
 
-  el.classList.add("active");
+  if (el) {
+    el.classList.add("active");
+  }
 }

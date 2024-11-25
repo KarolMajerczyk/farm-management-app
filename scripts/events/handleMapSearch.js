@@ -13,8 +13,17 @@ import {
 } from "../services/renderFieldOnMap.js";
 
 import { getFieldById } from "../api/getFieldById.js";
+import { toggleCardTileActive } from "../services/toggleCardTileActive.js";
+import { renderFieldOverviewSection } from "../services/renderFieldOverviewSection.js";
+import {
+  hideDetailsPanel,
+  showDetailsPanel,
+} from "../services/toggleDetailsPanel.js";
 
-// 120709_2.0007.4719
+import {
+  showAddFieldButton,
+  hideAddFieldButton,
+} from "../services/toggleAddFieldButton.js";
 
 export const handleMapSearch = async (e) => {
   e.preventDefault();
@@ -44,11 +53,20 @@ export const handleMapSearch = async (e) => {
   }
 
   if (field) {
-    // TODO: Set css styles active on this card tile
+    const fieldCard = document.querySelector(`[data-id="${field.id}"]`);
+
+    hideAddFieldButton();
+    toggleCardTileActive(fieldCard);
+    showDetailsPanel();
+    renderFieldOverviewSection(field);
+
     resetActiveLayer();
     return;
   }
 
-  // TODO: If not field, remove css styles active from card tile
+  toggleCardTileActive();
+  hideDetailsPanel();
+  showAddFieldButton();
+
   renderFieldOnMap(fieldPolygon);
 };

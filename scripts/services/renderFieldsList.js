@@ -1,6 +1,5 @@
 import { DOM } from "../dom/domElements.js";
 
-import { getFields } from "../api/getFields.js";
 import { food } from "../db/foodDB.js";
 
 export async function renderFieldsList(fields) {
@@ -8,7 +7,7 @@ export async function renderFieldsList(fields) {
 
   fields = populateFieldsWithRandomCrops(fields);
 
-  fields.forEach((field) => {
+  fields.reverse().forEach((field) => {
     html += `<div class="card-tile field" data-id="${field.id}">
               <div class="card-header">
                 <p class="card-image">${field.crop.image}</p>

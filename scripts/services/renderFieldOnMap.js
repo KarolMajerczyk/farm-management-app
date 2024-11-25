@@ -2,8 +2,8 @@ import { map } from "../map/map.js";
 
 let activeLayer;
 
-export const renderFieldOnMap = (polygon) => {
-  activeLayer = L.geoJSON(polygon).addTo(map);
+export const renderFieldOnMap = (location) => {
+  activeLayer = L.geoJSON(location).addTo(map);
 };
 
 export const getActiveLayer = () => {
@@ -18,9 +18,9 @@ export function resetActiveLayer() {
   activeLayer = null;
 }
 
-export const isTheSameLayer = (layer, polygon) => {
+export const isTheSameLayer = (layer, location) => {
   return (
     JSON.stringify(layer.toGeoJSON()) ===
-    JSON.stringify(L.geoJSON(polygon).toGeoJSON())
+    JSON.stringify(L.geoJSON(location).toGeoJSON())
   );
 };

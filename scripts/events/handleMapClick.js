@@ -16,6 +16,17 @@ import {
 
 import { setMapSearchFormValue } from "../services/setMapSearchFormValue.js";
 import { getFieldById } from "../api/getFieldById.js";
+import { toggleCardTileActive } from "../services/toggleCardTileActive.js";
+import { renderFieldOverviewSection } from "../services/renderFieldOverviewSection.js";
+import {
+  hideDetailsPanel,
+  showDetailsPanel,
+} from "../services/toggleDetailsPanel.js";
+
+import {
+  showAddFieldButton,
+  hideAddFieldButton,
+} from "../services/toggleAddFieldButton.js";
 
 export async function handleMapClick(e) {
   const epsg4326Coord = [e.latlng.lng, e.latlng.lat];
@@ -42,13 +53,21 @@ export async function handleMapClick(e) {
   }
 
   if (field) {
-    // TODO: set css styles active on this card tile
-    // TODO: render field details
+    const fieldCard = document.querySelector(`[data-id="${field.id}"]`);
+
+    hideAddFieldButton();
+    toggleCardTileActive(fieldCard);
+    showDetailsPanel();
+    renderFieldOverviewSection(field);
+
     resetActiveLayer();
     return;
   }
 
-  // TODO: If not field, remove css styles active from card tile
+  toggleCardTileActive();
+  hideDetailsPanel();
+  showAddFieldButton();
+
   // TODO: render add field or something like that
   renderFieldOnMap(fieldPolygon);
 }

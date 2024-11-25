@@ -1,12 +1,30 @@
 .details-panel {
+  height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.details-panel.visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
 }
 
 .details-section {
-  overflow-y: scroll;
-  padding: 20px;
-
   border-top: 1px solid var(--clr-600);
   border-bottom: 1px solid var(--clr-600);
+  overflow-y: scroll;
+  height: 100%;
+
+  padding: 32px;
+
+  display: none;
+}
+
+.details-section.visible {
+  display: block;
 }
