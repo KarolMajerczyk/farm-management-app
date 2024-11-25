@@ -11,10 +11,10 @@ import { handleMapLoad } from "./events/handleMapLoad.js";
 import { DOM } from "./dom/domElements.js";
 
 window.addEventListener("DOMContentLoaded", () => {
+  handleMapLoad();
+
   map.on("drag", handleMapDrag);
   map.on("click", (e) => handleMapClick(e));
-
-  handleMapLoad();
 });
 
 DOM.fieldsList.addEventListener("click", (e) => handleFieldClick(e));

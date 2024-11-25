@@ -9,5 +9,5 @@ export async function handleMapLoad() {
     renderFieldOnMap(field.location);
   });
 
-  renderFieldsList();
+  renderFieldsList(fields);
 }

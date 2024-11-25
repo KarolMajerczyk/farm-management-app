@@ -3,10 +3,9 @@ import { DOM } from "../dom/domElements.js";
 import { getFields } from "../api/getFields.js";
 import { food } from "../db/foodDB.js";
 
-export async function renderFieldsList() {
+export async function renderFieldsList(fields) {
   let html = "";
 
-  let fields = await getFields();
   fields = populateFieldsWithRandomCrops(fields);
 
   fields.forEach((field) => {
