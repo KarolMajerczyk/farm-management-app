@@ -1,8 +1,9 @@
 import { getFieldById } from "../api/getFieldById.js";
 import { flyToFieldBounds } from "../services/flyToFieldBounds.js";
 import { toggleCardTileActive } from "../services/toggleCardTileActive.js";
+import { setMapSearchFormValue } from "../services/setMapSearchFormValue.js";
 
-export async function handleFieldClick(e) {
+export async function handleFieldCardClick(e) {
   e.stopPropagation();
 
   if (!e.target.classList.contains("field")) {
@@ -10,6 +11,7 @@ export async function handleFieldClick(e) {
   }
 
   toggleCardTileActive(e.target);
+  setMapSearchFormValue(e.target.dataset.id);
 
   const field = await getFieldById(e.target.dataset.id);
 

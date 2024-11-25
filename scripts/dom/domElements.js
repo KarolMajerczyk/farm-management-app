@@ -3,4 +3,5 @@ export const DOM = {
   goToFieldButton: document.querySelector("#goto-field"),
   addFieldButton: document.querySelector("#add-field"),
   terytInput: document.querySelector("#teryt-input"),
+  mapSearch: document.querySelector(".map-search"),
 };

@@ -37,6 +37,10 @@
   cursor: pointer;
 }
 
+.map-search button i {
+  pointer-events: none;
+}
+
 .map-search button:hover {
   background-color: var(--clr-accent-2);
 }

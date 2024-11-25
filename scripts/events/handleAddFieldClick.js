@@ -3,9 +3,6 @@ import { DOM } from "../dom/domElements.js";
 import { getFieldData } from "../api/getFieldData.js";
 import { convertWKTToGeoJSON } from "../utils/converter.js";
 
-import { flyToFieldBounds } from "../services/flyToFieldBounds.js";
-import { renderFieldOnMap } from "../services/renderFieldOnMap.js";
-
 import { createField } from "../models/fieldFactory.js";
 import { addField } from "../api/addField.js";
 import { getFieldById } from "../api/getFieldById.js";
@@ -22,14 +19,6 @@ export const handleAddFieldClick = async (e) => {
   });
 
   const fieldPolygon = convertWKTToGeoJSON(fieldGeometry);
-
-  flyToFieldBounds(fieldPolygon);
-
-  if (getFieldById(fieldId)) {
-    return;
-  }
-
-  renderFieldOnMap(fieldPolygon);
 
   const field = createField(fieldId, fieldGeometry, fieldData);
   addField(field);
