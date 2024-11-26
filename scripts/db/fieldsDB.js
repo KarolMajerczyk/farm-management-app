@@ -2,7 +2,9 @@ export const fields = [
   {
     id: "120709_2.0007.4719",
     number: 4719,
-    area: 2.5,
+    area: 0.5,
+    voivodeship: "małopolskie",
+    region: "Mszana Górna",
     location: {
       type: "Polygon",
       coordinates: [
@@ -36,7 +38,9 @@ export const fields = [
   {
     id: "120709_2.0007.4902",
     number: 4902,
-    area: 2.5,
+    area: 2.2,
+    voivodeship: "małopolskie",
+    region: "Mszana Górna",
     location: {
       type: "Polygon",
       coordinates: [
@@ -70,7 +74,9 @@ export const fields = [
   {
     id: "120709_2.0007.4893",
     number: 4893,
-    area: 2.5,
+    area: 1.7,
+    voivodeship: "małopolskie",
+    region: "Mszana Górna",
     location: {
       type: "Polygon",
       coordinates: [
@@ -96,7 +102,9 @@ export const fields = [
   {
     id: "120709_2.0007.4165",
     number: 4165,
-    area: 2.5,
+    area: 0.8,
+    voivodeship: "małopolskie",
+    region: "Mszana Górna",
     location: {
       type: "Polygon",
       coordinates: [
@@ -118,7 +126,9 @@ export const fields = [
   {
     id: "120709_2.0007.4182",
     number: 4182,
-    area: 2.5,
+    area: 1.1,
+    voivodeship: "małopolskie",
+    region: "Mszana Górna",
     location: {
       type: "Polygon",
       coordinates: [
@@ -142,7 +152,9 @@ export const fields = [
   {
     id: "120709_2.0007.4184/1",
     number: 4184 / 1,
-    area: 2.5,
+    area: 1.9,
+    voivodeship: "małopolskie",
+    region: "Mszana Górna",
     location: {
       type: "Polygon",
       coordinates: [
@@ -168,7 +180,9 @@ export const fields = [
   {
     id: "120709_2.0007.4184/2",
     number: 4184 / 2,
-    area: 2.5,
+    area: 1.0,
+    voivodeship: "małopolskie",
+    region: "Mszana Górna",
     location: {
       type: "Polygon",
       coordinates: [
@@ -192,7 +206,9 @@ export const fields = [
   {
     id: "120709_2.0007.4187",
     number: 4187,
-    area: 2.5,
+    area: 0.8,
+    voivodeship: "małopolskie",
+    region: "Mszana Górna",
     location: {
       type: "Polygon",
       coordinates: [
@@ -228,7 +244,9 @@ export const fields = [
   {
     id: "120709_2.0007.4875",
     number: 4875,
-    area: 2.5,
+    area: 1.3,
+    voivodeship: "małopolskie",
+    region: "Mszana Górna",
     location: {
       type: "Polygon",
       coordinates: [
@@ -252,6 +270,8 @@ export const fields = [
     id: "120709_2.0007.4881",
     number: 4881,
     area: 2.5,
+    voivodeship: "małopolskie",
+    region: "Mszana Górna",
     location: {
       type: "Polygon",
       coordinates: [
@@ -276,7 +296,9 @@ export const fields = [
   {
     id: "120709_2.0007.4915",
     number: 4915,
-    area: 2.5,
+    area: 2.2,
+    voivodeship: "małopolskie",
+    region: "Mszana Górna",
     location: {
       type: "Polygon",
       coordinates: [
@@ -300,7 +322,9 @@ export const fields = [
   {
     id: "120709_2.0007.4916",
     number: 4916,
-    area: 2.5,
+    area: 1.2,
+    voivodeship: "małopolskie",
+    region: "Mszana Górna",
     location: {
       type: "Polygon",
       coordinates: [
@@ -330,7 +354,9 @@ export const fields = [
   {
     id: "120709_2.0007.4919",
     number: 4919,
-    area: 2.5,
+    area: 0.7,
+    voivodeship: "małopolskie",
+    region: "Mszana Górna",
     location: {
       type: "Polygon",
       coordinates: [
@@ -362,7 +388,9 @@ export const fields = [
   {
     id: "120709_2.0007.4940",
     number: 4940,
-    area: 2.5,
+    area: 0.6,
+    voivodeship: "małopolskie",
+    region: "Mszana Górna",
     location: {
       type: "Polygon",
       coordinates: [
@@ -386,7 +414,9 @@ export const fields = [
   {
     id: "120709_2.0007.4982",
     number: 4982,
-    area: 2.5,
+    area: 1.7,
+    voivodeship: "małopolskie",
+    region: "Mszana Górna",
     location: {
       type: "Polygon",
       coordinates: [
@@ -422,7 +452,9 @@ export const fields = [
   {
     id: "120709_2.0007.4994",
     number: 4994,
-    area: 2.5,
+    area: 1.5,
+    voivodeship: "małopolskie",
+    region: "Mszana Górna",
     location: {
       type: "Polygon",
       coordinates: [
@@ -456,7 +488,9 @@ export const fields = [
   {
     id: "120709_2.0007.4995",
     number: 4995,
-    area: 2.5,
+    area: 2.0,
+    voivodeship: "małopolskie",
+    region: "Mszana Górna",
     location: {
       type: "Polygon",
       coordinates: [
@@ -486,7 +520,9 @@ export const fields = [
   {
     id: "120709_2.0007.4999",
     number: 4999,
-    area: 2.5,
+    area: 0.5,
+    voivodeship: "małopolskie",
+    region: "Mszana Górna",
     location: {
       type: "Polygon",
       coordinates: [
@@ -516,7 +552,9 @@ export const fields = [
   {
     id: "120709_2.0007.5813",
     number: 5813,
-    area: 2.5,
+    area: 1.3,
+    voivodeship: "małopolskie",
+    region: "Mszana Górna",
     location: {
       type: "Polygon",
       coordinates: [
@@ -547,7 +585,9 @@ export const fields = [
   {
     id: "120709_2.0007.5815",
     number: 5815,
-    area: 2.5,
+    area: 3.1,
+    voivodeship: "małopolskie",
+    region: "Mszana Górna",
     location: {
       type: "Polygon",
       coordinates: [

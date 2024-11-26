@@ -11,6 +11,8 @@
   border-right: 12px solid var(--clr-700);
 
   transition: all 0.3s ease;
+
+  box-shadow: 0px 0px 8px rgb(32, 32, 32);
 }
 
 .card-tile:hover {
@@ -32,6 +34,11 @@
   font-weight: 300;
 }
 
+.card-details {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+}
+
 .card-header {
   font-size: 18px;
 }
@@ -47,6 +54,7 @@
 
 .card-image {
   font-size: 24px;
+  text-align: center;
 }
 
 .card-tile > * {

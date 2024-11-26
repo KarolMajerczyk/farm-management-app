@@ -15,7 +15,7 @@ export async function renderFieldsList(fields) {
               </div>
               <hr class="card-separator" />
               <div class="card-details">
-                <img src="../images/location.png" />
+                <i class="card-image fa-solid fa-location-crosshairs"></i>
                 <p>Działka nr. <span>${field.number}</span></p>
               </div>
             </div>
@@ -32,7 +32,7 @@ function populateFieldsWithRandomCrops(fields) {
     const randomVariety = getRandomElementFromObject(randomCrop.varieties);
 
     field.crop = {
-      name: `${randomCrop.name} ${randomVariety.name}`,
+      name: randomCrop.name,
       image: randomCrop.image,
       variety: randomVariety,
     };

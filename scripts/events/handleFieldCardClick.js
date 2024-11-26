@@ -2,7 +2,6 @@ import { getFieldById } from "../api/getFieldById.js";
 import { flyToFieldBounds } from "../services/flyToFieldBounds.js";
 import { toggleCardTileActive } from "../services/toggleCardTileActive.js";
 import { setMapSearchFormValue } from "../services/setMapSearchFormValue.js";
-import { renderFieldOverviewSection } from "../services/renderFieldOverviewSection.js";
 import { showDetailsPanel } from "../services/toggleDetailsPanel.js";
 
 import {
@@ -12,6 +11,7 @@ import {
 } from "../services/renderFieldOnMap.js";
 
 import { hideAddFieldButton } from "../services/toggleAddFieldButton.js";
+import { changeDetailsPanelSection } from "../services/changeDetailsPanelSection.js";
 
 export async function handleFieldCardClick(e) {
   e.stopPropagation();
@@ -25,10 +25,15 @@ export async function handleFieldCardClick(e) {
   setMapSearchFormValue(e.target.dataset.id);
 
   const field = await getFieldById(e.target.dataset.id);
+  const activeLayer = getActiveLayer();
+
+  if (activeLayer) {
+    removeFieldFromMap(activeLayer);
+  }
 
   resetActiveLayer();
 
   showDetailsPanel();
-  renderFieldOverviewSection(field);
+  changeDetailsPanelSection("overview", field);
   flyToFieldBounds(field.location);
 }

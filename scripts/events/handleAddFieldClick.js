@@ -9,8 +9,8 @@ import { getFields } from "../api/getFields.js";
 import { hideAddFieldButton } from "../services/toggleAddFieldButton.js";
 import { toggleCardTileActive } from "../services/toggleCardTileActive.js";
 import { showDetailsPanel } from "../services/toggleDetailsPanel.js";
-import { renderFieldOverviewSection } from "../services/renderFieldOverviewSection.js";
 import { resetActiveLayer } from "../services/renderFieldOnMap.js";
+import { changeDetailsPanelSection } from "../services/changeDetailsPanelSection.js";
 
 export const handleAddFieldClick = async (e) => {
   e.preventDefault();
@@ -38,5 +38,5 @@ export const handleAddFieldClick = async (e) => {
 
   hideAddFieldButton();
   showDetailsPanel();
-  renderFieldOverviewSection(field);
+  changeDetailsPanelSection("overview", field);
 };

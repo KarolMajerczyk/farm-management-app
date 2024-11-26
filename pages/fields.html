@@ -87,13 +87,46 @@
 
         <!-- DETAILS PANEL -->
         <aside class="details-panel">
-          <h2 class="secondary-heading">Przegląd</h2>
-          <section class="details-section overview visible">Page 1</section>
-          <section class="details-section budget">Page 2</section>
-          <section class="details-section todo">Page 3</section>
+          <h2 class="secondary-heading"></h2>
+
+          <!-- OVERVIEW -->
+          <section class="details-section overview visible"></section>
+
+          <!-- BUDGET -->
+          <section class="details-section budget">
+            <select id="dropdown" name="dropdown">
+              <option value="plus">Wszystkie</option>
+              <option value="plus">Przychody</option>
+              <option value="minus">Wydatki</option>
+            </select>
+
+            <ul class="items-list"></ul>
+
+            <form action="">
+              <input type="text" />
+              <select id="dropdown" name="dropdown">
+                <option value="plus">+</option>
+                <option value="minus">-</option>
+              </select>
+              <input type="number" />
+              <button type="submit">Dodaj</button>
+            </form>
+          </section>
+
+          <!-- TODO -->
+          <section class="details-section todo">
+            <input type="date" />
+
+            <ul class="items-list"></ul>
+
+            <form action="">
+              <input type="text" />
+              <button type="submit">Dodaj</button>
+            </form>
+          </section>
 
           <!-- MENU -->
-          <nav class="nav">
+          <nav class="nav menu">
             <ul class="nav-list nav-list-horizontal">
               <li class="nav-item active-item" data-page="overview">
                 <i class="fa-solid fa-chart-pie"></i>

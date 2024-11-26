@@ -17,7 +17,6 @@ import {
 import { setMapSearchFormValue } from "../services/setMapSearchFormValue.js";
 import { getFieldById } from "../api/getFieldById.js";
 import { toggleCardTileActive } from "../services/toggleCardTileActive.js";
-import { renderFieldOverviewSection } from "../services/renderFieldOverviewSection.js";
 import {
   hideDetailsPanel,
   showDetailsPanel,
@@ -27,6 +26,7 @@ import {
   showAddFieldButton,
   hideAddFieldButton,
 } from "../services/toggleAddFieldButton.js";
+import { changeDetailsPanelSection } from "../services/changeDetailsPanelSection.js";
 
 export async function handleMapClick(e) {
   const epsg4326Coord = [e.latlng.lng, e.latlng.lat];
@@ -58,7 +58,7 @@ export async function handleMapClick(e) {
     hideAddFieldButton();
     toggleCardTileActive(fieldCard);
     showDetailsPanel();
-    renderFieldOverviewSection(field);
+    changeDetailsPanelSection("overview", field);
 
     resetActiveLayer();
     return;

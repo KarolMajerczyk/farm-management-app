@@ -13,8 +13,10 @@ export function createField(id, geojson, data) {
 
   return {
     id: id,
-    number: 4994,
+    number: data[6].replace("\n", ""),
     area: 2.5,
+    voivodeship: data[2],
+    region: data[5],
     location: convertWKTToGeoJSON(geojson),
   };
 }

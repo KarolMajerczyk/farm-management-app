@@ -1,5 +1,9 @@
 import { getFields } from "../api/getFields.js";
-import { renderFieldOnMap } from "../services/renderFieldOnMap.js";
+import {
+  renderFieldOnMap,
+  resetActiveLayer,
+} from "../services/renderFieldOnMap.js";
+
 import { renderFieldsList } from "../services/renderFieldsList.js";
 
 export async function handleMapLoad() {
@@ -9,5 +13,6 @@ export async function handleMapLoad() {
     renderFieldOnMap(field.location);
   });
 
+  resetActiveLayer();
   renderFieldsList(fields);
 }
