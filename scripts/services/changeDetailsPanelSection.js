@@ -32,3 +32,5 @@ export function changeDetailsPanelSection(page, field, menuItem) {
       break;
   }
 }
+
+

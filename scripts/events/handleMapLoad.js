@@ -16,3 +16,5 @@ export async function handleMapLoad() {
   resetActiveLayer();
   renderFieldsList(fields);
 }
+
+

@@ -41,6 +41,50 @@
           <h2 class="secondary-heading">Stada</h2>
           <ul id="herds-list" class="items-list">
             <!-- CARD TILE -->
+            <div class="card-tile active">
+              <div class="card-header">
+                <img src="../images/cow.png" />
+                <p>Krowy dojne</p>
+              </div>
+              <hr class="card-separator" />
+              <div class="card-details">
+                <img src="../images/count.png" />
+                <p>Liczba sztuk: <span>30</span></p>
+              </div>
+            </div>
+            <div class="card-tile">
+              <div class="card-header">
+                <img src="../images/sheep.png" />
+                <p>Owce</p>
+              </div>
+              <hr class="card-separator" />
+              <div class="card-details">
+                <img src="../images/count.png" />
+                <p>Liczba sztuk: <span>67</span></p>
+              </div>
+            </div>
+            <div class="card-tile">
+              <div class="card-header">
+                <img src="../images/bull.png" />
+                <p>Byki mięsne</p>
+              </div>
+              <hr class="card-separator" />
+              <div class="card-details">
+                <img src="../images/count.png" />
+                <p>Liczba sztuk: <span>23</span></p>
+              </div>
+            </div>
+            <div class="card-tile">
+              <div class="card-header">
+                <img src="../images/chicken.png" />
+                <p>Kury nioski</p>
+              </div>
+              <hr class="card-separator" />
+              <div class="card-details">
+                <img src="../images/count.png" />
+                <p>Liczba sztuk: <span>120</span></p>
+              </div>
+            </div>
             <div class="card-tile">
               <div class="card-header">
                 <img src="../images/cow.png" />
@@ -50,6 +94,28 @@
               <div class="card-details">
                 <img src="../images/count.png" />
                 <p>Liczba sztuk: <span>30</span></p>
+              </div>
+            </div>
+            <div class="card-tile">
+              <div class="card-header">
+                <img src="../images/sheep.png" />
+                <p>Owce</p>
+              </div>
+              <hr class="card-separator" />
+              <div class="card-details">
+                <img src="../images/count.png" />
+                <p>Liczba sztuk: <span>67</span></p>
+              </div>
+            </div>
+            <div class="card-tile">
+              <div class="card-header">
+                <img src="../images/bull.png" />
+                <p>Byki mięsne</p>
+              </div>
+              <hr class="card-separator" />
+              <div class="card-details">
+                <img src="../images/count.png" />
+                <p>Liczba sztuk: <span>23</span></p>
               </div>
             </div>
             <div class="card-tile">
@@ -67,33 +133,190 @@
         </aside>
 
         <!-- MAP CONTAINER -->
-        <section>
-          <div id="map"></div>
+        <section class="content">
+          <h2 class="secondary-heading">Zwierzęta w stadzie</h2>
+          <ul id="animals-list" class="items-list">
+            <div class="card-tile active" data-id="">
+              <div class="card-header">
+                <img src="../images/krowa1.jpeg" class="card-photo" />
+              </div>
+              <hr class="card-separator" />
+              <div class="card-details">
+                <i class="card-image fa-solid fa-location-crosshairs"></i>
+                <p>Nazwa: <span>Krasula</span></p>
+              </div>
+              <hr class="card-separator" />
+              <div class="card-details">
+                <i class="card-image fa-solid fa-location-crosshairs"></i>
+                <p>ID nr. <span>PL005076768502</span></p>
+              </div>
+            </div>
+
+            <div class="card-tile" data-id="">
+              <div class="card-header">
+                <img src="../images/krowa2.jpeg" class="card-photo" />
+              </div>
+              <hr class="card-separator" />
+              <div class="card-details">
+                <i class="card-image fa-solid fa-location-crosshairs"></i>
+                <p>Nazwa: <span>Jagoda</span></p>
+              </div>
+              <hr class="card-separator" />
+              <div class="card-details">
+                <i class="card-image fa-solid fa-location-crosshairs"></i>
+                <p>ID nr. <span>PL005076768502</span></p>
+              </div>
+            </div>
+
+            <div class="card-tile" data-id="">
+              <div class="card-header">
+                <img src="../images/krowa3.jpeg" class="card-photo" />
+              </div>
+              <hr class="card-separator" />
+              <div class="card-details">
+                <i class="card-image fa-solid fa-location-crosshairs"></i>
+                <p>Nazwa: <span>Malwina</span></p>
+              </div>
+              <hr class="card-separator" />
+              <div class="card-details">
+                <i class="card-image fa-solid fa-location-crosshairs"></i>
+                <p>ID nr. <span>PL005076768502</span></p>
+              </div>
+            </div>
+
+            <div class="card-tile" data-id="">
+              <div class="card-header">
+                <img src="../images/krowa4.jpg" class="card-photo" />
+              </div>
+              <hr class="card-separator" />
+              <div class="card-details">
+                <i class="card-image fa-solid fa-location-crosshairs"></i>
+                <p>Nazwa: <span>Mućka</span></p>
+              </div>
+              <hr class="card-separator" />
+              <div class="card-details">
+                <i class="card-image fa-solid fa-location-crosshairs"></i>
+                <p>ID nr. <span>PL005076768502</span></p>
+              </div>
+            </div>
+
+            <div class="card-tile" data-id="">
+              <div class="card-header">
+                <img src="../images/krowa5.jpg" class="card-photo" />
+              </div>
+              <hr class="card-separator" />
+              <div class="card-details">
+                <i class="card-image fa-solid fa-location-crosshairs"></i>
+                <p>Nazwa: <span>Krasula</span></p>
+              </div>
+              <hr class="card-separator" />
+              <div class="card-details">
+                <i class="card-image fa-solid fa-location-crosshairs"></i>
+                <p>ID nr. <span>PL005076768502</span></p>
+              </div>
+            </div>
+
+            <div class="card-tile" data-id="">
+              <div class="card-header">
+                <img src="../images/krowa6.webp" class="card-photo" />
+              </div>
+              <hr class="card-separator" />
+              <div class="card-details">
+                <i class="card-image fa-solid fa-location-crosshairs"></i>
+                <p>Nazwa: <span>Jagoda</span></p>
+              </div>
+              <hr class="card-separator" />
+              <div class="card-details">
+                <i class="card-image fa-solid fa-location-crosshairs"></i>
+                <p>ID nr. <span>PL005076768502</span></p>
+              </div>
+            </div>
+
+            <div class="card-tile" data-id="">
+              <div class="card-header">
+                <img src="../images/krowa7.jpeg" class="card-photo" />
+              </div>
+              <hr class="card-separator" />
+              <div class="card-details">
+                <i class="card-image fa-solid fa-location-crosshairs"></i>
+                <p>Nazwa: <span>Malwina</span></p>
+              </div>
+              <hr class="card-separator" />
+              <div class="card-details">
+                <i class="card-image fa-solid fa-location-crosshairs"></i>
+                <p>ID nr. <span>PL005076768502</span></p>
+              </div>
+            </div>
+
+            <div class="card-tile" data-id="">
+              <div class="card-header">
+                <img src="../images/krowa8.jpg" class="card-photo" />
+              </div>
+              <hr class="card-separator" />
+              <div class="card-details">
+                <i class="card-image fa-solid fa-location-crosshairs"></i>
+                <p>Nazwa: <span>Mućka</span></p>
+              </div>
+              <hr class="card-separator" />
+              <div class="card-details">
+                <i class="card-image fa-solid fa-location-crosshairs"></i>
+                <p>ID nr. <span>PL005076768502</span></p>
+              </div>
+            </div>
+          </ul>
         </section>
 
         <!-- DETAILS PANEL -->
-        <aside class="details-panel">
-          <h2 class="secondary-heading">Stado nr. 223</h2>
+        <aside class="details-panel visible">
+          <h2 class="secondary-heading">Przegląd</h2>
 
-          <section class="details-section">Section 1</section>
-          <!-- <section class="details-section">Section 2</section>
-          <section class="details-section">Section 3</section>
-          <section class="details-section">Section 4</section> -->
+          <!-- OVERVIEW -->
+          <section class="details-section overview visible"></section>
+
+          <!-- BUDGET -->
+          <section class="details-section budget">
+            <select id="dropdown" name="dropdown">
+              <option value="plus">Wszystkie</option>
+              <option value="plus">Przychody</option>
+              <option value="minus">Wydatki</option>
+            </select>
+
+            <ul class="items-list"></ul>
+
+            <form action="">
+              <input type="text" />
+              <select id="dropdown" name="dropdown">
+                <option value="plus">+</option>
+                <option value="minus">-</option>
+              </select>
+              <input type="number" />
+              <button type="submit">Dodaj</button>
+            </form>
+          </section>
+
+          <!-- TODO -->
+          <section class="details-section todo">
+            <input type="date" />
+
+            <ul class="items-list"></ul>
+
+            <form action="">
+              <input type="text" />
+              <button type="submit">Dodaj</button>
+            </form>
+          </section>
 
           <!-- MENU -->
-          <nav class="nav">
+          <nav class="nav menu">
             <ul class="nav-list nav-list-horizontal">
-              <li class="nav-item">
-                <i class="fa-solid fa-house"></i>
+              <li class="nav-item active-item" data-page="overview">
+                <i class="fa-solid fa-chart-pie"></i>
               </li>
-              <li class="nav-item active-item">
-                <i class="fa-solid fa-wheat-awn"></i>
+              <li class="nav-item" data-page="budget">
+                <i class="fa-solid fa-wallet"></i>
               </li>
-              <li class="nav-item">
-                <i class="fa-solid fa-cow"></i>
-              </li>
-              <li class="nav-item">
-                <i class="fa-solid fa-tractor"></i>
+              <li class="nav-item" data-page="todo">
+                <i class="fa-solid fa-list-ul"></i>
               </li>
             </ul>
           </nav>

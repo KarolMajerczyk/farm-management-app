@@ -25,3 +25,5 @@ DOM.addFieldButton.addEventListener("click", (e) => handleAddFieldClick(e));
 DOM.detailsPanelMenu.addEventListener("click", (e) =>
   handleDetailsPanelMenuClick(e)
 );
+
+

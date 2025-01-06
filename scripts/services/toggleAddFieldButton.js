@@ -7,3 +7,5 @@ export function showAddFieldButton() {
 export function hideAddFieldButton() {
   DOM.addFieldButton.classList.remove("visible");
 }
+
+

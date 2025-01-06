@@ -7,3 +7,4 @@ export const flyToFieldBounds = (polygon) => {
     duration: 2,
   });
 };
+

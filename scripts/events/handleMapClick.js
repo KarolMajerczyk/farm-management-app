@@ -42,7 +42,6 @@ export async function handleMapClick(e) {
   const fieldPolygon = convertWKTToGeoJSON(fieldGeometry);
 
   flyToFieldBounds(fieldPolygon);
-  const field = await getFieldById(fieldId);
 
   if (activeLayer && isTheSameLayer(activeLayer, fieldPolygon)) {
     return;
@@ -51,6 +50,8 @@ export async function handleMapClick(e) {
   if (activeLayer) {
     removeFieldFromMap(activeLayer);
   }
+
+  const field = await getFieldById(fieldId);
 
   if (field) {
     const fieldCard = document.querySelector(`[data-id="${field.id}"]`);
@@ -68,6 +69,5 @@ export async function handleMapClick(e) {
   hideDetailsPanel();
   showAddFieldButton();
 
-  // TODO: render add field or something like that
   renderFieldOnMap(fieldPolygon);
 }

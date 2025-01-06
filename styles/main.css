@@ -19,3 +19,9 @@
 @import url("details-panel.css");
 @import url("button.css");
 @import url("items-list.css");
+
+.content {
+  background: var(--clr-900);
+  max-height: 100vh;
+  display: grid;
+}
