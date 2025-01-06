@@ -13,18 +13,18 @@ export const machines = [
     // BUDGETS
     budget: [
       {
-        id: "entry-1",
-        type: "income",
+        id: "machine-entry-1",
+        description: "machine-entry-1",
         amount: 2000,
-        description: "entry-1",
+        type: "income",
       },
     ],
 
     // TODOS
     todos: [
       {
-        id: "todo-1",
-        description: "todo-1",
+        id: "machine-todo-1",
+        description: "machine-todo-1",
         status: "pending",
         date: "2025-01-10",
       },

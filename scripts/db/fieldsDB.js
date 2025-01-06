@@ -1,15 +1,14 @@
 export const fields = [
   {
-    // INFO
+    // DETAILS
     id: "120709_2.0007.4719",
     name: "Pole pszenicy",
-
-    voivodeship: "małopolskie",
-    region: "Mszana Górna",
-
     number: 4719,
     area: 0.5,
 
+    // LOCATION
+    region: "Mszana Górna",
+    voivodeship: "małopolskie",
     location: {
       type: "Polygon",
       coordinates: [
@@ -40,22 +39,25 @@ export const fields = [
       ],
     },
 
+    // SEED
+    seed: "Pszenica ozima",
+
     // BUDGET
     budget: [
       {
-        id: "entry-1",
-        type: "income",
+        id: "field-entry-1",
+        description: "field-entry-1",
         amount: 2000,
-        description: "entry-1",
+        type: "income",
       },
     ],
 
     // TODOS
     todos: [
       {
-        id: "todo-1",
-        description: "todo-1",
-        status: "Pending",
+        id: "field-todo-1",
+        description: "field-todo-1",
+        status: "pending",
         date: "2025-01-10",
       },
     ],

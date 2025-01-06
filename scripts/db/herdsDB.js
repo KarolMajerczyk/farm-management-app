@@ -19,18 +19,18 @@ export const herds = [
     // BUDGET
     budget: [
       {
-        id: "entry-1",
-        type: "expense",
+        id: "herd-entry-1",
+        description: "herd-entry-1",
         amount: 2000,
-        description: "entry-1",
+        type: "expense",
       },
     ],
 
     // TODOS
     todos: [
       {
-        id: "todo-1",
-        description: "todo-1",
+        id: "herd-todo-1",
+        description: "herd-todo-1",
         status: "pending",
         date: "2025-01-10",
       },
