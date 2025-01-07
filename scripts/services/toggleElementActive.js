@@ -1,9 +1,11 @@
-export function toggleElementActive(el) {
-  const curEl = el.parentNode.querySelector(`.${el.classList[0]}.active`);
+export function toggleElementActive(el, flag) {
+  const curEl = el.parentNode.querySelector(".active");
 
   if (curEl) {
     curEl.classList.remove("active");
   }
 
-  el.classList.add("active");
+  if (flag) {
+    el.classList.add("active");
+  }
 }

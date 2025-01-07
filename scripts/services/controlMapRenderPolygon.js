@@ -31,14 +31,13 @@ export async function controlMapRenderPolygons(fieldId, fieldGeometry) {
     removeFieldFromMap(activeLayer);
   }
 
-  const field = await getItemById("fields", fieldId);
+  const field = await getItemById("field", fieldId);
 
   if (field) {
     const fieldCard = document.querySelector(`[data-id="${field.id}"]`);
 
+    toggleElementActive(fieldCard, true);
     toggleElementVisibility(DOM.addFieldButton, false);
-    toggleElementActive(fieldCard);
-    console.log(fieldCard);
     toggleElementVisibility(DOM.sidePanel, true);
     renderOverview(field, "field");
 

@@ -26,7 +26,7 @@ export async function handleCardTileClick(e) {
 
   let obj;
 
-  toggleElementActive(el);
+  toggleElementActive(el, true);
   obj = await getItemById(objType, el.dataset.id);
 
   if (objType === "field") {

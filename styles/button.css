@@ -12,16 +12,10 @@
 }
 
 .button:hover {
-  transform: scale(1.05);
+  transform: scale(0.9);
 }
 
 #add-field {
-  position: absolute;
-  bottom: 20px;
-  left: 45%;
-
-  z-index: 999;
-
   opacity: 0;
   visibility: hidden;
   pointer-events: none;

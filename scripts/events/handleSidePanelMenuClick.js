@@ -18,7 +18,7 @@ export async function handleSidePanelMenuClick(e) {
   const nextSection = document.querySelector(`.side-panel .${page}`);
   nextSection.classList.add("visible");
 
-  toggleElementActive(menuItem);
+  toggleElementActive(menuItem, true);
 
   const objId = document.querySelector(".card-tile.active").dataset.id;
   const objType = document.querySelector(".card-tile.active").dataset.type;
