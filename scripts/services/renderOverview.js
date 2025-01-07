@@ -7,31 +7,29 @@ export function renderOverview(obj, objType) {
 
   switch (objType) {
     case "field":
-      html = createFieldOverviewHTML(obj);
+      html = generateFieldOverviewHTML(obj);
       break;
     case "herd":
-      html = createHerdOverviewHTML(obj);
+      html = generateHerdOverviewHTML(obj);
       break;
     case "machine":
-      html = createMachineOverviewHTML(obj);
+      html = generateMachineOverviewHTML(obj);
       break;
   }
 
   const todosLeft = obj.todos.filter((todo) => todo.status === "pending");
 
-  const totalIncome =
-    obj.budget.reduce((acc, entry) => {
+  const { income, expense } = obj.budget.reduce(
+    (totals, entry) => {
       if (entry.type === "income") {
-        return (acc += entry.amount);
+        totals.income += entry.amount;
+      } else if (entry.type === "expense") {
+        totals.expense += entry.amount;
       }
-    }, 0) || 0;
-
-  const totalExpenses =
-    obj.budget.reduce((acc, entry) => {
-      if (entry.type === "expense") {
-        return (acc += entry.amount);
-      }
-    }, 0) || 0;
+      return totals;
+    },
+    { income: 0, expense: 0 }
+  );
 
   html += `
   <div class="card-tile">
@@ -41,17 +39,17 @@ export function renderOverview(obj, objType) {
       <hr class="card-separator" />
       <div class="card-details">
         <i class="card-image fa-solid fa-plus"></i>
-        <p>Przychody: <span>${totalIncome} zł</span></p>
+        <p>Przychody: <span>${income} zł</span></p>
       </div>
       <hr class="card-separator" />
       <div class="card-details">
         <i class="card-image fa-solid fa-minus"></i>
-        <p>Wydatki: <span>${totalExpenses} zł</span></p>
+        <p>Wydatki: <span>${expense} zł</span></p>
       </div>
       <hr class="card-separator" />
       <div class="card-details">
         <i class="card-image fa-solid fa-plus-minus"></i>
-        <p>Zysk: <span>${totalIncome - totalExpenses} zł</span></p>
+        <p>Saldo: <span>${income - expense} zł</span></p>
       </div>
     </div>
 
@@ -66,7 +64,7 @@ export function renderOverview(obj, objType) {
   DOM.overview.innerHTML = html;
 }
 
-function createFieldOverviewHTML(field) {
+function generateFieldOverviewHTML(field) {
   return `
     <div class="card-tile">
       <div class="card-header">
@@ -100,19 +98,19 @@ function createFieldOverviewHTML(field) {
       </div>
       <hr class="card-separator" />
       <div class="card-details">
-        <p class="card-image">${field.crop.image}</p>
-        <p>Rodzaj uprawy <span>${field.crop.name}</span></p>
+        <p class="card-image"><img src="${field.image}"></p>
+        <p>Rodzaj uprawy <span>${field.name}</span></p>
       </div>
       <hr class="card-separator" />
       <div class="card-details">
         <i class="card-image fa-solid fa-circle-info"></i>
-        <p>Gatunek <span>${field.crop.variety.name}</span></p>
+        <p>Gatunek <span>${field.seed}</span></p>
       </div>
     </div>
   `;
 }
 
-function createHerdOverviewHTML(herd) {
+function generateHerdOverviewHTML(herd) {
   return `
   <div class="card-tile">
     <div class="card-header">
@@ -137,7 +135,7 @@ function createHerdOverviewHTML(herd) {
 `;
 }
 
-function createMachineOverviewHTML(machine) {
+function generateMachineOverviewHTML(machine) {
   return `
   <div class="card-tile">
     <div class="card-header">

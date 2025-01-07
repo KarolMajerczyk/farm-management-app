@@ -1,6 +1,4 @@
-import { renderFieldsList } from "../services/renderFieldsList.js";
-import { renderHerdsList } from "../services/renderHerdsList.js";
-import { renderMachinesList } from "../services/renderMachinesList.js";
+import { renderCardsList } from "../services/renderCardsList.js";
 
 import { getItems } from "../api/getItems.js";
 
@@ -11,12 +9,12 @@ export async function handleCardsListLoad() {
 
   if (fieldsList) {
     const fields = await getItems("fields");
-    renderFieldsList(fields);
+    renderCardsList(fields, "field");
   } else if (herdsList) {
     const herds = await getItems("herds");
-    renderHerdsList(herds);
+    renderCardsList(herds, "herd");
   } else if (machinesList) {
     const machines = await getItems("machines");
-    renderMachinesList(machines);
+    renderCardsList(machines, "machine");
   }
 }

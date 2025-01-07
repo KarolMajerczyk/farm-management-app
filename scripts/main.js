@@ -1,7 +1,7 @@
 import {
   handleLeafletMapInitialization,
   map,
-} from "./map/handleLeafletMapInitialization.js";
+} from "./events/handleLeafletMapInitialization.js";
 
 import { handleMapDrag } from "./events/handleMapDrag.js";
 import { handleMapClick } from "./events/handleMapClick.js";

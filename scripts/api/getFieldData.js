@@ -2,7 +2,7 @@ export async function getFieldData({ id, coord }) {
   let url = "https://uldk.gugik.gov.pl/?request=";
 
   if (id) {
-    url += `GetParcelByIdOrNr&id=${id}&result=id,numer,powiat,geom_wkt`;
+    url += `GetParcelByIdOrNr&id=${id}&result=geom_wkt,id,voivodeship,county,commune,region,parcel`;
   } else if (coord) {
     url += `GetParcelByXY&xy=${coord}&result=geom_wkt,id,voivodeship,county,commune,region,parcel`;
   }

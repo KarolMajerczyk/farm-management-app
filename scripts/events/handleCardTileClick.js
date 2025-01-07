@@ -1,8 +1,10 @@
+import { DOM } from "../dom/domElements.js";
+
 import { getItemById } from "../api/getItemById.js";
 import { flyToFieldBounds } from "../services/flyToFieldBounds.js";
-import { toggleCardTileActive } from "../services/toggleCardTileActive.js";
+import { toggleElementActive } from "../services/toggleElementActive.js";
 import { setMapSearchFormValue } from "../services/setMapSearchFormValue.js";
-import { showSidePanel } from "../services/toggleSidePanel.js";
+import { toggleElementVisibility } from "../services/toggleElementVisibility.js";
 
 import {
   removeFieldFromMap,
@@ -10,8 +12,7 @@ import {
   resetActiveLayer,
 } from "../services/renderFieldOnMap.js";
 
-import { hideAddFieldButton } from "../services/toggleAddFieldButton.js";
-import { changeSidePanelSection } from "../services/changeSidePanelSection.js";
+import { renderOverview } from "../services/renderOverview.js";
 
 export async function handleCardTileClick(e) {
   e.stopPropagation();
@@ -25,23 +26,19 @@ export async function handleCardTileClick(e) {
 
   let obj;
 
-  toggleCardTileActive(el);
+  toggleElementActive(el);
+  obj = await getItemById(objType, el.dataset.id);
 
   if (objType === "field") {
-    obj = await getItemById("fields", el.dataset.id);
     handleFieldCardTileClick(obj, el);
-  } else if (objType === "herd") {
-    obj = await getItemById("herds", el.dataset.id);
-  } else if (objType === "machine") {
-    obj = await getItemById("machines", el.dataset.id);
   }
 
-  showSidePanel();
-  changeSidePanelSection("overview", obj, objType, null);
+  toggleElementVisibility(DOM.sidePanel, true);
+  renderOverview(obj, objType);
 }
 
 async function handleFieldCardTileClick(obj, el) {
-  hideAddFieldButton();
+  toggleElementVisibility(DOM.addFieldButton, false);
   setMapSearchFormValue(el.dataset.id);
 
   const activeLayer = getActiveLayer();

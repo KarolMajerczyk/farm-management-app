@@ -1,4 +1,4 @@
-import { map } from "../map/handleLeafletMapInitialization.js";
+import { map } from "../events/handleLeafletMapInitialization.js";
 
 let activeLayer;
 

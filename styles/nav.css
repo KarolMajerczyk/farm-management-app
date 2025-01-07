@@ -28,7 +28,7 @@
   place-content: center;
 }
 
-.nav-item.active-item {
+.nav-item.active {
   color: var(--clr-100);
 
   border: 1px solid var(--clr-accent-1);

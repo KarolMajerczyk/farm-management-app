@@ -5,6 +5,7 @@ export const fields = [
     name: "Pole pszenicy",
     number: 4719,
     area: 0.5,
+    image: "./images/wheat.png",
 
     // LOCATION
     region: "Mszana Górna",

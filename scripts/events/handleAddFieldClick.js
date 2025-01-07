@@ -4,13 +4,12 @@ import { getFieldData } from "../api/getFieldData.js";
 
 import { createField } from "../models/fieldFactory.js";
 import { addField } from "../api/addField.js";
-import { renderFieldsList } from "../services/renderFieldsList.js";
+import { renderCardsList } from "../services/renderCardsList.js";
 import { getItems } from "../api/getItems.js";
-import { hideAddFieldButton } from "../services/toggleAddFieldButton.js";
-import { toggleCardTileActive } from "../services/toggleCardTileActive.js";
-import { showSidePanel } from "../services/toggleSidePanel.js";
+import { toggleElementActive } from "../services/toggleElementActive.js";
 import { resetActiveLayer } from "../services/renderFieldOnMap.js";
-import { changeSidePanelSection } from "../services/changeSidePanelSection.js";
+import { toggleElementVisibility } from "../services/toggleElementVisibility.js";
+import { renderOverview } from "../services/renderOverview.js";
 
 export const handleAddFieldClick = async (e) => {
   e.preventDefault();
@@ -30,13 +29,14 @@ export const handleAddFieldClick = async (e) => {
 
   const fields = await getItems("fields");
 
-  renderFieldsList(fields);
+  renderCardsList(fields, "field");
 
   const fieldCard = document.querySelector(`[data-id="${field.id}"]`);
 
-  toggleCardTileActive(fieldCard);
+  toggleElementActive(fieldCard);
 
-  hideAddFieldButton();
-  showSidePanel();
-  changeSidePanelSection("overview", field);
+  toggleElementVisibility(DOM.addFieldButton, false);
+  toggleElementVisibility(DOM.sidePanel, true);
+
+  renderOverview(field, "field");
 };
