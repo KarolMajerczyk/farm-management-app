@@ -8,5 +8,5 @@ export function handleSidePanelMenuClick(e) {
   const page = e.target.dataset.page;
   const menuItem = e.target;
 
-  changeSidePanelSection(page, null, menuItem);
+  changeSidePanelSection(page, null, null, menuItem);
 }

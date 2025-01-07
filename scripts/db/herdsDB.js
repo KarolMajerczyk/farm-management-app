@@ -2,9 +2,9 @@ export const herds = [
   {
     // INFO
     id: "herd-1",
-    name: "krowy dojne",
+    name: "Stado 1",
 
-    type: "krowa",
+    type: "Krowa mleczna",
 
     // ANIMALS
     animals: [
@@ -23,6 +23,7 @@ export const herds = [
         description: "herd-entry-1",
         amount: 2000,
         type: "expense",
+        date: "2025-01-10",
       },
     ],
 

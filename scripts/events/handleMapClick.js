@@ -15,7 +15,7 @@ import {
 } from "../services/renderFieldOnMap.js";
 
 import { setMapSearchFormValue } from "../services/setMapSearchFormValue.js";
-import { getFieldById } from "../api/getFieldById.js";
+import { getItemById } from "../api/getItemById.js";
 import { toggleCardTileActive } from "../services/toggleCardTileActive.js";
 import { hideSidePanel, showSidePanel } from "../services/toggleSidePanel.js";
 
@@ -48,7 +48,7 @@ export async function handleMapClick(e) {
     removeFieldFromMap(activeLayer);
   }
 
-  const field = await getFieldById(fieldId);
+  const field = await getItemById("fields", fieldId);
 
   if (field) {
     const fieldCard = document.querySelector(`[data-id="${field.id}"]`);

@@ -49,6 +49,7 @@ export const fields = [
         description: "field-entry-1",
         amount: 2000,
         type: "income",
+        date: "2025-01-10",
       },
     ],
 

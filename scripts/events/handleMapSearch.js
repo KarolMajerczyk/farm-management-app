@@ -12,9 +12,9 @@ import {
   isTheSameLayer,
 } from "../services/renderFieldOnMap.js";
 
-import { getFieldById } from "../api/getFieldById.js";
+import { getItemById } from "../api/getItemById.js";
 import { toggleCardTileActive } from "../services/toggleCardTileActive.js";
-import { renderFieldOverview } from "../services/renderFieldOverview.js";
+import { renderOverview } from "../services/renderOverview.js";
 import { hideSidePanel, showSidePanel } from "../services/toggleSidePanel.js";
 
 import {
@@ -39,7 +39,7 @@ export const handleMapSearch = async (e) => {
   const fieldPolygon = convertWKTToGeoJSON(fieldGeometry);
 
   flyToFieldBounds(fieldPolygon);
-  const field = await getFieldById(terytValue);
+  const field = await getItemById("fields", terytValue);
 
   if (activeLayer && isTheSameLayer(activeLayer, fieldPolygon)) {
     return;
@@ -55,7 +55,7 @@ export const handleMapSearch = async (e) => {
     hideAddFieldButton();
     toggleCardTileActive(fieldCard);
     showSidePanel();
-    renderFieldOverview(field);
+    renderOverview(field, "field");
 
     resetActiveLayer();
     return;

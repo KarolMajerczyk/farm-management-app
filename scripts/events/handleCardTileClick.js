@@ -1,4 +1,4 @@
-import { getFieldById } from "../api/getFieldById.js";
+import { getItemById } from "../api/getItemById.js";
 import { flyToFieldBounds } from "../services/flyToFieldBounds.js";
 import { toggleCardTileActive } from "../services/toggleCardTileActive.js";
 import { setMapSearchFormValue } from "../services/setMapSearchFormValue.js";
@@ -28,22 +28,22 @@ export async function handleCardTileClick(e) {
   toggleCardTileActive(el);
 
   if (objType === "field") {
-    obj = await handleFieldCardTileClick(el);
+    obj = await getItemById("fields", el.dataset.id);
+    handleFieldCardTileClick(obj, el);
   } else if (objType === "herd") {
-    obj = await handleHerdCardTileClick(el);
+    obj = await getItemById("herds", el.dataset.id);
   } else if (objType === "machine") {
-    obj = await handleMachineCardTileClick(el);
+    obj = await getItemById("machines", el.dataset.id);
   }
 
   showSidePanel();
-  changeSidePanelSection("overview", obj);
+  changeSidePanelSection("overview", obj, objType, null);
 }
 
-async function handleFieldCardTileClick(el) {
+async function handleFieldCardTileClick(obj, el) {
   hideAddFieldButton();
   setMapSearchFormValue(el.dataset.id);
 
-  const obj = await getFieldById(el.dataset.id);
   const activeLayer = getActiveLayer();
 
   if (activeLayer) {
@@ -52,9 +52,4 @@ async function handleFieldCardTileClick(el) {
 
   resetActiveLayer();
   flyToFieldBounds(obj.location);
-
-  return obj;
 }
-
-async function handleHerdCardTileClick(el) {}
-async function handleMachineCardTileClick(el) {}

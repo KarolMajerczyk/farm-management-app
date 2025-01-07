@@ -3,6 +3,7 @@ export const machines = [
     // INFO
     id: "machine-2",
     name: "Ursus C360",
+    plate: "KLI 4341C",
 
     type: "traktor",
     status: "Operational",
@@ -17,6 +18,7 @@ export const machines = [
         description: "machine-entry-1",
         amount: 2000,
         type: "income",
+        date: "2025-01-10",
       },
     ],
 

@@ -5,7 +5,7 @@ import { getFieldData } from "../api/getFieldData.js";
 import { createField } from "../models/fieldFactory.js";
 import { addField } from "../api/addField.js";
 import { renderFieldsList } from "../services/renderFieldsList.js";
-import { getFields } from "../api/getFields.js";
+import { getItems } from "../api/getItems.js";
 import { hideAddFieldButton } from "../services/toggleAddFieldButton.js";
 import { toggleCardTileActive } from "../services/toggleCardTileActive.js";
 import { showSidePanel } from "../services/toggleSidePanel.js";
@@ -28,7 +28,7 @@ export const handleAddFieldClick = async (e) => {
 
   await addField(field);
 
-  const fields = await getFields();
+  const fields = await getItems("fields");
 
   renderFieldsList(fields);
 

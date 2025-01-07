@@ -4,23 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Farm management app</title>
-    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="./styles/main.css" />
   </head>
   <body>
     <div class="container">
       <!-- HEADER -->
       <header class="app-header">
         <!-- APP LOGO -->
-        <img class="app-logo" src="../images/logo.webp" alt="" />
+        <img class="app-logo" src="./images/logo.webp" alt="" />
 
         <!-- NAVIGATION -->
         <nav class="nav">
           <ul class="nav-list">
             <li class="nav-item">
-              <a href="../index.html"><i class="fa-solid fa-house"></i></a>
-            </li>
-            <li class="nav-item">
-              <a href="./fields.html"><i class="fa-solid fa-wheat-awn"></i></a>
+              <a href="./index.html"><i class="fa-solid fa-wheat-awn"></i></a>
             </li>
             <li class="nav-item active-item">
               <a href="#"><i class="fa-solid fa-cow"></i></a>
@@ -32,104 +29,14 @@
         </nav>
 
         <!-- USER Avatar -->
-        <img class="user-avatar" src="../images/account.webp" alt="" />
+        <img class="user-avatar" src="./images/account.webp" alt="" />
       </header>
       <!-- APP CONTENT -->
       <main class="app-content">
         <!-- ITEMS PANEL -->
         <aside class="items-panel">
           <h2 class="secondary-heading">Stada</h2>
-          <ul id="herds-list" class="cards-list items-list">
-            <!-- CARD TILE -->
-            <div class="card-tile active" data-type="herd">
-              <div class="card-header">
-                <img src="../images/cow.png" />
-                <p>Krowy dojne</p>
-              </div>
-              <hr class="card-separator" />
-              <div class="card-details">
-                <img src="../images/count.png" />
-                <p>Liczba sztuk: <span>30</span></p>
-              </div>
-            </div>
-            <div class="card-tile">
-              <div class="card-header">
-                <img src="../images/sheep.png" />
-                <p>Owce</p>
-              </div>
-              <hr class="card-separator" />
-              <div class="card-details">
-                <img src="../images/count.png" />
-                <p>Liczba sztuk: <span>67</span></p>
-              </div>
-            </div>
-            <div class="card-tile">
-              <div class="card-header">
-                <img src="../images/bull.png" />
-                <p>Byki mięsne</p>
-              </div>
-              <hr class="card-separator" />
-              <div class="card-details">
-                <img src="../images/count.png" />
-                <p>Liczba sztuk: <span>23</span></p>
-              </div>
-            </div>
-            <div class="card-tile">
-              <div class="card-header">
-                <img src="../images/chicken.png" />
-                <p>Kury nioski</p>
-              </div>
-              <hr class="card-separator" />
-              <div class="card-details">
-                <img src="../images/count.png" />
-                <p>Liczba sztuk: <span>120</span></p>
-              </div>
-            </div>
-            <div class="card-tile">
-              <div class="card-header">
-                <img src="../images/cow.png" />
-                <p>Krowy dojne</p>
-              </div>
-              <hr class="card-separator" />
-              <div class="card-details">
-                <img src="../images/count.png" />
-                <p>Liczba sztuk: <span>30</span></p>
-              </div>
-            </div>
-            <div class="card-tile">
-              <div class="card-header">
-                <img src="../images/sheep.png" />
-                <p>Owce</p>
-              </div>
-              <hr class="card-separator" />
-              <div class="card-details">
-                <img src="../images/count.png" />
-                <p>Liczba sztuk: <span>67</span></p>
-              </div>
-            </div>
-            <div class="card-tile">
-              <div class="card-header">
-                <img src="../images/bull.png" />
-                <p>Byki mięsne</p>
-              </div>
-              <hr class="card-separator" />
-              <div class="card-details">
-                <img src="../images/count.png" />
-                <p>Liczba sztuk: <span>23</span></p>
-              </div>
-            </div>
-            <div class="card-tile">
-              <div class="card-header">
-                <img src="../images/chicken.png" />
-                <p>Kury nioski</p>
-              </div>
-              <hr class="card-separator" />
-              <div class="card-details">
-                <img src="../images/count.png" />
-                <p>Liczba sztuk: <span>120</span></p>
-              </div>
-            </div>
-          </ul>
+          <ul id="herds-list" class="cards-list items-list"></ul>
         </aside>
 
         <!-- MAP CONTAINER -->
@@ -138,7 +45,7 @@
           <ul id="animals-list" class="items-list">
             <div class="card-tile active" data-id="">
               <div class="card-header">
-                <img src="../images/krowa1.jpeg" class="card-photo" />
+                <img src="./images/krowa1.jpeg" class="card-photo" />
               </div>
               <hr class="card-separator" />
               <div class="card-details">
@@ -154,7 +61,7 @@
 
             <div class="card-tile" data-id="">
               <div class="card-header">
-                <img src="../images/krowa2.jpeg" class="card-photo" />
+                <img src="./images/krowa2.jpeg" class="card-photo" />
               </div>
               <hr class="card-separator" />
               <div class="card-details">
@@ -170,7 +77,7 @@
 
             <div class="card-tile" data-id="">
               <div class="card-header">
-                <img src="../images/krowa3.jpeg" class="card-photo" />
+                <img src="./images/krowa3.jpeg" class="card-photo" />
               </div>
               <hr class="card-separator" />
               <div class="card-details">
@@ -186,7 +93,7 @@
 
             <div class="card-tile" data-id="">
               <div class="card-header">
-                <img src="../images/krowa4.jpg" class="card-photo" />
+                <img src="./images/krowa4.jpg" class="card-photo" />
               </div>
               <hr class="card-separator" />
               <div class="card-details">
@@ -202,7 +109,7 @@
 
             <div class="card-tile" data-id="">
               <div class="card-header">
-                <img src="../images/krowa5.jpg" class="card-photo" />
+                <img src="./images/krowa5.jpg" class="card-photo" />
               </div>
               <hr class="card-separator" />
               <div class="card-details">
@@ -218,7 +125,7 @@
 
             <div class="card-tile" data-id="">
               <div class="card-header">
-                <img src="../images/krowa6.webp" class="card-photo" />
+                <img src="./images/krowa6.webp" class="card-photo" />
               </div>
               <hr class="card-separator" />
               <div class="card-details">
@@ -234,7 +141,7 @@
 
             <div class="card-tile" data-id="">
               <div class="card-header">
-                <img src="../images/krowa7.jpeg" class="card-photo" />
+                <img src="./images/krowa7.jpeg" class="card-photo" />
               </div>
               <hr class="card-separator" />
               <div class="card-details">
@@ -250,7 +157,7 @@
 
             <div class="card-tile" data-id="">
               <div class="card-header">
-                <img src="../images/krowa8.jpg" class="card-photo" />
+                <img src="./images/krowa8.jpg" class="card-photo" />
               </div>
               <hr class="card-separator" />
               <div class="card-details">
@@ -330,6 +237,6 @@
       src="https://kit.fontawesome.com/dc197bfaa7.js"
       crossorigin="anonymous"
     ></script>
-    <script src="../scripts/main.js" type="module"></script>
+    <script src="./scripts/main.js" type="module"></script>
   </body>
 </html>

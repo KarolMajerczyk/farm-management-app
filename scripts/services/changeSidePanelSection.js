@@ -1,15 +1,18 @@
-import { renderFieldOverview } from "./renderFieldOverview.js";
+import { renderOverview } from "./renderOverview.js";
 import { renderBudget } from "./renderBudget.js";
 import { renderTodos } from "./renderTodos.js";
 import { toggleMenuItemActive } from "./toggleMenuItemActive.js";
 
 let currentObj;
+let currentType;
 
-export function changeSidePanelSection(page, obj, menuItem) {
+export function changeSidePanelSection(page, obj, objType, menuItem) {
   if (obj) {
     currentObj = obj;
+    currentType = objType;
   } else {
     obj = currentObj;
+    objType = currentType;
   }
 
   const currentSection = document.querySelector(".side-panel .visible");
@@ -22,13 +25,13 @@ export function changeSidePanelSection(page, obj, menuItem) {
 
   switch (page) {
     case "overview":
-      renderFieldOverview(obj);
+      renderOverview(obj, objType);
       break;
     case "budget":
-      renderBudget(obj.budget);
+      renderBudget(obj.budget, objType);
       break;
     case "todos":
-      renderTodos(obj.todos);
+      renderTodos(obj.todos, objType);
       break;
   }
 }

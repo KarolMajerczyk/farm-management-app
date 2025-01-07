@@ -4,7 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Farm management app</title>
-    <link rel="stylesheet" href="styles/main.css" />
+
+    <!-- SCRIPT IMPORTS -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.14.0/proj4.js"></script>
+    <script src="https://unpkg.com/terraformer@1.0.8"></script>
+    <script src="https://unpkg.com/terraformer-arcgis-parser@1.0.5"></script>
+    <script src="https://unpkg.com/terraformer-wkt-parser@1.1.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+
+    <!-- STYLE IMPORTS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+
+    <link rel="stylesheet" href="./styles/main.css" />
   </head>
   <body>
     <div class="container">
@@ -17,20 +38,13 @@
         <nav class="nav">
           <ul class="nav-list">
             <li class="nav-item active-item">
-              <a href="#"><i class="fa-solid fa-house"></i></a>
+              <a href="#"><i class="fa-solid fa-wheat-awn"></i></a>
             </li>
             <li class="nav-item">
-              <a href="./pages/fields.html">
-                <i class="fa-solid fa-wheat-awn"></i>
-              </a>
+              <a href="./herds.html"><i class="fa-solid fa-cow"></i></a>
             </li>
             <li class="nav-item">
-              <a href="./pages/herds.html"><i class="fa-solid fa-cow"></i></a>
-            </li>
-            <li class="nav-item">
-              <a href="./pages/machines.html">
-                <i class="fa-solid fa-tractor"></i>
-              </a>
+              <a href="./machines.html"><i class="fa-solid fa-tractor"></i></a>
             </li>
           </ul>
         </nav>
@@ -38,51 +52,96 @@
         <!-- USER Avatar -->
         <img class="user-avatar" src="./images/account.webp" alt="" />
       </header>
+
       <!-- APP CONTENT -->
       <main class="app-content">
         <!-- ITEMS PANEL -->
         <aside class="items-panel">
-          <h2 class="secondary-heading">Powiadomienia</h2>
-          <ul id="fields-list" class="items-list"></ul>
+          <h2 class="secondary-heading">Pola</h2>
+          <ul id="fields-list" class="cards-list items-list"></ul>
         </aside>
 
         <!-- MAP CONTAINER -->
         <section>
-          <div id="map"></div>
+          <div id="map">
+            <form class="map-search" action="">
+              <input
+                id="teryt-input"
+                type="text"
+                placeholder="120709_2.0007.4719"
+              />
+
+              <button id="goto-field" type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </form>
+            <button id="add-field" class="button">Dodaj działkę</button>
+          </div>
         </section>
 
         <!-- DETAILS PANEL -->
-        <aside class="details-panel">
-          <h2 class="secondary-heading">Info</h2>
+        <aside class="side-panel">
+          <h2 class="secondary-heading"></h2>
 
-          <section class="details-section">Section 1</section>
-          <!-- <section class="details-section">Section 2</section>
-          <section class="details-section">Section 3</section>
-          <section class="details-section">Section 4</section> -->
+          <!-- OVERVIEW -->
+          <section class="overview visible"></section>
+
+          <!-- BUDGET -->
+          <section class="budget">
+            <select id="dropdown" name="dropdown">
+              <option value="plus">Wszystkie</option>
+              <option value="plus">Przychody</option>
+              <option value="minus">Wydatki</option>
+            </select>
+
+            <ul class="items-list"></ul>
+
+            <form action="">
+              <input type="text" />
+              <select id="dropdown" name="dropdown">
+                <option value="plus">+</option>
+                <option value="minus">-</option>
+              </select>
+              <input type="number" />
+              <button type="submit">Dodaj</button>
+            </form>
+          </section>
+
+          <!-- TODO -->
+          <section class="todos">
+            <input type="date" />
+
+            <ul class="items-list"></ul>
+
+            <form action="">
+              <input type="text" />
+              <button type="submit">Dodaj</button>
+            </form>
+          </section>
 
           <!-- MENU -->
-          <nav class="nav">
+          <nav class="nav menu">
             <ul class="nav-list nav-list-horizontal">
-              <li class="nav-item">
-                <i class="fa-solid fa-house"></i>
+              <li class="nav-item active-item" data-page="overview">
+                <i class="fa-solid fa-chart-pie"></i>
               </li>
-              <li class="nav-item active-item">
-                <i class="fa-solid fa-wheat-awn"></i>
+              <li class="nav-item" data-page="budget">
+                <i class="fa-solid fa-wallet"></i>
               </li>
-              <li class="nav-item">
-                <i class="fa-solid fa-cow"></i>
-              </li>
-              <li class="nav-item">
-                <i class="fa-solid fa-tractor"></i>
+              <li class="nav-item" data-page="todos">
+                <i class="fa-solid fa-list-ul"></i>
               </li>
             </ul>
           </nav>
         </aside>
       </main>
     </div>
+
+    <!-- SCRIPTS -->
     <script
       src="https://kit.fontawesome.com/dc197bfaa7.js"
       crossorigin="anonymous"
     ></script>
+    <script src="./scripts/main.js" type="module"></script>
   </body>
 </html>

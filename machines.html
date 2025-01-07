@@ -4,23 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Farm management app</title>
-    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="./styles/main.css" />
   </head>
   <body>
     <div class="container">
       <!-- HEADER -->
       <header class="app-header">
         <!-- APP LOGO -->
-        <img class="app-logo" src="../images/logo.webp" alt="" />
+        <img class="app-logo" src="./images/logo.webp" alt="" />
 
         <!-- NAVIGATION -->
         <nav class="nav">
           <ul class="nav-list">
             <li class="nav-item">
-              <a href="../index.html"><i class="fa-solid fa-house"></i></a>
-            </li>
-            <li class="nav-item">
-              <a href="./fields.html"><i class="fa-solid fa-wheat-awn"></i></a>
+              <a href="./index.html"><i class="fa-solid fa-wheat-awn"></i></a>
             </li>
             <li class="nav-item">
               <a href="./herds.html"><i class="fa-solid fa-cow"></i></a>
@@ -32,47 +29,23 @@
         </nav>
 
         <!-- USER Avatar -->
-        <img class="user-avatar" src="../images/account.webp" alt="" />
+        <img class="user-avatar" src="./images/account.webp" alt="" />
       </header>
       <!-- APP CONTENT -->
       <main class="app-content">
         <!-- ITEMS PANEL -->
         <aside class="items-panel">
           <h2 class="secondary-heading">Maszyny</h2>
-          <ul id="machines-list" class="items-list">
-            <!-- CARD TILE -->
-            <div class="card-tile active">
-              <div class="card-header">
-                <img src="../images/tractor.png" />
-                <p>Ursus C360</p>
-              </div>
-              <hr class="card-separator" />
-              <div class="card-details">
-                <img src="../images/license-plate.png" />
-                <p>Tablica nr. <span>KLI 4341C</span></p>
-              </div>
-            </div>
-            <div class="card-tile">
-              <div class="card-header">
-                <img src="../images/delivery.png" />
-                <p>Renault Traffic</p>
-              </div>
-              <hr class="card-separator" />
-              <div class="card-details">
-                <img src="../images/license-plate.png" />
-                <p>Tablica nr. <span>KLI 3827A</span></p>
-              </div>
-            </div>
-          </ul>
+          <ul id="machines-list" class="cards-list items-list"></ul>
         </aside>
 
         <!-- MAP CONTAINER -->
         <section class="content">
           <h2 class="secondary-heading">Pliki</h2>
-          <ul id="machines-list" class="cards-list items-list">
+          <ul id="files-list" class="items-list">
             <div class="card-tile" data-id="">
               <div class="card-header">
-                <img src="../images/silnik.jpg" class="card-photo" />
+                <img src="./images/silnik.jpg" class="card-photo" />
               </div>
               <hr class="card-separator" />
               <div class="card-details">
@@ -88,7 +61,7 @@
 
             <div class="card-tile" data-id="">
               <div class="card-header">
-                <img src="../images/silnik2.jpg" class="card-photo" />
+                <img src="./images/silnik2.jpg" class="card-photo" />
               </div>
               <hr class="card-separator" />
               <div class="card-details">
@@ -104,7 +77,7 @@
 
             <div class="card-tile" data-id="">
               <div class="card-header">
-                <img src="../images/ksiazka.webp" class="card-photo" />
+                <img src="./images/ksiazka.webp" class="card-photo" />
               </div>
               <hr class="card-separator" />
               <div class="card-details">
@@ -120,7 +93,7 @@
 
             <div class="card-tile" data-id="">
               <div class="card-header">
-                <img src="../images/text.png" class="card-photo" />
+                <img src="./images/text.png" class="card-photo" />
               </div>
               <hr class="card-separator" />
               <div class="card-details">
@@ -136,7 +109,7 @@
 
             <div class="card-tile" data-id="">
               <div class="card-header">
-                <img src="../images/text.png" class="card-photo" />
+                <img src="./images/text.png" class="card-photo" />
               </div>
               <hr class="card-separator" />
               <div class="card-details">
@@ -153,7 +126,7 @@
             <div class="card-tile" data-id="">
               <div class="card-header">
                 <video controls width="250" height="200px">
-                  <source src="../images/flower.webm" type="video/webm" />
+                  <source src="./images/flower.webm" type="video/webm" />
                 </video>
               </div>
               <hr class="card-separator" />
@@ -170,7 +143,7 @@
 
             <div class="card-tile" data-id="">
               <div class="card-header">
-                <img src="../images/ksiazka.webp" class="card-photo" />
+                <img src="./images/ksiazka.webp" class="card-photo" />
               </div>
               <hr class="card-separator" />
               <div class="card-details">
@@ -186,7 +159,7 @@
 
             <div class="card-tile" data-id="">
               <div class="card-header">
-                <img src="../images/text.png" class="card-photo" />
+                <img src="./images/text.png" class="card-photo" />
               </div>
               <hr class="card-separator" />
               <div class="card-details">
@@ -202,7 +175,7 @@
 
             <div class="card-tile" data-id="">
               <div class="card-header">
-                <img src="../images/text.png" class="card-photo" />
+                <img src="./images/text.png" class="card-photo" />
               </div>
               <hr class="card-separator" />
               <div class="card-details">
@@ -218,7 +191,7 @@
 
             <div class="card-tile" data-id="">
               <div class="card-header">
-                <img src="../images/silnik.jpg" class="card-photo" />
+                <img src="./images/silnik.jpg" class="card-photo" />
               </div>
               <hr class="card-separator" />
               <div class="card-details">
@@ -234,7 +207,7 @@
 
             <div class="card-tile" data-id="">
               <div class="card-header">
-                <img src="../images/silnik2.jpg" class="card-photo" />
+                <img src="./images/silnik2.jpg" class="card-photo" />
               </div>
               <hr class="card-separator" />
               <div class="card-details">
@@ -250,7 +223,7 @@
 
             <div class="card-tile" data-id="">
               <div class="card-header">
-                <img src="../images/text.png" class="card-photo" />
+                <img src="./images/text.png" class="card-photo" />
               </div>
               <hr class="card-separator" />
               <div class="card-details">
@@ -267,14 +240,14 @@
         </section>
 
         <!-- DETAILS PANEL -->
-        <aside class="details-panel visible">
+        <aside class="side-panel visible">
           <h2 class="secondary-heading">Przegląd</h2>
 
           <!-- OVERVIEW -->
-          <section class="details-section overview visible"></section>
+          <section class="overview visible"></section>
 
           <!-- BUDGET -->
-          <section class="details-section budget">
+          <section class="budget">
             <select id="dropdown" name="dropdown">
               <option value="plus">Wszystkie</option>
               <option value="plus">Przychody</option>
@@ -295,7 +268,7 @@
           </section>
 
           <!-- TODO -->
-          <section class="details-section todo">
+          <section class="todos">
             <input type="date" />
 
             <ul class="items-list"></ul>
@@ -315,7 +288,7 @@
               <li class="nav-item" data-page="budget">
                 <i class="fa-solid fa-wallet"></i>
               </li>
-              <li class="nav-item" data-page="todo">
+              <li class="nav-item" data-page="todos">
                 <i class="fa-solid fa-list-ul"></i>
               </li>
             </ul>
@@ -327,6 +300,6 @@
       src="https://kit.fontawesome.com/dc197bfaa7.js"
       crossorigin="anonymous"
     ></script>
-    <script src="../scripts/main.js" type="module"></script>
+    <script src="./scripts/main.js" type="module"></script>
   </body>
 </html>
