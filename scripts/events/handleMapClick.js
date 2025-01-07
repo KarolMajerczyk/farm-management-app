@@ -26,7 +26,7 @@ import {
   showAddFieldButton,
   hideAddFieldButton,
 } from "../services/toggleAddFieldButton.js";
-import { changeDetailsPanelSection } from "../services/changeDetailsPanelSection.js";
+import { changeSidePanelSection } from "../services/changeSidePanelSection.js";
 
 export async function handleMapClick(e) {
   const epsg4326Coord = [e.latlng.lng, e.latlng.lat];
@@ -59,7 +59,7 @@ export async function handleMapClick(e) {
     hideAddFieldButton();
     toggleCardTileActive(fieldCard);
     showDetailsPanel();
-    changeDetailsPanelSection("overview", field);
+    changeSidePanelSection("overview", field);
 
     resetActiveLayer();
     return;

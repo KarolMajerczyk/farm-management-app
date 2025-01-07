@@ -1,6 +1,6 @@
 import { DOM } from "../dom/domElements.js";
 
-export function renderFieldOverviewSection(field) {
+export function renderFieldOverview(field) {
   DOM.detailsPanelHeading.innerText = "Przegląd";
 
   const html = `
@@ -75,5 +75,5 @@ export function renderFieldOverviewSection(field) {
     </div>
   `;
 
-  DOM.fieldOverviewSection.innerHTML = html;
+  DOM.overview.innerHTML = html;
 }

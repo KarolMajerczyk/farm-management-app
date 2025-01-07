@@ -14,7 +14,7 @@ import {
 
 import { getFieldById } from "../api/getFieldById.js";
 import { toggleCardTileActive } from "../services/toggleCardTileActive.js";
-import { renderFieldOverviewSection } from "../services/renderFieldOverviewSection.js";
+import { renderFieldOverview } from "../services/renderFieldOverview.js";
 import {
   hideDetailsPanel,
   showDetailsPanel,
@@ -58,7 +58,7 @@ export const handleMapSearch = async (e) => {
     hideAddFieldButton();
     toggleCardTileActive(fieldCard);
     showDetailsPanel();
-    renderFieldOverviewSection(field);
+    renderFieldOverview(field);
 
     resetActiveLayer();
     return;

@@ -9,7 +9,7 @@ import { handleAddFieldClick } from "./events/handleAddFieldClick.js";
 import { handleMapLoad } from "./events/handleMapLoad.js";
 
 import { DOM } from "./dom/domElements.js";
-import { handleDetailsPanelMenuClick } from "./events/handleDetailsPanelMenuClick.js";
+import { handleSidePanelMenuClick } from "./events/handleSidePanelMenuClick.js";
 
 window.addEventListener("DOMContentLoaded", () => {
   handleMapLoad();
@@ -23,7 +23,5 @@ DOM.mapSearch.addEventListener("click", (e) => handleMapSearch(e));
 DOM.addFieldButton.addEventListener("click", (e) => handleAddFieldClick(e));
 
 DOM.detailsPanelMenu.addEventListener("click", (e) =>
-  handleDetailsPanelMenuClick(e)
+  handleSidePanelMenuClick(e)
 );
-
-

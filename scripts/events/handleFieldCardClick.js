@@ -11,7 +11,7 @@ import {
 } from "../services/renderFieldOnMap.js";
 
 import { hideAddFieldButton } from "../services/toggleAddFieldButton.js";
-import { changeDetailsPanelSection } from "../services/changeDetailsPanelSection.js";
+import { changeSidePanelSection } from "../services/changeSidePanelSection.js";
 
 export async function handleFieldCardClick(e) {
   e.stopPropagation();
@@ -34,6 +34,6 @@ export async function handleFieldCardClick(e) {
   resetActiveLayer();
 
   showDetailsPanel();
-  changeDetailsPanelSection("overview", field);
+  changeSidePanelSection("overview", field);
   flyToFieldBounds(field.location);
 }

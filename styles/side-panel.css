@@ -1,4 +1,4 @@
-.details-panel {
+.side-panel {
   height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -8,20 +8,20 @@
   pointer-events: none;
 }
 
-.details-panel.visible {
+.side-panel.visible {
   opacity: 1;
   visibility: visible;
   pointer-events: all;
 }
 
-.details-section {
+.side-panel section {
   border-top: 1px solid var(--clr-600);
   border-bottom: 1px solid var(--clr-600);
   height: 100%;
   display: none;
 }
 
-.details-section.visible {
+.side-panel section.visible {
   display: grid;
   grid-template-rows: min-content min-content min-content;
   gap: 20px;
@@ -30,10 +30,10 @@
 
 /* TEMP */
 
-.details-section .img {
+.side-panel section .img {
   width: 50px;
 }
 
-.details-section .card-tile {
+.side-panel section .card-tile {
   transform: none;
 }
