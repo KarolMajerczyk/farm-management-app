@@ -33,7 +33,7 @@ export const handleAddFieldClick = async (e) => {
 
   const fieldCard = document.querySelector(`[data-id="${field.id}"]`);
 
-  toggleElementActive(fieldCard);
+  toggleElementActive(fieldCard, true);
 
   toggleElementVisibility(DOM.addFieldButton, false);
   toggleElementVisibility(DOM.sidePanel, true);
