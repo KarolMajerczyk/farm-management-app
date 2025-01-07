@@ -1,7 +1,7 @@
 import { DOM } from "../dom/domElements.js";
 
 export function renderFieldOverview(field) {
-  DOM.detailsPanelHeading.innerText = "Przegląd";
+  DOM.sidePanelHeading.innerText = "Przegląd";
 
   const html = `
     <div class="card-tile">

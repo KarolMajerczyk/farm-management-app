@@ -3,7 +3,7 @@ import { DOM } from "../dom/domElements.js";
 export function renderTodos(todos) {
   let html = "";
 
-  DOM.detailsPanelHeading.innerText = "Lista transakcji";
+  DOM.sidePanelHeading.innerText = "Lista zadań";
 
   todos.forEach((entry) => {
     html += `

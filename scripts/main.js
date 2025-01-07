@@ -1,27 +1,36 @@
-import { map } from "./map/map.js";
+import {
+  handleLeafletMapInitialization,
+  map,
+} from "./map/handleLeafletMapInitialization.js";
 
 import { handleMapDrag } from "./events/handleMapDrag.js";
 import { handleMapClick } from "./events/handleMapClick.js";
 
-import { handleFieldCardClick } from "./events/handleFieldCardClick.js";
+import { handleCardTileClick } from "./events/handleCardTileClick.js";
 import { handleMapSearch } from "./events/handleMapSearch.js";
 import { handleAddFieldClick } from "./events/handleAddFieldClick.js";
 import { handleMapLoad } from "./events/handleMapLoad.js";
 
 import { DOM } from "./dom/domElements.js";
 import { handleSidePanelMenuClick } from "./events/handleSidePanelMenuClick.js";
+import { handleCardsListLoad } from "./events/handleCardsListLoad.js";
 
-window.addEventListener("DOMContentLoaded", () => {
-  handleMapLoad();
+document.addEventListener("DOMContentLoaded", () => {
+  const mapContainer = document.getElementById("map");
 
-  map.on("drag", handleMapDrag);
-  map.on("click", (e) => handleMapClick(e));
+  if (mapContainer) {
+    handleLeafletMapInitialization();
+    handleMapLoad();
+
+    map.on("drag", handleMapDrag);
+    map.on("click", (e) => handleMapClick(e));
+
+    DOM.mapSearch.addEventListener("click", (e) => handleMapSearch(e));
+    DOM.addFieldButton.addEventListener("click", (e) => handleAddFieldClick(e));
+  }
+
+  handleCardsListLoad();
 });
 
-DOM.fieldsList.addEventListener("click", (e) => handleFieldCardClick(e));
-DOM.mapSearch.addEventListener("click", (e) => handleMapSearch(e));
-DOM.addFieldButton.addEventListener("click", (e) => handleAddFieldClick(e));
-
-DOM.detailsPanelMenu.addEventListener("click", (e) =>
-  handleSidePanelMenuClick(e)
-);
+DOM.cardsList.addEventListener("click", (e) => handleCardTileClick(e));
+DOM.sidePanelMenu.addEventListener("click", (e) => handleSidePanelMenuClick(e));

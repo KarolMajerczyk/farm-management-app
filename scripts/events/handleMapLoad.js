@@ -4,8 +4,6 @@ import {
   resetActiveLayer,
 } from "../services/renderFieldOnMap.js";
 
-import { renderFieldsList } from "../services/renderFieldsList.js";
-
 export async function handleMapLoad() {
   const fields = await getFields();
 
@@ -14,7 +12,4 @@ export async function handleMapLoad() {
   });
 
   resetActiveLayer();
-  renderFieldsList(fields);
 }
-
-

@@ -1,7 +1,7 @@
 import { convertWKTToGeoJSON } from "../utils/converter.js";
 
 export function createField(id, geojson, data) {
-
+  console.log(data);
   return {
     id: id,
     number: data[6].replace("\n", ""),

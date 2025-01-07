@@ -17,10 +17,7 @@ import {
 import { setMapSearchFormValue } from "../services/setMapSearchFormValue.js";
 import { getFieldById } from "../api/getFieldById.js";
 import { toggleCardTileActive } from "../services/toggleCardTileActive.js";
-import {
-  hideDetailsPanel,
-  showDetailsPanel,
-} from "../services/toggleDetailsPanel.js";
+import { hideSidePanel, showSidePanel } from "../services/toggleSidePanel.js";
 
 import {
   showAddFieldButton,
@@ -58,7 +55,7 @@ export async function handleMapClick(e) {
 
     hideAddFieldButton();
     toggleCardTileActive(fieldCard);
-    showDetailsPanel();
+    showSidePanel();
     changeSidePanelSection("overview", field);
 
     resetActiveLayer();
@@ -66,7 +63,7 @@ export async function handleMapClick(e) {
   }
 
   toggleCardTileActive();
-  hideDetailsPanel();
+  hideSidePanel();
   showAddFieldButton();
 
   renderFieldOnMap(fieldPolygon);

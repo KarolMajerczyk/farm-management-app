@@ -3,7 +3,7 @@ import { DOM } from "../dom/domElements.js";
 export function renderBudget(budget) {
   let html = "";
 
-  DOM.detailsPanelHeading.innerText = "Lista transakcji";
+  DOM.sidePanelHeading.innerText = "Lista transakcji";
 
   budget.forEach((entry) => {
     html += `

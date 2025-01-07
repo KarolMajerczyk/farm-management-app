@@ -1,4 +1,4 @@
-import { map } from "../map/map.js";
+import { map } from "../map/handleLeafletMapInitialization.js";
 
 export const flyToFieldBounds = (polygon) => {
   const fieldLayer = L.geoJSON(polygon);
@@ -7,4 +7,3 @@ export const flyToFieldBounds = (polygon) => {
     duration: 2,
   });
 };
-

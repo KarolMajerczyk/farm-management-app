@@ -8,7 +8,7 @@ export async function renderFieldsList(fields) {
   fields = populateFieldsWithRandomCrops(fields);
 
   fields.reverse().forEach((field) => {
-    html += `<div class="card-tile field" data-id="${field.id}">
+    html += `<div class="card-tile field" data-id="${field.id}" data-type="field">
               <div class="card-header">
                 <p class="card-image">${field.crop.image}</p>
                 <p>${field.crop.name}</p>
@@ -22,7 +22,7 @@ export async function renderFieldsList(fields) {
             `;
   });
 
-  DOM.fieldsList.innerHTML = html;
+  DOM.cardsList.innerHTML = html;
 }
 
 function populateFieldsWithRandomCrops(fields) {

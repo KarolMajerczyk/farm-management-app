@@ -1,10 +1,10 @@
-.details-section.todo.visible,
-.details-section.budget.visible {
+.side-panel .todos.visible,
+.side-panel .budget.visible {
   display: grid;
   grid-template-rows: auto 1fr auto;
 }
 
-.details-panel .items-list {
+.side-panel .items-list {
   /* reset */
   padding: 0px;
   border-top: none;
@@ -21,7 +21,7 @@
   overflow-y: auto;
 }
 
-.details-panel .list-item {
+.side-panel .list-item {
   border-bottom: 2px solid var(--clr-800);
   padding: 16px;
   display: flex;
@@ -31,41 +31,41 @@
   background-color: var(--clr-700);
 }
 
-.details-panel .list-item div {
+.side-panel .list-item div {
   display: grid;
   gap: 8px;
 }
 
-.details-panel .list-item .item-image {
+.side-panel .list-item .item-image {
   font-size: 32px;
   text-align: center;
 }
 
-.details-panel .list-item .item-image.income {
+.side-panel .list-item .item-image.income {
   color: rgb(43, 148, 43);
 }
 
-.details-panel .list-item .item-image.expense {
+.side-panel .list-item .item-image.expense {
   color: rgb(179, 68, 68);
 }
 
-.details-panel .list-item span {
+.side-panel .list-item span {
   margin-left: 4px;
   font-weight: 900;
 }
 
-.details-panel .list-item input[type="checkbox"]:checked + p {
+.side-panel .list-item input[type="checkbox"]:checked + p {
   text-decoration: line-through;
 }
 
-.details-panel input,
-.details-panel button {
+.side-panel input,
+.side-panel button {
   font-size: 16px;
   border: none;
   border-radius: 5px;
 }
 
-.details-panel input {
+.side-panel input {
   background-color: var(--clr-700);
   color: var(--clr-100);
 
@@ -73,7 +73,7 @@
   text-align: center;
 }
 
-.details-panel button {
+.side-panel button {
   background-color: var(--clr-accent-1);
   color: var(--clr-900);
 
@@ -81,10 +81,10 @@
   cursor: pointer;
 }
 
-.details-panel button i {
+.side-panel button i {
   pointer-events: none;
 }
 
-.details-panel button:hover {
+.side-panel button:hover {
   background-color: var(--clr-accent-2);
 }
