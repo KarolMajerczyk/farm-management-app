@@ -5,6 +5,7 @@ export const machines = [
     name: "Ursus C360",
     plate: "KLI 4341C",
     type: "traktor",
+    image: "./images/tractor.png",
     hoursUsed: 1200,
 
     // FILES

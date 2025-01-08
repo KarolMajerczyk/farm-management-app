@@ -1,7 +1,7 @@
 import { DOM } from "../dom/domElements.js";
 import { createField } from "../models/fieldFactory.js";
 
-import { addField } from "../api/addField.js";
+import { addItem } from "../api/addItem.js";
 import { getItems } from "../api/getItems.js";
 
 import { getFieldData } from "../api/getFieldData.js";
@@ -26,7 +26,7 @@ export const handleAddFieldClick = async (e) => {
 
   const field = createField(fieldId, fieldGeometry, fieldData);
 
-  await addField(field);
+  await addItem("fields", field);
 
   const fields = await getItems("fields");
 

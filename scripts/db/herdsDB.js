@@ -5,6 +5,7 @@ export const herds = [
     name: "Stado 1",
     animal: "Krowa",
     species: "Polska Biała",
+    image: "./images/cow.png",
 
     // ANIMALS
     animals: [
@@ -14,7 +15,7 @@ export const herds = [
         plate: "PL005076768502",
         age: 5,
         breed: "Holstein",
-      }
+      },
     ],
 
     // BUDGET

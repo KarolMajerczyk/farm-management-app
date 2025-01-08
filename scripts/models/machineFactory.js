@@ -1,10 +1,11 @@
 export function createMachine() {
   return {
     // INFO
-    id: "machine-2",
-    name: "nazwa-maszyny",
-    plate: "tablica-rejestracyjna",
-    type: "typ-maszyny",
+    id: "machine-id",
+    name: "",
+    image: "./images/machine.png",
+    plate: "",
+    type: "",
     hoursUsed: 0,
 
     // FILES

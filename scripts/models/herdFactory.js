@@ -1,10 +1,11 @@
 export function createHerd() {
   return {
     // INFO
-    id: "herd-2",
-    name: "nazwa stada",
-    animal: "typ zwierzęcia",
-    species: "rasa zwierzęcia",
+    id: "herd-id",
+    name: "",
+    image: "./images/animal.png",
+    animal: "",
+    species: "",
 
     // ANIMALS
     animals: [],

@@ -8,6 +8,7 @@ import { renderCardsList } from "../services/renderCardsList.js";
 import { toggleElementActive } from "../services/toggleElementActive.js";
 import { toggleElementVisibility } from "../services/toggleElementVisibility.js";
 import { renderOverview } from "../services/renderOverview.js";
+import { renderContentList } from "../services/renderContentList.js";
 
 export const handleAddHerdClick = async (e) => {
   e.preventDefault();
@@ -26,4 +27,5 @@ export const handleAddHerdClick = async (e) => {
   toggleElementActive(herdCard, true);
   toggleElementVisibility(DOM.sidePanel, true);
   renderOverview(herd, "herd");
+  renderContentList(herd, "herd");
 };

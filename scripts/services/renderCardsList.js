@@ -45,7 +45,7 @@ function generateHerdCardsHTML(herds) {
   herds.reverse().forEach((herd) => {
     html += `<div class="card-tile" data-id="${herd.id}" data-type="herd">
               <div class="card-header">
-                <img src="./images/cow.png" />
+                <img src="${herd.image}" />
                 <p>${herd.name}</p>
               </div>
               <hr class="card-separator" />
@@ -66,7 +66,7 @@ function generateMachineCardsHTML(machines) {
   machines.reverse().forEach((machine) => {
     html += `<div class="card-tile" data-id="${machine.id}" data-type="machine">
               <div class="card-header">
-                <img src="./images/tractor.png" />
+                <img src="${machine.image}" />
                 <p>${machine.name}</p>
               </div>
               <hr class="card-separator" />
