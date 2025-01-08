@@ -23,5 +23,10 @@
 .content {
   background: var(--clr-900);
   max-height: 100vh;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+}
+
+.content .items-list {
+  margin: 16px 16px 16px;
 }

@@ -11,9 +11,10 @@ export const herds = [
       {
         id: "animal-1",
         name: "Bessie",
+        plate: "PL005076768502",
         age: 5,
         breed: "Holstein",
-      },
+      }
     ],
 
     // BUDGET

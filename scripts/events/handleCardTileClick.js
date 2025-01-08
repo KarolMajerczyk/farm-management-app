@@ -13,6 +13,7 @@ import {
 } from "../services/renderFieldOnMap.js";
 
 import { renderOverview } from "../services/renderOverview.js";
+import { renderContentList } from "../services/renderContentList.js";
 
 export async function handleCardTileClick(e) {
   e.stopPropagation();
@@ -31,13 +32,17 @@ export async function handleCardTileClick(e) {
 
   if (objType === "field") {
     handleFieldCardTileClick(obj, el);
+  } else if (objType === "herd") {
+    renderContentList(obj.animals, "animal");
+  } else if (objType === "machine") {
+    renderContentList(obj.files, "file");
   }
 
   toggleElementVisibility(DOM.sidePanel, true);
   renderOverview(obj, objType);
 }
 
-async function handleFieldCardTileClick(obj, el) {
+function handleFieldCardTileClick(obj, el) {
   toggleElementVisibility(DOM.addFieldButton, false);
   setMapSearchFormValue(el.dataset.id);
 

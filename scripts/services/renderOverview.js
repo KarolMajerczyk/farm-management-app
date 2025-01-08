@@ -148,7 +148,8 @@ function generateMachineOverviewHTML(machine) {
   return `
   <div class="card-tile">
     <div class="card-header">
-      <p class="card-title">Informacje o maszynie</p>
+      <p class="card-title">Informacje</p>
+      <i class="card-image fa-solid fa-pen"></i>
     </div>
     <hr class="card-separator" />
     <div class="card-details">
@@ -169,6 +170,13 @@ function generateMachineOverviewHTML(machine) {
     <div class="card-details">
       <i class="card-image fa-solid fa-expand"></i>
       <p>Motogodziny: <span>${machine.hoursUsed} ha</span></p>
+    </div>
+  </div>
+
+  <div class="card-tile">
+    <div class="card-details">
+      <img src="./images/count.png" />
+      <p>Liczba plików: <span>${machine.files.length}</span></p>
     </div>
   </div>
 `;

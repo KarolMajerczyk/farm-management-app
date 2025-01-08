@@ -1,5 +1,6 @@
 export const DOM = {
   cardsList: document.querySelector(".cards-list"),
+  contentList: document.querySelector(".content .items-list"),
   goToFieldButton: document.querySelector("#goto-field"),
   addFieldButton: document.querySelector("#add-field"),
   terytInput: document.querySelector("#teryt-input"),

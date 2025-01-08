@@ -66,7 +66,7 @@
   pointer-events: none;
 }
 
-.active {
+.card-tile.active {
   border-left: 12px solid var(--clr-accent-1);
 }
 
@@ -76,26 +76,7 @@
   object-fit: cover;
 }
 
-#animals-list,
-#files-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  gap: 30px;
-
-  padding: 20px 30px;
-  margin: 20px 20px 20px 0px;
-
-  max-height: 100%;
-}
-
-#animals-list .card-tile,
-#files-list .card-tile {
-  border-left: 0px;
-  border-right: 0px;
-  border-bottom: 12px solid var(--clr-700);
-}
-
-#animals-list .card-tile.active,
-#files-list .card-tile.active {
-  border-bottom: 12px solid var(--clr-accent-1);
+.content .card-tile {
+  max-width: 33%;
+  border: 0px;
 }

@@ -9,6 +9,8 @@
 
   cursor: pointer;
   transition: all 0.3s ease;
+
+  margin: 10px;
 }
 
 .button:hover {
@@ -25,4 +27,10 @@
   opacity: 1;
   visibility: visible;
   pointer-events: all;
+}
+
+.content .button {
+  width: 200px;
+  margin: 0 auto;
+  margin-bottom: 10px;
 }

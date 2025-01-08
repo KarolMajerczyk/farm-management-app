@@ -12,7 +12,8 @@ export const machines = [
       {
         id: "file-1",
         name: "nazwa-pliku",
-        type: "video",
+        type: "image",
+        date: "2025-01-10",
       },
     ],
 
