@@ -11,7 +11,7 @@ import {
   isTheSameLayer,
 } from "../services/renderFieldOnMap.js";
 
-import { getItemById } from "../api/getItemById.js";
+import { getItemById } from "../db/db.js";
 import { toggleElementActive } from "../services/toggleElementActive.js";
 import { toggleElementVisibility } from "../services/toggleElementVisibility.js";
 
@@ -31,7 +31,7 @@ export async function controlMapRenderPolygons(fieldId, fieldGeometry) {
     removeFieldFromMap(activeLayer);
   }
 
-  const field = await getItemById("field", fieldId);
+  const field = await getItemById("fields", fieldId);
 
   if (field) {
     const fieldCard = document.querySelector(`[data-id="${field.id}"]`);

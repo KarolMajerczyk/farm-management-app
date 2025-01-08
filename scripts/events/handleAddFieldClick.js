@@ -1,10 +1,8 @@
 import { DOM } from "../dom/domElements.js";
 import { createField } from "../models/fieldFactory.js";
 
-import { addItem } from "../api/addItem.js";
-import { getItems } from "../api/getItems.js";
+import { addItem, getItems, getFieldData } from "../db/db.js";
 
-import { getFieldData } from "../api/getFieldData.js";
 import { resetActiveLayer } from "../services/renderFieldOnMap.js";
 
 import { renderCardsList } from "../services/renderCardsList.js";
@@ -34,9 +32,7 @@ export const handleAddFieldClick = async (e) => {
   const fieldCard = document.querySelector(`[data-id="${field.id}"]`);
 
   toggleElementActive(fieldCard, true);
-
   toggleElementVisibility(DOM.addFieldButton, false);
   toggleElementVisibility(DOM.sidePanel, true);
-
   renderOverview(field, "field");
 };

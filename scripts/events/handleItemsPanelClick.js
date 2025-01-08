@@ -1,5 +1,4 @@
-import { deleteItem } from "../api/deleteItem.js";
-import { getItems } from "../api/getItems.js";
+import { getItems, deleteItem } from "../db/db.js";
 import { renderCardsList } from "../services/renderCardsList.js";
 
 export async function handleItemsPanelClick(e) {
@@ -9,10 +8,9 @@ export async function handleItemsPanelClick(e) {
     const objType = e.target.parentElement.dataset.type;
     const objId = e.target.parentElement.dataset.id;
 
-    await deleteItem(objType, objId);
+    await deleteItem(objType + "s", objId);
 
     const objArr = await getItems(objType + "s");
-    console.log(objArr);
 
     renderCardsList(objArr, objType);
   }

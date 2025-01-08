@@ -1,6 +1,6 @@
 import { DOM } from "../dom/domElements.js";
 
-import { getFieldData } from "../api/getFieldData.js";
+import { getFieldData } from "../db/db.js";
 
 import { controlMapRenderPolygons } from "../services/controlMapRenderPolygon.js";
 

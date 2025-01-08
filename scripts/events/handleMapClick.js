@@ -1,6 +1,6 @@
 import { convertEPSG4326ToEPSG2180 } from "../utils/converter.js";
 
-import { getFieldData } from "../api/getFieldData.js";
+import { getFieldData } from "../db/db.js";
 
 import { setMapSearchFormValue } from "../services/setMapSearchFormValue.js";
 import { controlMapRenderPolygons } from "../services/controlMapRenderPolygon.js";

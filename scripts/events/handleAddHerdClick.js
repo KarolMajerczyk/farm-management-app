@@ -1,8 +1,7 @@
 import { DOM } from "../dom/domElements.js";
 import { createHerd } from "../models/herdFactory.js";
 
-import { addItem } from "../api/addItem.js";
-import { getItems } from "../api/getItems.js";
+import { addItem, getItems } from "../db/db.js";
 
 import { renderCardsList } from "../services/renderCardsList.js";
 import { toggleElementActive } from "../services/toggleElementActive.js";

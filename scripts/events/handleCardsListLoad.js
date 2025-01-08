@@ -1,6 +1,6 @@
 import { renderCardsList } from "../services/renderCardsList.js";
 
-import { getItems } from "../api/getItems.js";
+import { getItems } from "../db/db.js";
 
 export async function handleCardsListLoad() {
   const fieldsList = document.getElementById("fields-list");

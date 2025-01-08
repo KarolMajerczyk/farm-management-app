@@ -1,4 +1,4 @@
-import { map } from "../events/handleLeafletMapInitialization.js";
+import { map } from "../events/handleMapInitialization.js";
 
 export const flyToFieldBounds = (polygon) => {
   const fieldLayer = L.geoJSON(polygon);

@@ -1,6 +1,6 @@
 import { DOM } from "../dom/domElements.js";
 
-import { getItemById } from "../api/getItemById.js";
+import { getItemById } from "../db/db.js";
 import { flyToFieldBounds } from "../services/flyToFieldBounds.js";
 import { toggleElementActive } from "../services/toggleElementActive.js";
 import { setMapSearchFormValue } from "../services/setMapSearchFormValue.js";
@@ -26,7 +26,7 @@ export async function handleCardTileClick(e) {
   let obj;
 
   toggleElementActive(el, true);
-  obj = await getItemById(objType, el.dataset.id);
+  obj = await getItemById(objType + "s", el.dataset.id);
 
   if (objType === "field") {
     handleFieldCardTileClick(obj, el);

@@ -2,7 +2,7 @@ import { renderOverview } from "../services/renderOverview.js";
 import { renderBudget } from "../services/renderBudget.js";
 import { renderTodos } from "../services/renderTodos.js";
 import { toggleElementActive } from "../services/toggleElementActive.js";
-import { getItemById } from "../api/getItemById.js";
+import { getItemById } from "../db/db.js";
 
 export async function handleSidePanelMenuClick(e) {
   if (!e.target.classList.contains("nav-item")) {

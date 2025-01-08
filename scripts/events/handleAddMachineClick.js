@@ -1,8 +1,7 @@
 import { DOM } from "../dom/domElements.js";
 import { createMachine } from "../models/machineFactory.js";
 
-import { addItem } from "../api/addItem.js";
-import { getItems } from "../api/getItems.js";
+import { addItem, getItems } from "../db/db.js";
 
 import { renderCardsList } from "../services/renderCardsList.js";
 import { toggleElementActive } from "../services/toggleElementActive.js";
@@ -26,5 +25,6 @@ export const handleAddMachineClick = async (e) => {
   toggleElementActive(machineCard, true);
   toggleElementVisibility(DOM.sidePanel, true);
   renderOverview(machine, "machine");
+  
   renderContentList(machine, "machine");
 };

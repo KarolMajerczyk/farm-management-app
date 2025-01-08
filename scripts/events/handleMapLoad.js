@@ -1,4 +1,4 @@
-import { getItems } from "../api/getItems.js";
+import { getItems } from "../db/db.js";
 import {
   renderFieldOnMap,
   resetActiveLayer,
