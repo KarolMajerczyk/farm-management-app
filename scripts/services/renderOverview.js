@@ -66,9 +66,31 @@ export function renderOverview(obj, objType) {
 
 function generateFieldOverviewHTML(field) {
   return `
+  <div class="card-tile">
+      <div class="card-header">
+        <p class="card-title">Informacje</p>
+        <i class="card-image fa-solid fa-pen"></i>
+      </div>
+       <hr class="card-separator" />
+      <div class="card-details">
+        <p class="card-image"><img src="./images/field.png"></p>
+        <p>Nazwa pola: <span>${field.name}</span></p>
+      </div>
+      <hr class="card-separator" />
+      <div class="card-details">
+        <p class="card-image"><img src="${field.image}"></p>
+        <p>Rodzaj uprawy: <span>${field.plant}</span></p>
+      </div>
+      <hr class="card-separator" />
+      <div class="card-details">
+        <i class="card-image fa-solid fa-circle-info"></i>
+        <p>Gatunek: <span>${field.seed}</span></p>
+      </div>
+    </div>
+
     <div class="card-tile">
       <div class="card-header">
-        <p class="card-title">Informacje o działce</p>
+        <p class="card-title">Dane o działce</p>
       </div>
       <hr class="card-separator" />
       <div class="card-details">
@@ -82,29 +104,8 @@ function generateFieldOverviewHTML(field) {
       </div>
       <hr class="card-separator" />
       <div class="card-details">
-        <i class="card-image fa-solid fa-earth-europe"></i>
-        <p>Województwo: <span>${field.voivodeship}</span></p>
-      </div>
-      <hr class="card-separator" />
-      <div class="card-details">
         <i class="card-image fa-solid fa-expand"></i>
         <p>Rozmiar: <span>${field.area} ha</span></p>
-      </div>
-    </div>
-
-    <div class="card-tile">
-      <div class="card-header">
-        <p class="card-title">Informacje o uprawie</p>
-      </div>
-      <hr class="card-separator" />
-      <div class="card-details">
-        <p class="card-image"><img src="${field.image}"></p>
-        <p>Rodzaj uprawy <span>${field.name}</span></p>
-      </div>
-      <hr class="card-separator" />
-      <div class="card-details">
-        <i class="card-image fa-solid fa-circle-info"></i>
-        <p>Gatunek <span>${field.seed}</span></p>
       </div>
     </div>
   `;
@@ -114,7 +115,8 @@ function generateHerdOverviewHTML(herd) {
   return `
   <div class="card-tile">
     <div class="card-header">
-      <p class="card-title">Informacje o stadzie</p>
+      <p class="card-title">Informacje</p>
+      <i class="card-image fa-solid fa-pen"></i>
     </div>
     <hr class="card-separator" />
     <div class="card-details">
@@ -124,11 +126,18 @@ function generateHerdOverviewHTML(herd) {
     <hr class="card-separator" />
     <div class="card-details">
       <i class="card-image fa-solid fa-earth-europe"></i>
-      <p>Typ stada: <span>${herd.type}</span></p>
+      <p>Zwierzę: <span>${herd.animal}</span></p>
     </div>
     <hr class="card-separator" />
     <div class="card-details">
       <i class="card-image fa-solid fa-earth-europe"></i>
+      <p>Gatunek: <span>${herd.species}</span></p>
+    </div>
+  </div>
+
+  <div class="card-tile">
+    <div class="card-details">
+      <img src="./images/count.png" />
       <p>Liczba sztuk: <span>${herd.animals.length}</span></p>
     </div>
   </div>

@@ -4,12 +4,17 @@ export const machines = [
     id: "machine-2",
     name: "Ursus C360",
     plate: "KLI 4341C",
-
     type: "traktor",
-    status: "Operational",
-    lastMaintenance: "2024-12-15",
-    nextMaintenance: "2025-06-15",
     hoursUsed: 1200,
+
+    // FILES
+    files: [
+      {
+        id: "file-1",
+        name: "nazwa-pliku",
+        type: "video",
+      },
+    ],
 
     // BUDGETS
     budget: [

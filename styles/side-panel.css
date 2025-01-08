@@ -1,5 +1,6 @@
 .side-panel {
   height: 100vh;
+
   display: grid;
   grid-template-rows: auto 1fr auto;
 
@@ -17,13 +18,12 @@
 .side-panel section {
   border-top: 1px solid var(--clr-600);
   border-bottom: 1px solid var(--clr-600);
-  height: 100%;
   display: none;
 }
 
 .side-panel section.visible {
-  display: grid;
-  grid-template-rows: min-content min-content min-content;
+  display: flex;
+  flex-direction: column;
   gap: 20px;
   padding: 28px;
 }

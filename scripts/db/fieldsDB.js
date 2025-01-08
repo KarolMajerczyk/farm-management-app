@@ -2,7 +2,7 @@ export const fields = [
   {
     // DETAILS
     id: "120709_2.0007.4719",
-    name: "Pole pszenicy",
+    name: "Na bolsęgowie",
     number: 4719,
     area: 0.5,
     image: "./images/wheat.png",
@@ -41,7 +41,8 @@ export const fields = [
     },
 
     // SEED
-    seed: "Pszenica ozima",
+    plant: "Pszenica",
+    seed: "Granta",
 
     // BUDGET
     budget: [
