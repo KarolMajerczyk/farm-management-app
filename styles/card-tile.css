@@ -1,6 +1,36 @@
 .card-tile {
   cursor: pointer;
+  display: flex;
+  transition: all 0.5s ease;
+}
 
+.card-tile:hover {
+  background-color: var(--clr-600);
+  transform: scale(1.02);
+}
+
+.card-tile button {
+  display: none;
+  padding: 8px 16px;
+  color: rgb(175, 69, 69);
+  background: var(--clr-700);
+  border: none;
+  border-radius: 0px;
+}
+
+.card-tile:hover button {
+  display: block;
+}
+
+.card-tile button:hover {
+  background: rgb(175, 69, 69);
+  color: var(--clr-100);
+
+  cursor: pointer;
+}
+
+.card-content {
+  flex: 1;
   display: grid;
   gap: 12px;
 
@@ -10,14 +40,7 @@
   border-left: 12px solid var(--clr-700);
   border-right: 12px solid var(--clr-700);
 
-  transition: all 0.3s ease;
-
   box-shadow: 0px 0px 8px rgb(32, 32, 32);
-}
-
-.card-tile:hover {
-  background-color: var(--clr-600);
-  transform: scale(1.05);
 }
 
 .card-tile span {
@@ -62,7 +85,7 @@
   text-align: center;
 }
 
-.card-tile > * {
+.card-tile .card-content {
   pointer-events: none;
 }
 

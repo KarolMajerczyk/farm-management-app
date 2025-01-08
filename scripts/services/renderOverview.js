@@ -1,6 +1,7 @@
 import { DOM } from "../dom/domElements.js";
 
 export function renderOverview(obj, objType) {
+  resetSidePanel();
   DOM.sidePanelHeading.innerText = "Przegląd";
 
   let html = "";
@@ -33,6 +34,8 @@ export function renderOverview(obj, objType) {
 
   html += `
   <div class="card-tile">
+      <div class="card-content">
+  
       <div class="card-header">
         <p class="card-title">Budżet</p>
       </div>
@@ -52,12 +55,16 @@ export function renderOverview(obj, objType) {
         <p>Saldo: <span>${income - expense} zł</span></p>
       </div>
     </div>
+    </div>
 
     <div class="card-tile">
+      <div class="card-content">
+
       <div class="card-details">
         <i class="card-image fa-solid fa-list-check"></i>
         <p>Zadania do wykonania: <span>${todosLeft.length}</span></p>
       </div>
+    </div>
     </div>
   `;
 
@@ -67,9 +74,13 @@ export function renderOverview(obj, objType) {
 function generateFieldOverviewHTML(field) {
   return `
   <div class="card-tile">
+  <button>
+        <i class="card-image fa-solid fa-pen"></i>
+      </button>
+      <div class="card-content">
+
       <div class="card-header">
         <p class="card-title">Informacje</p>
-        <i class="card-image fa-solid fa-pen"></i>
       </div>
        <hr class="card-separator" />
       <div class="card-details">
@@ -87,8 +98,11 @@ function generateFieldOverviewHTML(field) {
         <p>Gatunek: <span>${field.seed}</span></p>
       </div>
     </div>
+    </div>
 
     <div class="card-tile">
+      <div class="card-content">
+
       <div class="card-header">
         <p class="card-title">Dane o działce</p>
       </div>
@@ -108,15 +122,20 @@ function generateFieldOverviewHTML(field) {
         <p>Rozmiar: <span>${field.area} ha</span></p>
       </div>
     </div>
+    </div>
   `;
 }
 
 function generateHerdOverviewHTML(herd) {
   return `
   <div class="card-tile">
+  <button>
+        <i class="card-image fa-solid fa-pen"></i>
+      </button>
+      <div class="card-content">
+
     <div class="card-header">
       <p class="card-title">Informacje</p>
-      <i class="card-image fa-solid fa-pen"></i>
     </div>
     <hr class="card-separator" />
     <div class="card-details">
@@ -134,12 +153,16 @@ function generateHerdOverviewHTML(herd) {
       <p>Gatunek: <span>${herd.species}</span></p>
     </div>
   </div>
+  </div>
 
   <div class="card-tile">
+      <div class="card-content">
+
     <div class="card-details">
       <img src="./images/count.png" />
       <p>Liczba sztuk: <span>${herd.animals.length}</span></p>
     </div>
+  </div>
   </div>
 `;
 }
@@ -147,9 +170,13 @@ function generateHerdOverviewHTML(herd) {
 function generateMachineOverviewHTML(machine) {
   return `
   <div class="card-tile">
+  <button>
+        <i class="card-image fa-solid fa-pen"></i>
+      </button>
+      <div class="card-content">
+
     <div class="card-header">
       <p class="card-title">Informacje</p>
-      <i class="card-image fa-solid fa-pen"></i>
     </div>
     <hr class="card-separator" />
     <div class="card-details">
@@ -172,12 +199,30 @@ function generateMachineOverviewHTML(machine) {
       <p>Motogodziny: <span>${machine.hoursUsed} ha</span></p>
     </div>
   </div>
+  </div>
 
   <div class="card-tile">
+      <div class="card-content">
+
     <div class="card-details">
       <img src="./images/count.png" />
       <p>Liczba plików: <span>${machine.files.length}</span></p>
     </div>
   </div>
+  </div>
 `;
+}
+
+function resetSidePanel() {
+  const currentSection = document.querySelector(".side-panel .visible");
+  currentSection.classList.remove("visible");
+
+  const overview = document.querySelector(`.side-panel .overview`);
+  overview.classList.add("visible");
+
+  const currentMenuBtn = document.querySelector(".side-panel .active");
+  currentMenuBtn.classList.remove("active");
+
+  const overviewBtn = document.querySelectorAll(".side-panel .nav-item")[0];
+  overviewBtn.classList.add("active");
 }

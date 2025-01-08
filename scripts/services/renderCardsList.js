@@ -22,18 +22,23 @@ function generateFieldCardsHTML(fields) {
   let html = "";
 
   fields.reverse().forEach((field) => {
-    html += `<div class="card-tile" data-id="${field.id}" data-type="field">
-                <div class="card-header">
-                  <p class="card-image"><img src="${field.image}"></p>
-                  <p>${field.name}</p>
-                </div>
-                <hr class="card-separator" />
-                <div class="card-details">
-                  <i class="card-image fa-solid fa-location-crosshairs"></i>
-                  <p>Działka nr. <span>${field.number}</span></p>
-                </div>
-              </div>
-              `;
+    html += `
+    <div class="card-tile" data-id="${field.id}" data-type="field">
+      <button>
+        <i class="card-image fa-solid fa-trash"></i>
+      </button>
+      <div class="card-content">
+        <div class="card-header">
+          <p class="card-image"><img src="${field.image}"></p>
+          <p>${field.name}</p>
+        </div>
+        <hr class="card-separator" />
+        <div class="card-details">
+          <i class="card-image fa-solid fa-location-crosshairs"></i>
+          <p>Działka nr. <span>${field.number}</span></p>
+        </div>  
+      </div>        
+    </div>            `;
   });
 
   return html;
@@ -44,6 +49,10 @@ function generateHerdCardsHTML(herds) {
 
   herds.reverse().forEach((herd) => {
     html += `<div class="card-tile" data-id="${herd.id}" data-type="herd">
+    <button>
+        <i class="card-image fa-solid fa-trash"></i>
+      </button>
+      <div class="card-content">
               <div class="card-header">
                 <img src="${herd.image}" />
                 <p>${herd.name}</p>
@@ -54,6 +63,7 @@ function generateHerdCardsHTML(herds) {
                 <p>Liczba sztuk: <span>${herd.animals.length}</span></p>
               </div>
             </div>
+            </div> 
             `;
   });
 
@@ -65,7 +75,11 @@ function generateMachineCardsHTML(machines) {
 
   machines.reverse().forEach((machine) => {
     html += `<div class="card-tile" data-id="${machine.id}" data-type="machine">
-              <div class="card-header">
+    <button>
+        <i class="card-image fa-solid fa-trash"></i>
+      </button>
+      <div class="card-content">          
+    <div class="card-header">
                 <img src="${machine.image}" />
                 <p>${machine.name}</p>
               </div>
@@ -74,6 +88,7 @@ function generateMachineCardsHTML(machines) {
                 <img src="./images/license-plate.png" />
                 <p>Tablica nr. <span>${machine.plate}</span></p>
               </div>
+            </div>
             </div>
             `;
   });

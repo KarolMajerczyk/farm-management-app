@@ -20,6 +20,11 @@ function generateAnimalCardsHTML(animals) {
 
   animals.reverse().forEach((animal) => {
     html += `<div class="card-tile" data-id="${animal.id}">
+    <button>
+        <i class="card-image fa-solid fa-trash"></i>
+      </button>
+      <div class="card-content">
+
               <div class="card-header">
                 <img src="./images/krowa1.jpeg" class="card-photo" />
               </div>
@@ -38,11 +43,8 @@ function generateAnimalCardsHTML(animals) {
                 <i class="card-image fa-solid fa-location-crosshairs"></i>
                 <p>Wiek: <span>${animal.age}</span></p>
               </div>
-              <hr class="card-separator" />
-              <div class="card-details">
-                <i class="card-image fa-solid fa-location-crosshairs"></i>
-                <p>Rasa: <span>${animal.breed}</span></p>
-              </div>
+            </div>
+            
             </div>
         `;
   });
@@ -55,6 +57,11 @@ function generateFileCardsHTML(files) {
 
   files.reverse().forEach((file) => {
     html += `<div class="card-tile" data-id="${file.id}">
+    <button>
+        <i class="card-image fa-solid fa-trash"></i>
+      </button>
+      <div class="card-content">
+
               <div class="card-header">
                 <img src="./images/silnik.jpg" class="card-photo" />
               </div>
@@ -68,6 +75,7 @@ function generateFileCardsHTML(files) {
                 <i class="card-image fa-solid fa-location-crosshairs"></i>
                 <p>Data: <span>${file.date}</span></p>
               </div>
+            </div>
             </div>
             `;
   });

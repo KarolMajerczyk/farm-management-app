@@ -24,13 +24,31 @@
 
 .side-panel .list-item {
   border-bottom: 2px solid var(--clr-800);
-  padding: 16px;
   display: flex;
   gap: 16px;
 
   align-items: center;
   background-color: var(--clr-700);
 }
+
+/*  */
+.side-panel .list-item button {
+  display: none;
+  padding: 8px 16px;
+  color: rgb(201, 72, 72);
+  background: var(--clr-900) !important;
+  border: none;
+  border-radius: 0px !important;
+}
+
+.side-panel .list-item:hover button {
+  display: block;
+}
+
+.item-content {
+  /* padding: 8px; */
+}
+/*  */
 
 .side-panel .list-item div {
   display: grid;
