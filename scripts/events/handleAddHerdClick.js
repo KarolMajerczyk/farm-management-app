@@ -12,7 +12,6 @@ import { renderContentList } from "../services/renderContentList.js";
 
 export const handleAddHerdClick = async (e) => {
   e.preventDefault();
-  e.stopPropagation();
 
   const herd = createHerd();
 

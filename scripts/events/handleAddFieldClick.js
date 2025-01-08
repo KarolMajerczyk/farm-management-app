@@ -14,7 +14,6 @@ import { renderOverview } from "../services/renderOverview.js";
 
 export const handleAddFieldClick = async (e) => {
   e.preventDefault();
-  e.stopPropagation();
 
   resetActiveLayer();
 

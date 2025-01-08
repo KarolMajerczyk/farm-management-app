@@ -24,7 +24,7 @@ function generateFieldCardsHTML(fields) {
   fields.reverse().forEach((field) => {
     html += `
     <div class="card-tile" data-id="${field.id}" data-type="field">
-      <button>
+      <button data-action="delete">
         <i class="card-image fa-solid fa-trash"></i>
       </button>
       <div class="card-content">
@@ -49,7 +49,7 @@ function generateHerdCardsHTML(herds) {
 
   herds.reverse().forEach((herd) => {
     html += `<div class="card-tile" data-id="${herd.id}" data-type="herd">
-    <button>
+    <button data-action="delete">
         <i class="card-image fa-solid fa-trash"></i>
       </button>
       <div class="card-content">
@@ -75,7 +75,7 @@ function generateMachineCardsHTML(machines) {
 
   machines.reverse().forEach((machine) => {
     html += `<div class="card-tile" data-id="${machine.id}" data-type="machine">
-    <button>
+    <button data-action="delete">
         <i class="card-image fa-solid fa-trash"></i>
       </button>
       <div class="card-content">          

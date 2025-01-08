@@ -1,7 +1,9 @@
+import { generateRandomId } from "../services/generateRandomId.js";
+
 export function createHerd() {
   return {
     // INFO
-    id: "herd-id",
+    id: generateRandomId(),
     name: "",
     image: "./images/animal.png",
     animal: "",

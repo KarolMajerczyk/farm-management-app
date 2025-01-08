@@ -16,8 +16,6 @@ import { renderOverview } from "../services/renderOverview.js";
 import { renderContentList } from "../services/renderContentList.js";
 
 export async function handleCardTileClick(e) {
-  e.stopPropagation();
-
   const el = e.target;
   const objType = el.dataset.type;
 

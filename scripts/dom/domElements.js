@@ -17,4 +17,6 @@ export const DOM = {
   overview: document.querySelector(".side-panel .overview"),
   budget: document.querySelector(".side-panel .budget .items-list"),
   todos: document.querySelector(".side-panel .todos .items-list"),
+
+  itemsPanel: document.querySelector(".items-panel"),
 };

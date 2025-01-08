@@ -12,7 +12,6 @@ import { renderContentList } from "../services/renderContentList.js";
 
 export const handleAddMachineClick = async (e) => {
   e.preventDefault();
-  e.stopPropagation();
 
   const machine = createMachine();
 

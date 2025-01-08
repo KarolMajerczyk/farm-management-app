@@ -18,6 +18,10 @@
   border-radius: 0px;
 }
 
+.card-tile button i {
+  pointer-events: none;
+}
+
 .card-tile:hover button {
   display: block;
 }

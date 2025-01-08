@@ -17,6 +17,7 @@ import { handleAddMachineClick } from "./events/handleAddMachineClick.js";
 import { DOM } from "./dom/domElements.js";
 import { handleSidePanelMenuClick } from "./events/handleSidePanelMenuClick.js";
 import { handleCardsListLoad } from "./events/handleCardsListLoad.js";
+import { handleItemsPanelClick } from "./events/handleItemsPanelClick.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const mapContainer = document.getElementById("map");
@@ -47,3 +48,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 DOM.cardsList.addEventListener("click", (e) => handleCardTileClick(e));
 DOM.sidePanelMenu.addEventListener("click", (e) => handleSidePanelMenuClick(e));
+DOM.itemsPanel.addEventListener("click", (e) => handleItemsPanelClick(e));

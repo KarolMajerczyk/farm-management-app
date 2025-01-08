@@ -1,7 +1,9 @@
+import { generateRandomId } from "../services/generateRandomId.js";
+
 export function createMachine() {
   return {
     // INFO
-    id: "machine-id",
+    id: generateRandomId(),
     name: "",
     image: "./images/machine.png",
     plate: "",
