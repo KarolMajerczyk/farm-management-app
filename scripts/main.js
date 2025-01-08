@@ -8,8 +8,11 @@ import { handleMapClick } from "./events/handleMapClick.js";
 
 import { handleCardTileClick } from "./events/handleCardTileClick.js";
 import { handleMapSearch } from "./events/handleMapSearch.js";
-import { handleAddFieldClick } from "./events/handleAddFieldClick.js";
 import { handleMapLoad } from "./events/handleMapLoad.js";
+
+import { handleAddFieldClick } from "./events/handleAddFieldClick.js";
+import { handleAddHerdClick } from "./events/handleAddHerdClick.js";
+import { handleAddMachineClick } from "./events/handleAddMachineClick.js";
 
 import { DOM } from "./dom/domElements.js";
 import { handleSidePanelMenuClick } from "./events/handleSidePanelMenuClick.js";
@@ -30,6 +33,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   handleCardsListLoad();
+
+  if (DOM.addHerdButton) {
+    DOM.addHerdButton.addEventListener("click", (e) => handleAddHerdClick(e));
+  }
+
+  if (DOM.addMachineButton) {
+    DOM.addMachineButton.addEventListener("click", (e) =>
+      handleAddMachineClick(e)
+    );
+  }
 });
 
 DOM.cardsList.addEventListener("click", (e) => handleCardTileClick(e));

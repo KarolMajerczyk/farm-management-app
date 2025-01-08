@@ -2,7 +2,11 @@ export const DOM = {
   cardsList: document.querySelector(".cards-list"),
   contentList: document.querySelector(".content .items-list"),
   goToFieldButton: document.querySelector("#goto-field"),
+
   addFieldButton: document.querySelector("#add-field"),
+  addHerdButton: document.querySelector("#add-herd"),
+  addMachineButton: document.querySelector("#add-machine"),
+
   terytInput: document.querySelector("#teryt-input"),
   mapSearch: document.querySelector(".map-search"),
 

@@ -1,13 +1,14 @@
 import { DOM } from "../dom/domElements.js";
+import { createField } from "../models/fieldFactory.js";
+
+import { addField } from "../api/addField.js";
+import { getItems } from "../api/getItems.js";
 
 import { getFieldData } from "../api/getFieldData.js";
-
-import { createField } from "../models/fieldFactory.js";
-import { addField } from "../api/addField.js";
-import { renderCardsList } from "../services/renderCardsList.js";
-import { getItems } from "../api/getItems.js";
-import { toggleElementActive } from "../services/toggleElementActive.js";
 import { resetActiveLayer } from "../services/renderFieldOnMap.js";
+
+import { renderCardsList } from "../services/renderCardsList.js";
+import { toggleElementActive } from "../services/toggleElementActive.js";
 import { toggleElementVisibility } from "../services/toggleElementVisibility.js";
 import { renderOverview } from "../services/renderOverview.js";
 
