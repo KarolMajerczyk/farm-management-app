@@ -32,8 +32,6 @@ export async function handleItemsPanelClick(e) {
       obj = createObject(objType);
     }
 
-    console.log(obj);
-
     await addItem(objType, obj);
 
     const objArr = await getItems(objType);

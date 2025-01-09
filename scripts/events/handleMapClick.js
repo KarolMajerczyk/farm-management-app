@@ -17,5 +17,3 @@ export async function handleMapClick(e) {
 
   setMapSearchFormValue(fieldId);
 }
-
-// 120905_2.0014.184/3

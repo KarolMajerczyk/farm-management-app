@@ -1,12 +1,5 @@
 # Farm management app
 
-Accessibility:
+todo
 
-aria-label
-aria-labelledby
-aria-describedby
-aria-current
-aria-hidden
-aria-live
-
-role
+// 120905_2.0014.184/3
