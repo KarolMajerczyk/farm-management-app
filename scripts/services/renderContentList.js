@@ -5,10 +5,10 @@ export function renderContentList(obj, objType) {
 
   switch (objType) {
     case "herds":
-      html = generateAnimalCardsHTML(obj);
+      html = generateAnimalCardsHTML(obj.animals);
       break;
     case "machines":
-      html = generateFileCardsHTML(obj);
+      html = generateFileCardsHTML(obj.files);
       break;
   }
 

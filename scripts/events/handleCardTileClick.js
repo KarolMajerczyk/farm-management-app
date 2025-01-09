@@ -39,10 +39,8 @@ export async function handleCardTileClick(e) {
 
     resetActiveLayer();
     flyToFieldBounds(obj.location);
-  } else if (objType === "herds") {
-    renderContentList(obj.animals, "herds");
-  } else if (objType === "machines") {
-    renderContentList(obj.files, "machines");
+  } else {
+    renderContentList(obj, objType);
   }
 
   toggleElementVisibility(DOM.sidePanel, true);

@@ -6,9 +6,6 @@ import { resetActiveLayer } from "../services/renderFieldOnMap.js";
 
 import { addItem, getItems, getFieldData, deleteItem } from "../db/db.js";
 
-import { createField } from "../models/fieldFactory.js";
-import { createHerd } from "../models/herdFactory.js";
-import { createMachine } from "../models/machineFactory.js";
 import { toggleElementActive } from "../services/toggleElementActive.js";
 import { toggleElementVisibility } from "../services/toggleElementVisibility.js";
 import { renderOverview } from "../services/renderOverview.js";
@@ -26,16 +23,16 @@ export async function handleItemsPanelClick(e) {
       resetActiveLayer();
 
       const terytValue = DOM.terytInput.value;
-      const { fieldId, fieldGeometry, fieldData } = await getFieldData({
+      const fieldData = await getFieldData({
         id: terytValue,
       });
 
-      obj = createField(fieldId, fieldGeometry, fieldData);
-    } else if (objType === "herds") {
-      obj = createHerd();
-    } else if (objType === "machines") {
-      obj = createMachine();
+      obj = createObject(objType, fieldData);
+    } else {
+      obj = createObject(objType);
     }
+
+    console.log(obj);
 
     await addItem(objType, obj);
 

@@ -7,22 +7,27 @@ const models = {
   machines: createMachine,
 };
 
-export function createObject(objType) {
+export function createObject(objType, data) {
+  if (data) {
+    return { ...models[objType](data), budget: [], todos: [] };
+  }
+
   return { ...models[objType](), budget: [], todos: [] };
 }
 
-export function createField(id, geojson, data) {
+export function createField(data) {
   return {
-    id: data[1],
+    id: data.fieldData[1],
     name: "Nazwa pola",
-    number: data[6],
+    number: data.fieldData[6],
     area: 0.5,
     image: "./images/field.png",
 
-    region: data[5],
-    voivodeship: data[2],
-    location: convertWKTToGeoJSON(geojson),
+    region: data.fieldData[5],
+    voivodeship: data.fieldData[2],
+    location: convertWKTToGeoJSON(data.fieldGeometry),
 
+    plant: "Typ uprawy",
     seed: "Typ sadzonki",
   };
 }
