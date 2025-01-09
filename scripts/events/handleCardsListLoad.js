@@ -9,12 +9,12 @@ export async function handleCardsListLoad() {
 
   if (fieldsList) {
     const fields = await getItems("fields");
-    renderCardsList(fields, "field");
+    renderCardsList(fields, "fields");
   } else if (herdsList) {
     const herds = await getItems("herds");
-    renderCardsList(herds, "herd");
+    renderCardsList(herds, "herds");
   } else if (machinesList) {
     const machines = await getItems("machines");
-    renderCardsList(machines, "machine");
+    renderCardsList(machines, "machines");
   }
 }

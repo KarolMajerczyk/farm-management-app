@@ -14,9 +14,7 @@ export const handleAddFieldClick = async (e) => {
   e.preventDefault();
 
   resetActiveLayer();
-
   const terytValue = DOM.terytInput.value;
-
   const { fieldId, fieldGeometry, fieldData } = await getFieldData({
     id: terytValue,
   });
@@ -27,12 +25,15 @@ export const handleAddFieldClick = async (e) => {
 
   const fields = await getItems("fields");
 
-  renderCardsList(fields, "field");
+  renderCardsList(fields, "fields");
 
   const fieldCard = document.querySelector(`[data-id="${field.id}"]`);
 
   toggleElementActive(fieldCard, true);
-  toggleElementVisibility(DOM.addFieldButton, false);
   toggleElementVisibility(DOM.sidePanel, true);
-  renderOverview(field, "field");
+  renderOverview(field, "fields");
+
+  toggleElementVisibility(DOM.addFieldButton, false);
 };
+
+// usuń pole z mapy jak usuwasz card, usun content i side panel jak usuwasz herd i machine

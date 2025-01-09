@@ -4,13 +4,13 @@ export function renderCardsList(obj, objType) {
   let html = "";
 
   switch (objType) {
-    case "field":
+    case "fields":
       html = generateFieldCardsHTML(obj);
       break;
-    case "herd":
+    case "herds":
       html = generateHerdCardsHTML(obj);
       break;
-    case "machine":
+    case "machines":
       html = generateMachineCardsHTML(obj);
       break;
   }
@@ -23,7 +23,7 @@ function generateFieldCardsHTML(fields) {
 
   fields.reverse().forEach((field) => {
     html += `
-    <div class="card-tile" data-id="${field.id}" data-type="field">
+    <div class="card-tile" data-id="${field.id}" data-type="fields">
       <button data-action="delete">
         <i class="card-image fa-solid fa-trash"></i>
       </button>
@@ -48,7 +48,7 @@ function generateHerdCardsHTML(herds) {
   let html = "";
 
   herds.reverse().forEach((herd) => {
-    html += `<div class="card-tile" data-id="${herd.id}" data-type="herd">
+    html += `<div class="card-tile" data-id="${herd.id}" data-type="herds">
     <button data-action="delete">
         <i class="card-image fa-solid fa-trash"></i>
       </button>
@@ -74,7 +74,7 @@ function generateMachineCardsHTML(machines) {
   let html = "";
 
   machines.reverse().forEach((machine) => {
-    html += `<div class="card-tile" data-id="${machine.id}" data-type="machine">
+    html += `<div class="card-tile" data-id="${machine.id}" data-type="machines">
     <button data-action="delete">
         <i class="card-image fa-solid fa-trash"></i>
       </button>

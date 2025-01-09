@@ -18,12 +18,13 @@ export const handleAddHerdClick = async (e) => {
 
   const herds = await getItems("herds");
 
-  renderCardsList(herds, "herd");
+  renderCardsList(herds, "herds");
 
   const herdCard = document.querySelector(`[data-id="${herd.id}"]`);
 
   toggleElementActive(herdCard, true);
   toggleElementVisibility(DOM.sidePanel, true);
-  renderOverview(herd, "herd");
-  renderContentList(herd, "herd");
+  renderOverview(herd, "herds");
+
+  renderContentList(herd, "herds");
 };

@@ -18,13 +18,13 @@ export const handleAddMachineClick = async (e) => {
 
   const machines = await getItems("machines");
 
-  renderCardsList(machines, "machine");
+  renderCardsList(machines, "machines");
 
   const machineCard = document.querySelector(`[data-id="${machine.id}"]`);
 
   toggleElementActive(machineCard, true);
   toggleElementVisibility(DOM.sidePanel, true);
-  renderOverview(machine, "machine");
-  
-  renderContentList(machine, "machine");
+  renderOverview(machine, "machines");
+
+  renderContentList(machine, "machines");
 };

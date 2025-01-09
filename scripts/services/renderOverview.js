@@ -7,13 +7,13 @@ export function renderOverview(obj, objType) {
   let html = "";
 
   switch (objType) {
-    case "field":
+    case "fields":
       html = generateFieldOverviewHTML(obj);
       break;
-    case "herd":
+    case "herds":
       html = generateHerdOverviewHTML(obj);
       break;
-    case "machine":
+    case "machines":
       html = generateMachineOverviewHTML(obj);
       break;
   }

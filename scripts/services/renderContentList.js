@@ -4,10 +4,10 @@ export function renderContentList(obj, objType) {
   let html = "";
 
   switch (objType) {
-    case "animal":
+    case "herds":
       html = generateAnimalCardsHTML(obj);
       break;
-    case "file":
+    case "machines":
       html = generateFileCardsHTML(obj);
       break;
   }

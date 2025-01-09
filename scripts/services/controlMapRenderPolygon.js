@@ -39,7 +39,7 @@ export async function controlMapRenderPolygons(fieldId, fieldGeometry) {
     toggleElementActive(fieldCard, true);
     toggleElementVisibility(DOM.addFieldButton, false);
     toggleElementVisibility(DOM.sidePanel, true);
-    renderOverview(field, "field");
+    renderOverview(field, "fields");
 
     resetActiveLayer();
     return;

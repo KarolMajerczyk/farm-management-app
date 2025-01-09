@@ -30,10 +30,10 @@ export async function handleSidePanelMenuClick(e) {
       renderOverview(obj, objType);
       break;
     case "budget":
-      renderBudget(obj.budget, objType);
+      renderBudget(obj.budget);
       break;
     case "todos":
-      renderTodos(obj.todos, objType);
+      renderTodos(obj.todos);
       break;
   }
 }
