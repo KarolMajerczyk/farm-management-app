@@ -13,6 +13,7 @@ import { toggleElementActive } from "../services/toggleElementActive.js";
 import { toggleElementVisibility } from "../services/toggleElementVisibility.js";
 import { renderOverview } from "../services/renderOverview.js";
 import { renderContentList } from "../services/renderContentList.js";
+import { createObject } from "../models/createObject.js";
 
 export async function handleItemsPanelClick(e) {
   e.stopPropagation();
@@ -51,6 +52,8 @@ export async function handleItemsPanelClick(e) {
     if (objType !== "fields") {
       renderContentList(obj, objType);
     }
+
+    return;
   }
 
   if (e.target.dataset.action === "delete") {
@@ -62,5 +65,7 @@ export async function handleItemsPanelClick(e) {
     const objArr = await getItems(objType);
 
     renderCardsList(objArr, objType);
+
+    return;
   }
 }

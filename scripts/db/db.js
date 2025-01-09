@@ -16,6 +16,21 @@ export const addItem = async (dbName, item) => {
   db.push(item);
 };
 
+// export const addItem = async ({ dbName, dbArr, item }) => {
+//   const db = databases[dbName];
+
+//   if (dbArr) {
+//     db[dbArr].push(item);
+//     return;
+//   }
+
+//   if (db.find((obj) => obj.id === item.id)) {
+//     return;
+//   }
+
+//   db.push(item);
+// };
+
 export const deleteItem = async (dbName, id) => {
   const db = databases[dbName];
 
