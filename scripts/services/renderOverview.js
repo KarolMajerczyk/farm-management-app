@@ -1,32 +1,23 @@
 import { DOM } from "../dom/domElements.js";
 
+const generator = {
+  fields: generateFieldOverviewHTML,
+  herds: generateHerdOverviewHTML,
+  machines: generateMachineOverviewHTML,
+};
+
 export function renderOverview(obj, objType) {
   resetSidePanel();
   DOM.sidePanelHeading.innerText = "Przegląd";
 
-  let html = "";
-
-  switch (objType) {
-    case "fields":
-      html = generateFieldOverviewHTML(obj);
-      break;
-    case "herds":
-      html = generateHerdOverviewHTML(obj);
-      break;
-    case "machines":
-      html = generateMachineOverviewHTML(obj);
-      break;
-  }
+  let html = generator[objType](obj);
 
   const todosLeft = obj.todos.filter((todo) => todo.status === "pending");
 
   const { income, expense } = obj.budget.reduce(
     (totals, entry) => {
-      if (entry.type === "income") {
-        totals.income += entry.amount;
-      } else if (entry.type === "expense") {
-        totals.expense += entry.amount;
-      }
+      totals[entry.type] += entry.amount;
+
       return totals;
     },
     { income: 0, expense: 0 }

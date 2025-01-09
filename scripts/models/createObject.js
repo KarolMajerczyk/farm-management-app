@@ -1,18 +1,20 @@
 import { convertWKTToGeoJSON } from "../utils/converter.js";
-import { generateRandomId } from "../services/generateRandomId.js";
+import { generateRandomId } from "../utils/generateRandomId.js";
 
 const models = {
   fields: createField,
   herds: createHerd,
   machines: createMachine,
+  todo: createTodoItem,
+  budget: createBudgetItem,
 };
 
 export function createObject(objType, data) {
   if (data) {
-    return { ...models[objType](data), budget: [], todos: [] };
+    return models[objType](data);
   }
 
-  return { ...models[objType](), budget: [], todos: [] };
+  return models[objType]();
 }
 
 export function createField(data) {
@@ -29,6 +31,9 @@ export function createField(data) {
 
     plant: "Typ uprawy",
     seed: "Typ sadzonki",
+
+    budget: [],
+    todos: [],
   };
 }
 
@@ -41,6 +46,8 @@ export function createHerd() {
     species: "",
 
     animals: [],
+    budget: [],
+    todos: [],
   };
 }
 
@@ -54,5 +61,19 @@ export function createMachine() {
     hoursUsed: 0,
 
     files: [],
+    budget: [],
+    todos: [],
+  };
+}
+
+export function createTodoItem() {
+  return {
+    id: generateRandomId(),
+  };
+}
+
+export function createBudgetItem() {
+  return {
+    id: generateRandomId(),
   };
 }

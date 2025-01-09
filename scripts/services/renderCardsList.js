@@ -1,21 +1,13 @@
 import { DOM } from "../dom/domElements.js";
 
+const generator = {
+  fields: generateFieldCardsHTML,
+  herds: generateHerdCardsHTML,
+  machines: generateMachineCardsHTML,
+};
+
 export function renderCardsList(obj, objType) {
-  let html = "";
-
-  switch (objType) {
-    case "fields":
-      html = generateFieldCardsHTML(obj);
-      break;
-    case "herds":
-      html = generateHerdCardsHTML(obj);
-      break;
-    case "machines":
-      html = generateMachineCardsHTML(obj);
-      break;
-  }
-
-  DOM.cardsList.innerHTML = html;
+  DOM.cardsList.innerHTML = generator[objType](obj);
 }
 
 function generateFieldCardsHTML(fields) {
