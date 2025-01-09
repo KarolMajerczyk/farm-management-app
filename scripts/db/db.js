@@ -35,7 +35,7 @@ export const deleteItem = async (dbName, id) => {
   const db = databases[dbName];
 
   const objInd = db.findIndex((obj) => obj.id === id);
-  db.splice(objInd, 1);
+  return db.splice(objInd, 1)[0];
 };
 
 export const editField = async (dbName, id, item) => {

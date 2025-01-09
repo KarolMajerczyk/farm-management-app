@@ -1,3 +1,4 @@
+import { getActiveLayer } from "../services/renderFieldOnMap.js";
 import { convertWKTToGeoJSON } from "../utils/converter.js";
 import { generateRandomId } from "../utils/generateRandomId.js";
 
@@ -28,6 +29,7 @@ export function createField(data) {
     region: data.fieldData[5],
     voivodeship: data.fieldData[2],
     location: convertWKTToGeoJSON(data.fieldGeometry),
+    layer: getActiveLayer(),
 
     plant: "Typ uprawy",
     seed: "Typ sadzonki",

@@ -2,7 +2,10 @@ import { DOM } from "../dom/domElements.js";
 
 import { renderCardsList } from "../services/renderCardsList.js";
 
-import { resetActiveLayer } from "../services/renderFieldOnMap.js";
+import {
+  removeFieldFromMap,
+  resetActiveLayer,
+} from "../services/renderFieldOnMap.js";
 
 import { addItem, getItems, getFieldData, deleteItem } from "../db/db.js";
 
@@ -20,14 +23,13 @@ export async function handleItemsPanelClick(e) {
     let obj;
 
     if (objType === "fields") {
-      resetActiveLayer();
-
       const terytValue = DOM.terytInput.value;
       const fieldData = await getFieldData({
         id: terytValue,
       });
 
       obj = createObject(objType, fieldData);
+      resetActiveLayer();
     } else {
       obj = createObject(objType);
     }
@@ -55,7 +57,11 @@ export async function handleItemsPanelClick(e) {
     const objType = e.target.parentElement.dataset.type;
     const objId = e.target.parentElement.dataset.id;
 
-    await deleteItem(objType, objId);
+    const obj = await deleteItem(objType, objId);
+
+    if (objType === "fields") {
+      removeFieldFromMap(obj.layer);
+    }
 
     const objArr = await getItems(objType);
 

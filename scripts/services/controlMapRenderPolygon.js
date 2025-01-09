@@ -50,4 +50,5 @@ export async function controlMapRenderPolygons(fieldId, fieldGeometry) {
   toggleElementVisibility(DOM.addFieldButton, true);
 
   renderFieldOnMap(fieldPolygon);
+
 }

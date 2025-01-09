@@ -3,7 +3,7 @@
 let map = null;
 let bounds = null;
 
-export function handleLeafletMapInitialization() {
+export function handleMapInitialization() {
   map = L.map("map").setView([51.919, 19.134], 7);
 
   bounds = [

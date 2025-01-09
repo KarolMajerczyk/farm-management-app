@@ -1,5 +1,5 @@
 import {
-  handleLeafletMapInitialization,
+  handleMapInitialization,
   map,
 } from "./events/handleMapInitialization.js";
 
@@ -12,25 +12,27 @@ import { handleMapLoad } from "./events/handleMapLoad.js";
 
 import { DOM } from "./dom/domElements.js";
 import { handleSidePanelMenuClick } from "./events/handleSidePanelMenuClick.js";
-import { handleCardsListLoad } from "./events/handleCardsListLoad.js";
+import { handlePageChange } from "./events/handlePageChange.js";
 import { handleItemsPanelClick } from "./events/handleItemsPanelClick.js";
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", (e) => {
+  handlePageChange(e);
+
   const mapContainer = document.getElementById("map");
 
   if (mapContainer) {
-    handleLeafletMapInitialization();
+    handleMapInitialization();
     handleMapLoad();
 
     map.on("drag", handleMapDrag);
     map.on("click", (e) => handleMapClick(e));
-
-    DOM.mapSearch.addEventListener("click", (e) => handleMapSearch(e));
   }
 
-  handleCardsListLoad();
-});
+  DOM.mapSearch.addEventListener("click", (e) => handleMapSearch(e));
+  DOM.cardsList.addEventListener("click", (e) => handleCardTileClick(e));
+  DOM.sidePanelMenu.addEventListener("click", (e) =>
+    handleSidePanelMenuClick(e)
+  );
 
-DOM.cardsList.addEventListener("click", (e) => handleCardTileClick(e));
-DOM.sidePanelMenu.addEventListener("click", (e) => handleSidePanelMenuClick(e));
-DOM.itemsPanel.addEventListener("click", (e) => handleItemsPanelClick(e));
+  DOM.itemsPanel.addEventListener("click", (e) => handleItemsPanelClick(e));
+});

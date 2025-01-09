@@ -19,4 +19,5 @@ export const DOM = {
   todos: document.querySelector(".side-panel .todos .items-list"),
 
   itemsPanel: document.querySelector(".items-panel"),
+  mainNav: document.querySelector(".app-header .nav"),
 };
