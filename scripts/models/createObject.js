@@ -1,4 +1,3 @@
-import { getActiveLayer } from "../services/renderFieldOnMap.js";
 import { convertWKTToGeoJSON } from "../utils/converter.js";
 import { generateRandomId } from "../utils/generateRandomId.js";
 
