@@ -45,10 +45,12 @@ export async function controlMapRenderPolygons(fieldId, fieldGeometry) {
     return;
   }
 
-  toggleElementActive(document.querySelector(".card-tile"));
+  if (document.querySelector(".card-tile")) {
+    toggleElementActive(document.querySelector(".card-tile"));
+  }
+
   toggleElementVisibility(DOM.sidePanel, false);
   toggleElementVisibility(DOM.addFieldButton, true);
 
   renderFieldOnMap(fieldPolygon);
-
 }

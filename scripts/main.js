@@ -16,6 +16,7 @@ import { handlePageChange } from "./events/handlePageChange.js";
 import { handleItemsPanelClick } from "./events/handleItemsPanelClick.js";
 
 document.addEventListener("DOMContentLoaded", (e) => {
+  // localStorage.clear();
   handlePageChange(e);
 
   const mapContainer = document.getElementById("map");
@@ -26,9 +27,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
     map.on("drag", handleMapDrag);
     map.on("click", (e) => handleMapClick(e));
+
+    DOM.mapSearch.addEventListener("click", (e) => handleMapSearch(e));
   }
 
-  DOM.mapSearch.addEventListener("click", (e) => handleMapSearch(e));
   DOM.cardsList.addEventListener("click", (e) => handleCardTileClick(e));
   DOM.sidePanelMenu.addEventListener("click", (e) =>
     handleSidePanelMenuClick(e)

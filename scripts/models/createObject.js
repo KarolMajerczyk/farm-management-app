@@ -19,6 +19,7 @@ export function createObject(objType, data) {
 }
 
 export function createField(data) {
+  console.log(getActiveLayer());
   return {
     id: data.fieldData[1],
     name: "Nazwa pola",
@@ -29,7 +30,6 @@ export function createField(data) {
     region: data.fieldData[5],
     voivodeship: data.fieldData[2],
     location: convertWKTToGeoJSON(data.fieldGeometry),
-    layer: getActiveLayer(),
 
     plant: "Typ uprawy",
     seed: "Typ sadzonki",

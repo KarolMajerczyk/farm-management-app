@@ -3,8 +3,12 @@ import { DOM } from "../dom/domElements.js";
 import { renderCardsList } from "../services/renderCardsList.js";
 
 import {
+  getActiveLayer,
+  getMapLayer,
   removeFieldFromMap,
+  removeMapLayer,
   resetActiveLayer,
+  saveMapLayer,
 } from "../services/renderFieldOnMap.js";
 
 import { addItem, getItems, getFieldData, deleteItem } from "../db/db.js";
@@ -29,6 +33,7 @@ export async function handleItemsPanelClick(e) {
       });
 
       obj = createObject(objType, fieldData);
+      saveMapLayer(obj.id, getActiveLayer());
       resetActiveLayer();
     } else {
       obj = createObject(objType);
@@ -57,15 +62,17 @@ export async function handleItemsPanelClick(e) {
     const objType = e.target.parentElement.dataset.type;
     const objId = e.target.parentElement.dataset.id;
 
-    const obj = await deleteItem(objType, objId);
+    const id = await deleteItem(objType, objId);
 
     if (objType === "fields") {
-      removeFieldFromMap(obj.layer);
+      removeFieldFromMap(getMapLayer(id));
+      removeMapLayer(id);
     }
 
     const objArr = await getItems(objType);
 
     renderCardsList(objArr, objType);
+    toggleElementVisibility(DOM.sidePanel, false);
 
     return;
   }
