@@ -1,16 +1,11 @@
-import {
-  handleMapInitialization,
-  map,
-} from "./events/handleMapInitialization.js";
+import { DOM } from "./dom/domElements.js";
 
-import { handleMapDrag } from "./events/handleMapDrag.js";
-import { handleMapClick } from "./events/handleMapClick.js";
+import { map, handleMapLoad } from "./events/map/handleMapLoad.js";
+import { handleMapDrag } from "./events/map/handleMapDrag.js";
+import { handleMapClick } from "./events/map/handleMapClick.js";
+import { handleMapSearch } from "./events/map/handleMapSearch.js";
 
 import { handleCardTileClick } from "./events/handleCardTileClick.js";
-import { handleMapSearch } from "./events/handleMapSearch.js";
-import { handleMapLoad } from "./events/handleMapLoad.js";
-
-import { DOM } from "./dom/domElements.js";
 import { handleSidePanelMenuClick } from "./events/handleSidePanelMenuClick.js";
 import { handlePageChange } from "./events/handlePageChange.js";
 import { handleItemsPanelClick } from "./events/handleItemsPanelClick.js";
@@ -22,7 +17,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
   const mapContainer = document.getElementById("map");
 
   if (mapContainer) {
-    handleMapInitialization();
     handleMapLoad();
 
     map.on("drag", handleMapDrag);

@@ -1,9 +1,9 @@
-import { convertEPSG4326ToEPSG2180 } from "../utils/converter.js";
+import { convertEPSG4326ToEPSG2180 } from "../../utils/converter.js";
 
-import { getFieldData } from "../db/db.js";
+import { getFieldData } from "../../db/db.js";
 
-import { setMapSearchFormValue } from "../services/setMapSearchFormValue.js";
-import { controlMapRenderPolygons } from "../services/controlMapRenderPolygon.js";
+import { setMapSearchFormValue } from "../../services/setMapSearchFormValue.js";
+import { controlMapRenderPolygons } from "../../services/controlMapRenderPolygon.js";
 
 export async function handleMapClick(e) {
   const epsg4326Coord = [e.latlng.lng, e.latlng.lat];

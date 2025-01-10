@@ -7,3 +7,6 @@ usun panel boczny i środek jak usuwasz herd lub machine
 jak przechodzisz do fields, herds albo machines to odpal pierwszy kafelek zeby coś było
 
 zrób mini js i css do html
+
+
+jak usuwasz pole inne niż zaznaczone to nie usuwaj active z tego carda na którym jesteś

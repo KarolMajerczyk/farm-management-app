@@ -1,8 +1,8 @@
-import { DOM } from "../dom/domElements.js";
+import { DOM } from "../../dom/domElements.js";
 
-import { getFieldData } from "../db/db.js";
+import { getFieldData } from "../../db/db.js";
 
-import { controlMapRenderPolygons } from "../services/controlMapRenderPolygon.js";
+import { controlMapRenderPolygons } from "../../services/controlMapRenderPolygon.js";
 
 export const handleMapSearch = async (e) => {
   e.preventDefault();

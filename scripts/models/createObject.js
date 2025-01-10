@@ -19,7 +19,6 @@ export function createObject(objType, data) {
 }
 
 export function createField(data) {
-  console.log(getActiveLayer());
   return {
     id: data.fieldData[1],
     name: "Nazwa pola",

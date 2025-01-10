@@ -1,4 +1,4 @@
-import { map, bounds } from "../events/handleMapInitialization.js";
+import { map, bounds } from "./handleMapLoad.js";
 
 export function handleMapDrag() {
   map.panInsideBounds(bounds, { animate: false });

@@ -1,4 +1,4 @@
-import { map } from "../events/handleMapInitialization.js";
+import { map } from "../events/map/handleMapLoad.js";
 
 let activeLayer;
 
