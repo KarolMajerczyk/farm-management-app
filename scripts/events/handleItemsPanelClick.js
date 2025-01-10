@@ -22,58 +22,70 @@ import { createObject } from "../models/createObject.js";
 export async function handleItemsPanelClick(e) {
   e.stopPropagation();
 
-  if (e.target.dataset.action === "add") {
-    const objType = e.target.dataset.type;
-    let obj;
+  const action = e.target.dataset.action;
 
-    if (objType === "fields") {
-      const terytValue = DOM.terytInput.value;
-      const fieldData = await getFieldData({
-        id: terytValue,
-      });
+  switch (action) {
+    case "add":
+      handleAddClick(e);
+      break;
+    case "delete":
+      handleDeleteClick(e);
+      break;
+  }
+}
 
-      obj = createObject(objType, fieldData);
-      saveMapLayer(obj.id, getActiveLayer());
-      resetActiveLayer();
-    } else {
-      obj = createObject(objType);
-    }
+async function handleAddClick(e) {
+  const objType = e.target.dataset.type;
+  let obj;
 
-    await addItem(objType, obj);
+  if (objType === "fields") {
+    const terytValue = DOM.terytInput.value;
+    const fieldData = await getFieldData({
+      id: terytValue,
+    });
 
-    const objArr = await getItems(objType);
+    obj = createObject(objType, fieldData);
 
-    renderCardsList(objArr, objType);
-
-    const objCard = document.querySelector(`[data-id="${obj.id}"]`);
-
-    toggleElementActive(objCard, true);
-    toggleElementVisibility(DOM.sidePanel, true);
-    renderOverview(obj, objType);
-
-    if (objType !== "fields") {
-      renderContentList(obj, objType);
-    }
-
-    return;
+    saveMapLayer(obj.id, getActiveLayer());
+    resetActiveLayer();
+  } else {
+    obj = createObject(objType);
   }
 
-  if (e.target.dataset.action === "delete") {
-    const objType = e.target.parentElement.dataset.type;
-    const objId = e.target.parentElement.dataset.id;
+  await addItem(objType, obj);
 
-    const id = await deleteItem(objType, objId);
+  const objArr = await getItems(objType);
 
-    if (objType === "fields") {
-      removeFieldFromMap(getMapLayer(id));
-      removeMapLayer(id);
-    }
+  renderCardsList(objArr, objType);
 
-    const objArr = await getItems(objType);
+  const objCard = document.querySelector(`[data-id="${obj.id}"]`);
 
-    renderCardsList(objArr, objType);
-    toggleElementVisibility(DOM.sidePanel, false);
+  toggleElementActive(objCard, true);
+  toggleElementVisibility(DOM.sidePanel, true);
+  renderOverview(obj, objType);
 
-    return;
+  if (objType !== "fields") {
+    renderContentList(obj, objType);
   }
+
+  return;
+}
+
+async function handleDeleteClick(e) {
+  const objType = e.target.parentElement.dataset.type;
+  const objId = e.target.parentElement.dataset.id;
+
+  const id = await deleteItem(objType, objId);
+
+  if (objType === "fields") {
+    removeFieldFromMap(getMapLayer(id));
+    removeMapLayer(id);
+  }
+
+  const objArr = await getItems(objType);
+
+  renderCardsList(objArr, objType);
+  toggleElementVisibility(DOM.sidePanel, false);
+
+  return;
 }

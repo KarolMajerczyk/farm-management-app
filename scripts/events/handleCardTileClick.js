@@ -18,18 +18,19 @@ import { renderContentList } from "../services/renderContentList.js";
 export async function handleCardTileClick(e) {
   const el = e.target;
   const objType = el.dataset.type;
+  const objId = el.dataset.id;
 
   if (!el.classList.contains("card-tile")) {
     return;
   }
 
-  let obj = await getItemById(objType, el.dataset.id);
+  let obj = await getItemById(objType, objId);
 
   toggleElementActive(el, true);
 
   if (objType === "fields") {
     toggleElementVisibility(DOM.addFieldButton, false);
-    setMapSearchFormValue(el.dataset.id);
+    setMapSearchFormValue(objId);
 
     const activeLayer = getActiveLayer();
 
