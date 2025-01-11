@@ -17,7 +17,10 @@ import { toggleElementActive } from "../services/toggleElementActive.js";
 import { toggleElementVisibility } from "../services/toggleElementVisibility.js";
 import { renderOverview } from "../services/renderOverview.js";
 import { renderContentList } from "../services/renderContentList.js";
-import { createObject } from "../models/createObject.js";
+
+import { createFieldItem } from "../models/createFieldItem.js";
+import { createHerdItem } from "../models/createHerdItem.js";
+import { createMachineItem } from "../models/createMachineItem.js";
 
 export async function handleItemsPanelClick(e) {
   e.stopPropagation();
@@ -44,12 +47,14 @@ async function handleAddClick(e) {
       id: terytValue,
     });
 
-    obj = createObject(objType, fieldData);
+    obj = createFieldItem(fieldData);
 
     saveMapLayer(obj.id, getActiveLayer());
     resetActiveLayer();
-  } else {
-    obj = createObject(objType);
+  } else if (objType === "herds") {
+    obj = createHerdItem();
+  } else if (objType === "machines") {
+    obj = createMachineItem();
   }
 
   await addItem(objType, obj);
