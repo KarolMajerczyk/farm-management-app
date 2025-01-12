@@ -56,7 +56,7 @@
 
         <!-- DETAILS PANEL -->
         <aside class="side-panel">
-          <h2 class="secondary-heading">Przegląd</h2>
+          <h2 class="secondary-heading"></h2>
 
           <!-- OVERVIEW -->
           <section class="overview visible"></section>
@@ -69,33 +69,29 @@
               <option value="minus">Wydatki</option>
             </select>
 
-            <ul class="items-list"></ul>
+            <ul id="budget-list" class="items-list"></ul>
 
-            <form action="">
-              <input type="text" />
-              <select id="dropdown" name="dropdown">
-                <option value="plus">+</option>
-                <option value="minus">-</option>
-              </select>
-              <input type="number" />
+            <form id="add-budget-form" action="">
+              <input name="description" type="text" required />
+              <input name="amount" type="number" required />
               <button type="submit">Dodaj</button>
             </form>
           </section>
 
           <!-- TODO -->
-          <section class="todos">
-            <input type="date" />
+          <section id="todos" class="todos">
+            <input id="date-picker" type="date" />
 
-            <ul class="items-list"></ul>
+            <ul id="todos-list" class="items-list"></ul>
 
-            <form action="">
-              <input type="text" />
+            <form id="add-todo-form" action="">
+              <input name="description" type="text" required />
               <button type="submit">Dodaj</button>
             </form>
           </section>
 
           <!-- MENU -->
-          <nav class="nav menu">
+          <nav id="side-menu" class="nav menu">
             <ul class="nav-list nav-list-horizontal">
               <li class="nav-item active" data-page="overview">
                 <i class="fa-solid fa-chart-pie"></i>

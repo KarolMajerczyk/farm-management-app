@@ -10,7 +10,7 @@ import { renderBudgetItems } from "./budgetView.js";
 // EVENTS
 // ---------------- //
 
-export function initBudget() {
+export function initBudgetController() {
   document
     .querySelector("#side-menu")
     .addEventListener("click", (e) => handleBudgetListLoad(e));
