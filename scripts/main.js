@@ -9,8 +9,12 @@ import { handleCardTileClick } from "./events/handleCardTileClick.js";
 import { handleSidePanelMenuClick } from "./events/handleSidePanelMenuClick.js";
 import { handlePageChange } from "./events/handlePageChange.js";
 import { handleItemsPanelClick } from "./events/handleItemsPanelClick.js";
+import { initTodos } from "./features/todos/todoController.js";
+import { initBudget } from "./features/budget/budgetController.js";
 
 document.addEventListener("DOMContentLoaded", (e) => {
+  initTodos();
+  initBudget();
   // localStorage.clear();
   handlePageChange(e);
 

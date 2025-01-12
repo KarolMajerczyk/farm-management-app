@@ -16,7 +16,7 @@ export function renderOverview(obj, objType) {
 
   const { income, expense } = obj.budget.reduce(
     (totals, entry) => {
-      totals[entry.type] += entry.amount;
+      totals[entry.amount > 0 ? "income" : "expense"] += entry.amount;
 
       return totals;
     },
@@ -43,7 +43,7 @@ export function renderOverview(obj, objType) {
       <hr class="card-separator" />
       <div class="card-details">
         <i class="card-image fa-solid fa-plus-minus"></i>
-        <p>Saldo: <span>${income - expense} zł</span></p>
+        <p>Saldo: <span>${income + expense} zł</span></p>
       </div>
     </div>
     </div>

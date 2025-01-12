@@ -1,11 +1,14 @@
-export const renderField = (fieldData) => {
-  const list = document.getElementById("fieldsList");
-  const fieldElement = document.createElement("li");
+export const renderTodoItems = (todos) => {
+  let html = "";
 
-  fieldElement.innerHTML = `
-      <span>${fieldData.name}</span>
-      <button data-id="${fieldData.id}" class="delete-field">Usuń</button>
-    `;
+  todos.forEach((item) => {
+    html += `
+        <li class="list-item" data-id="${item.id}">
+            <input type="checkbox" />
+            <p>${item.description}</p>
+        </li>
+      `;
+  });
 
-  list.appendChild(fieldElement);
+  document.querySelector("#todos-list").innerHTML = html;
 };

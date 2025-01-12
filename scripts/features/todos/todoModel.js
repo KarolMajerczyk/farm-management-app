@@ -1,21 +1,32 @@
-import { saveToStorage, loadFromStorage } from "../../shared/storage.js";
+import {
+  saveToLocalStorage,
+  loadFromLocalStorage,
+} from "../../shared/storage.js";
 
-export const createTodo = ({ name, size, location }) => {
-  return {};
+import { generateRandomId } from "../../utils/generateRandomId.js";
+
+export const createTodoItem = (description) => {
+  return {
+    id: generateRandomId(),
+    description,
+    status: "pending",
+  };
 };
 
-export const addTodo = (fieldData) => {
-  const fields = loadFromStorage("fields") || [];
-  fields.push(fieldData);
-  saveToStorage("fields", fields);
+export const getTodoItems = (type, id) => {
+  const data = loadFromLocalStorage(type);
+  const obj = data.find((item) => item.id === id);
+
+  return obj.todos;
 };
 
-export const removeTodo = (fieldId) => {
-  const fields = loadFromStorage("fields") || [];
-  const updatedFields = fields.filter((field) => field.id !== fieldId);
-  saveToStorage("fields", updatedFields);
+export const addTodoItem = (type, id, item) => {
+  const data = loadFromLocalStorage(type);
+
+  const index = data.findIndex((item) => item.id === id);
+  data[index].todos.push(item);
+
+  saveToLocalStorage(type, data);
 };
 
-export const getTodos = () => {
-  return loadFromStorage("fields") || [];
-};
+// export const removeTodo = (id) => {};

@@ -1,3 +1,5 @@
+import { loadFromLocalStorage, saveToLocalStorage } from "../shared/storage.js";
+
 function loadDbFromLocalStorage(dbName) {
   return JSON.parse(localStorage.getItem(dbName)) || [];
 }
@@ -61,7 +63,7 @@ export const getItemById = async (dbName, id) => {
 };
 
 export const getItems = async (dbName) => {
-  const db = loadDbFromLocalStorage(dbName);
+  const db = loadFromLocalStorage(dbName);
 
   return [...db];
 };

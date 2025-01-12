@@ -1,55 +1,51 @@
-import { addField, removeField } from "./fieldManager.js";
-import { renderField } from "./fieldView.js";
+import { addTodoItem, createTodoItem, getTodoItems } from "./todoModel.js";
+import { renderTodoItems } from "./todoView.js";
 
 // ---------------- //
 // EVENTS
 // ---------------- //
 
-document.getElementById("side-menu").addEventListener("click", (e) => {
-  if (e.target.dataset.page === "todos") {
-    handleTodosSectionLoad();
-  }
-});
+export function initTodos() {
+  document
+    .querySelector("#side-menu")
+    .addEventListener("click", (e) => handleTodosListLoad(e));
 
-document
-  .getElementById("datePicker")
-  .addEventListener("change", handleDatePickerChange);
-
-document
-  .getElementById("todosList")
-  .addEventListener("click", handleTodosListClick);
-
-document
-  .getElementById("addFieldForm")
-  .addEventListener("submit", handleAddTodoFormSubmit);
-
-// ---------------- //
-// CONTROLLER
-// -----------------//
-
-// jak nacisnę w menu todos
-function handleTodosSectionLoad() {}
-
-// jak wybiorę inną datę
-function handleDatePickerChange() {}
-
-// jak nacisnę któryś item w todo
-function handleTodosListClick() {
-  if (e.target.classList.contains("delete-field")) {
-    const fieldId = e.target.dataset.id;
-    removeField(fieldId);
-    e.target.closest("li").remove();
-  }
-
-  // if checkbox
+  document
+    .getElementById("add-todo-form")
+    .addEventListener("submit", (e) => handleAddTodoFormSubmit(e));
 }
 
-// jak zrobie submit todo
-function handleAddTodoFormSubmit() {
+function handleTodosListLoad(e) {
+  const menuItemSection = e.target.dataset.page;
+
+  if (menuItemSection === "todos") {
+    const cardData = document.querySelector(".card-tile.active").dataset;
+    const { type, id } = cardData;
+
+    const todos = getTodoItems(type, id);
+    renderTodoItems(todos);
+  }
+}
+
+function handleAddTodoFormSubmit(e) {
   e.preventDefault();
-  const name = e.target.elements.name.value;
 
-  const fieldData = { id: Date.now(), name, budget: { income: 0, expense: 0 } };
-  addField(fieldData);
-  renderField(fieldData);
+  const cardData = document.querySelector(".card-tile.active").dataset;
+  const { type, id } = cardData;
+
+  const form = e.target;
+  const data = new FormData(form);
+  const description = data.get("description");
+
+  const todo = createTodoItem(description);
+  addTodoItem(type, id, todo);
+
+  const todos = getTodoItems(type, id);
+  renderTodoItems(todos);
+
+  form.reset();
 }
+
+// document.getElementById("date-picker").addEventListener("change", () => {});
+
+// document.getElementById("todos-list").addEventListener("click", () => {});

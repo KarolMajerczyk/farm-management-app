@@ -1,6 +1,4 @@
 import { renderOverview } from "../services/renderOverview.js";
-import { renderBudget } from "../services/renderBudget.js";
-import { renderTodos } from "../services/renderTodos.js";
 import { toggleElementActive } from "../services/toggleElementActive.js";
 import { getItemById } from "../db/db.js";
 
@@ -28,12 +26,6 @@ export async function handleSidePanelMenuClick(e) {
   switch (page) {
     case "overview":
       renderOverview(obj, objType);
-      break;
-    case "budget":
-      renderBudget(obj.budget);
-      break;
-    case "todos":
-      renderTodos(obj.todos);
       break;
   }
 }

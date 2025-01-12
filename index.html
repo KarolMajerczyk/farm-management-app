@@ -101,27 +101,23 @@
               <option value="minus">Wydatki</option>
             </select>
 
-            <ul class="items-list"></ul>
+            <ul id="budget-list" class="items-list"></ul>
 
-            <form action="">
-              <input type="text" />
-              <select id="dropdown" name="dropdown">
-                <option value="plus">+</option>
-                <option value="minus">-</option>
-              </select>
-              <input type="number" />
+            <form id="add-budget-form" action="">
+              <input name="description" type="text" required />
+              <input name="amount" type="number" required />
               <button type="submit">Dodaj</button>
             </form>
           </section>
 
           <!-- TODO -->
-          <section class="todos">
-            <input type="date" />
+          <section id="todos" class="todos">
+            <input id="date-picker" type="date" />
 
-            <ul class="items-list"></ul>
+            <ul id="todos-list" class="items-list"></ul>
 
-            <form action="">
-              <input type="text" />
+            <form id="add-todo-form" action="">
+              <input name="description" type="text" required />
               <button type="submit">Dodaj</button>
             </form>
           </section>
