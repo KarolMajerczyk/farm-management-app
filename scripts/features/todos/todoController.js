@@ -5,7 +5,7 @@ import { renderTodoItems } from "./todoView.js";
 // EVENTS
 // ---------------- //
 
-export function initTodoController() {
+export function initTodosController() {
   document
     .querySelector("#side-menu")
     .addEventListener("click", (e) => handleTodosListLoad(e));

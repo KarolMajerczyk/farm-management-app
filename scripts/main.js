@@ -9,11 +9,11 @@ import { handleCardTileClick } from "./events/handleCardTileClick.js";
 import { handleSidePanelMenuClick } from "./events/handleSidePanelMenuClick.js";
 import { handlePageChange } from "./events/handlePageChange.js";
 import { handleItemsPanelClick } from "./events/handleItemsPanelClick.js";
-import { initTodoController } from "./features/todos/todoController.js";
+import { initTodosController } from "./features/todos/todoController.js";
 import { initBudgetController } from "./features/budget/budgetController.js";
 
 document.addEventListener("DOMContentLoaded", (e) => {
-  initTodoController();
+  initTodosController();
   initBudgetController();
   // localStorage.clear();
   handlePageChange(e);

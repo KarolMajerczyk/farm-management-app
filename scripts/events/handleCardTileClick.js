@@ -2,9 +2,9 @@ import { DOM } from "../dom/domElements.js";
 
 import { getItemById } from "../db/db.js";
 import { flyToFieldBounds } from "../services/flyToFieldBounds.js";
-import { toggleElementActive } from "../services/toggleElementActive.js";
+import { toggleElementActive } from "../utils/toggleElementActive.js";
 import { setMapSearchFormValue } from "../services/setMapSearchFormValue.js";
-import { toggleElementVisibility } from "../services/toggleElementVisibility.js";
+import { toggleElementVisibility } from "../utils/toggleElementVisibility.js";
 
 import {
   removeFieldFromMap,

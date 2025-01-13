@@ -1,5 +1,5 @@
 import { renderOverview } from "../services/renderOverview.js";
-import { toggleElementActive } from "../services/toggleElementActive.js";
+import { toggleElementActive } from "../utils/toggleElementActive.js";
 import { getItemById } from "../db/db.js";
 
 export async function handleSidePanelMenuClick(e) {

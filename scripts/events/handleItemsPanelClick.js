@@ -13,8 +13,8 @@ import {
 
 import { addItem, getItems, getFieldData, deleteItem } from "../db/db.js";
 
-import { toggleElementActive } from "../services/toggleElementActive.js";
-import { toggleElementVisibility } from "../services/toggleElementVisibility.js";
+import { toggleElementActive } from "../utils/toggleElementActive.js";
+import { toggleElementVisibility } from "../utils/toggleElementVisibility.js";
 import { renderOverview } from "../services/renderOverview.js";
 import { renderContentList } from "../services/renderContentList.js";
 

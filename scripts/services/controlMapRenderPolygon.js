@@ -12,8 +12,8 @@ import {
 } from "../services/renderFieldOnMap.js";
 
 import { getItemById } from "../db/db.js";
-import { toggleElementActive } from "../services/toggleElementActive.js";
-import { toggleElementVisibility } from "../services/toggleElementVisibility.js";
+import { toggleElementActive } from "../utils/toggleElementActive.js";
+import { toggleElementVisibility } from "../utils/toggleElementVisibility.js";
 
 import { renderOverview } from "../services/renderOverview.js";
 
