@@ -14,8 +14,6 @@ export const addItem = (dbName, item) => {
 
   db.push(item);
 
-  console.log(db);
-
   saveToLocalStorage(dbName, db);
 };
 

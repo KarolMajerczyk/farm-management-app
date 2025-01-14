@@ -1,8 +1,8 @@
 import { initMapController } from "./features/map/mapController.js";
+import { initItemsController } from "./features/items/itemsController.js";
 
 import { initTodosController } from "./features/todos/todoController.js";
 import { initBudgetController } from "./features/budget/budgetController.js";
-import { initItemsController } from "./features/items/itemsController.js";
 import { initContentController } from "./features/content/contentController.js";
 
 document.addEventListener("DOMContentLoaded", (e) => {
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     initMapController();
   }
 
-  initItemsController();
+  // initItemsController();
   // initTodosController();
   // initBudgetController();
   // initContentController();
