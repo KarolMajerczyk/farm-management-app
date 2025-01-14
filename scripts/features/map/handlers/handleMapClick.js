@@ -41,7 +41,7 @@ export async function handleMapClick(e) {
   }
 
   if (getMapLayer(id)) {
-    eventBus.emit("fieldPolygonClicked", id);
+    eventBus.emit("fieldLayerSelected", id);
     return;
   }
 

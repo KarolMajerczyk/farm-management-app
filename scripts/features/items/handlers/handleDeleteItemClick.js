@@ -9,7 +9,7 @@ export function handleDeleteItemClick(e) {
   deleteItem(type, id);
 
   if (type === "fields") {
-    eventBus.emit("fieldDelete", id);
+    eventBus.emit("fieldDeleted", id);
   }
 
   const objArr = getItems(type);

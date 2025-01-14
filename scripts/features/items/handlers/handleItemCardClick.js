@@ -8,7 +8,7 @@ export function handleItemCardClick(e) {
   const obj = getItemById(type, id);
 
   if (type === "fields") {
-    eventBus.emit("fieldCardClicked", obj.location);
+    eventBus.emit("fieldCardSelected", obj.location);
   } else {
     // renderContentList(obj, type);
   }

@@ -20,7 +20,7 @@ export async function handleAddItemClick(e) {
     const data = await getFieldData({ id });
 
     obj = createFieldItem(data);
-    eventBus.emit("newFieldAdded", { id, location: obj.location });
+    eventBus.emit("fieldAdded", { id, location: obj.location });
   } else if (type === "herds") {
     obj = createHerdItem();
   } else if (type === "machines") {

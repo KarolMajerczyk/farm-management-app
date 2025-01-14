@@ -2,7 +2,7 @@ import { convertWKTToGeoJSON } from "../../../utils/converter.js";
 import { map, setMapLayers } from "../mapModel.js";
 import { renderFieldOnMap } from "../mapView.js";
 
-export function handleMapFieldsRender(fields) {
+export function handleFieldLayersRender(fields) {
   const layers = [];
 
   fields.forEach((field) => {

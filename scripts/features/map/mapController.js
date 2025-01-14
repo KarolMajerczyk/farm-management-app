@@ -4,10 +4,10 @@ import { eventBus } from "../../shared/eventBus.js";
 import { handleMapDrag } from "./handlers/handleMapDrag.js";
 import { handleMapClick } from "./handlers/handleMapClick.js";
 import { handleMapSearchFormSubmit } from "./handlers/handleMapSearchFormSubmit.js";
-import { handleMapFieldsRender } from "./handlers/handleMapFieldsRender.js";
-import { handleFieldFocus } from "./handlers/handleFieldFocus.js";
-import { handleFieldAdd } from "./handlers/handleFieldAdd.js";
-import { handleFieldDelete } from "./handlers/handleFieldDelete.js";
+import { handleFieldLayersRender } from "./handlers/handleFieldLayersRender.js";
+import { handleFieldLayerFocus } from "./handlers/handleFieldLayerFocus.js";
+import { handleFieldLayerAdd } from "./handlers/handleFieldLayerAdd.js";
+import { handleFieldLayerDelete } from "./handlers/handleFieldLayerDelete.js";
 
 export function initMapController() {
   map.on("drag", handleMapDrag);
@@ -22,15 +22,17 @@ export function initMapController() {
     .addEventListener("submit", (e) => handleMapSearchFormSubmit(e));
 
   eventBus.on("fieldsListLoaded", (fields) => {
-    handleMapFieldsRender(fields);
-    handleFieldFocus(fields[0].location);
+    handleFieldLayersRender(fields);
+    handleFieldLayerFocus(fields[0].location);
   });
 
-  eventBus.on("fieldCardClicked", (location) => handleFieldFocus(location));
-
-  eventBus.on("newFieldAdded", ({ id, location }) =>
-    handleFieldAdd(id, location)
+  eventBus.on("fieldCardSelected", (location) =>
+    handleFieldLayerFocus(location)
   );
 
-  eventBus.on("fieldDelete", (id) => handleFieldDelete(id));
+  eventBus.on("fieldAdded", ({ id, location }) =>
+    handleFieldLayerAdd(id, location)
+  );
+
+  eventBus.on("fieldDeleted", (id) => handleFieldLayerDelete(id));
 }

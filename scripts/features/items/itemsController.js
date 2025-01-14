@@ -11,19 +11,15 @@ export function initItemsController() {
     .querySelector("#add-item")
     .addEventListener("click", (e) => handleAddItemClick(e));
 
-  // eventBus.on("fieldPolygonClicked", (id) => handleItemCardState(id));
-
   document.querySelector("#items-list").addEventListener("click", (e) => {
-    console.log(e.target);
-
     if (e.target.classList.contains("card-tile")) {
       handleItemCardClick(e);
-      return;
     }
 
     if (e.target.classList.contains("delete")) {
       handleDeleteItemClick(e);
-      return;
     }
   });
+
+  eventBus.on("fieldLayerSelected", (id) => handleItemCardState(id));
 }

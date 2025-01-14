@@ -6,16 +6,15 @@ import { initBudgetController } from "./features/budget/budgetController.js";
 import { initContentController } from "./features/content/contentController.js";
 
 document.addEventListener("DOMContentLoaded", (e) => {
-  // localStorage.clear();
+  localStorage.clear();
 
   if (document.querySelector("#map")) {
     initMapController();
   }
 
   initItemsController();
+
   // initTodosController();
   // initBudgetController();
   // initContentController();
-
-  // localStorage.clear();
 });

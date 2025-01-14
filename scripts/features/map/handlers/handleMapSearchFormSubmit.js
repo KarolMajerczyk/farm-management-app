@@ -34,7 +34,7 @@ export async function handleMapSearchFormSubmit(e) {
   }
 
   if (getMapLayer(id)) {
-    eventBus.emit("fieldPolygonClicked", id);
+    eventBus.emit("fieldLayerSelected", id);
     return;
   }
 
