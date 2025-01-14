@@ -1,38 +1,21 @@
-import { DOM } from "./dom/domElements.js";
+import { initMapController } from "./features/map/mapController.js";
 
-import { map, handleMapLoad } from "./events/map/handleMapLoad.js";
-import { handleMapDrag } from "./events/map/handleMapDrag.js";
-import { handleMapClick } from "./events/map/handleMapClick.js";
-import { handleMapSearch } from "./events/map/handleMapSearch.js";
-
-import { handleCardTileClick } from "./events/handleCardTileClick.js";
-import { handleSidePanelMenuClick } from "./events/handleSidePanelMenuClick.js";
-import { handlePageChange } from "./events/handlePageChange.js";
-import { handleItemsPanelClick } from "./events/handleItemsPanelClick.js";
 import { initTodosController } from "./features/todos/todoController.js";
 import { initBudgetController } from "./features/budget/budgetController.js";
+import { initItemsController } from "./features/items/itemsController.js";
+import { initContentController } from "./features/content/contentController.js";
 
 document.addEventListener("DOMContentLoaded", (e) => {
-  initTodosController();
-  initBudgetController();
   // localStorage.clear();
-  handlePageChange(e);
 
-  const mapContainer = document.getElementById("map");
-
-  if (mapContainer) {
-    handleMapLoad();
-
-    map.on("drag", handleMapDrag);
-    map.on("click", (e) => handleMapClick(e));
-
-    DOM.mapSearch.addEventListener("click", (e) => handleMapSearch(e));
+  if (document.querySelector("#map")) {
+    initMapController();
   }
 
-  DOM.cardsList.addEventListener("click", (e) => handleCardTileClick(e));
-  DOM.sidePanelMenu.addEventListener("click", (e) =>
-    handleSidePanelMenuClick(e)
-  );
+  initItemsController();
+  // initTodosController();
+  // initBudgetController();
+  // initContentController();
 
-  DOM.itemsPanel.addEventListener("click", (e) => handleItemsPanelClick(e));
+  // localStorage.clear();
 });

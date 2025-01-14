@@ -1,4 +1,4 @@
-import { DOM } from "../dom/domElements.js";
+export function initContentController() {}
 
 export function renderContentList(obj, objType) {
   let html = "";

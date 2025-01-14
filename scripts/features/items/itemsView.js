@@ -1,16 +1,14 @@
-import { DOM } from "../dom/domElements.js";
-
-const generator = {
-  fields: generateFieldCardsHTML,
-  herds: generateHerdCardsHTML,
-  machines: generateMachineCardsHTML,
+const listTypes = {
+  fields: generateFieldItemsList,
+  herds: generateHerdItemsList,
+  machines: generateMachineItemsList,
 };
 
-export function renderCardsList(obj, objType) {
-  DOM.cardsList.innerHTML = generator[objType](obj);
+export function renderItemsList(type, data) {
+  document.querySelector("#items-list").innerHTML = listTypes[type](data);
 }
 
-function generateFieldCardsHTML(fields) {
+function generateFieldItemsList(fields) {
   let html = "";
 
   fields.reverse().forEach((field) => {
@@ -36,7 +34,7 @@ function generateFieldCardsHTML(fields) {
   return html;
 }
 
-function generateHerdCardsHTML(herds) {
+function generateHerdItemsList(herds) {
   let html = "";
 
   herds.reverse().forEach((herd) => {
@@ -62,7 +60,7 @@ function generateHerdCardsHTML(herds) {
   return html;
 }
 
-function generateMachineCardsHTML(machines) {
+function generateMachineItemsList(machines) {
   let html = "";
 
   machines.reverse().forEach((machine) => {
