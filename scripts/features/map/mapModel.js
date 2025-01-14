@@ -35,7 +35,7 @@ export const getMapLayer = (id) => {
 
 export function removeMapLayer(id) {
   const layerInd = mapLayers.findIndex((field) => field.id === id);
-  mapLayers.splice(layerInd, 1);
+  return mapLayers.splice(layerInd, 1)[0].layer;
 }
 
 export const getActiveLayer = () => activeLayer;

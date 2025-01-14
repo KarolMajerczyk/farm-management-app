@@ -7,13 +7,13 @@ export function removeFieldFromMap(map, layer) {
 }
 
 export const setMapSearchFormValue = (id) => {
-  document.querySelector("#teryt-input").value = id;
+  document.querySelector("#map-search input").value = id || "";
 };
 
-export function flyToFieldBounds(polygon) {
+export function flyToFieldBounds(map, polygon) {
   const layer = L.geoJSON(polygon);
 
   map.flyToBounds(layer.getBounds(), {
-    duration: 2,
+    duration: 3,
   });
 }

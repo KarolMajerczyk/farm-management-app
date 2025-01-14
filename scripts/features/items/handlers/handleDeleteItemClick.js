@@ -1,18 +1,18 @@
+import { eventBus } from "../../../shared/eventBus.js";
+import { deleteItem, getItems } from "../itemsModel.js";
+import { renderItemsList } from "../itemsView.js";
+
 export function handleDeleteItemClick(e) {
-  const objType = e.target.parentElement.dataset.type;
-  const objId = e.target.parentElement.dataset.id;
+  const type = e.target.parentElement.dataset.type;
+  const id = e.target.parentElement.dataset.id;
 
-  const id = deleteItem(objType, objId);
+  deleteItem(type, id);
 
-  if (objType === "fields") {
-    removeFieldFromMap(getMapLayer(id));
-    removeMapLayer(id);
+  if (type === "fields") {
+    eventBus.emit("fieldDelete", id);
   }
 
-  const objArr = getItems(objType);
+  const objArr = getItems(type);
 
-  renderCardsList(objArr, objType);
-  toggleElementVisibility(DOM.sidePanel, false);
-
-  return;
+  renderItemsList(type, objArr);
 }

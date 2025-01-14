@@ -1,20 +1,15 @@
-export function handleMapFieldsRender(id, location) {
-  const polygon = convertWKTToGeoJSON(location);
+import { convertWKTToGeoJSON } from "../../../utils/converter.js";
+import { map, setMapLayers } from "../mapModel.js";
+import { renderFieldOnMap } from "../mapView.js";
 
-  flyToFieldBounds(polygon);
+export function handleMapFieldsRender(fields) {
+  const layers = [];
 
-  const activeLayer = getActiveLayer();
+  fields.forEach((field) => {
+    const polygon = convertWKTToGeoJSON(field.location);
+    const fieldLayer = renderFieldOnMap(map, polygon);
+    layers.push({ id: field.id, layer: fieldLayer });
+  });
 
-  if (activeLayer) {
-    removeFieldFromMap(map, activeLayer);
-  }
-
-  if (getMapLayer(id)) {
-    eventBus.emit("fieldPolygonClicked", id);
-
-    return;
-  }
-
-  const layer = renderFieldOnMap(map, polygon);
-  setActiveLayer(layer);
+  setMapLayers(layers);
 }

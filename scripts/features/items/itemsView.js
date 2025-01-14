@@ -14,7 +14,7 @@ function generateFieldItemsList(fields) {
   fields.reverse().forEach((field) => {
     html += `
     <div class="card-tile" data-id="${field.id}" data-type="fields">
-      <button data-action="delete">
+      <button class="delete">
         <i class="card-image fa-solid fa-trash"></i>
       </button>
       <div class="card-content">

@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     initMapController();
   }
 
-  // initItemsController();
+  initItemsController();
   // initTodosController();
   // initBudgetController();
   // initContentController();
