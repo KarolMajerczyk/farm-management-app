@@ -1,17 +1,17 @@
-toggleElementVisibility(DOM.sidePanel, false);
-toggleElementVisibility(DOM.addFieldButton, true);
-
 const generator = {
   fields: generateFieldOverviewHTML,
   herds: generateHerdOverviewHTML,
   machines: generateMachineOverviewHTML,
 };
 
-export function renderOverview(obj, objType) {
-  resetSidePanel();
-  DOM.sidePanelHeading.innerText = "Przegląd";
+export function renderOverview(type, obj) {
+  // resetSidePanel();
+  document.querySelector(".side-panel").classList.add("visible");
+  document.querySelector(".overview").classList.add("visible");
 
-  let html = generator[objType](obj);
+  document.querySelector(".side-panel h2").innerText = "Przegląd";
+
+  let html = generator[type](obj);
 
   const todosLeft = obj.todos.filter((todo) => todo.status === "pending");
 
@@ -60,7 +60,7 @@ export function renderOverview(obj, objType) {
       </div>
     `;
 
-  DOM.overview.innerHTML = html;
+  document.querySelector(".overview").innerHTML = html;
 }
 
 function generateFieldOverviewHTML(field) {
@@ -217,4 +217,8 @@ function resetSidePanel() {
 
   const overviewBtn = document.querySelectorAll(".side-panel .nav-item")[0];
   overviewBtn.classList.add("active");
+}
+
+export function hideSidePanel() {
+  document.querySelector(".side-panel").classList.remove("visible");
 }

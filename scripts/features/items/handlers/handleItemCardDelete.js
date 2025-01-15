@@ -6,7 +6,10 @@ export function handleItemCardDelete(e) {
   const type = e.target.parentElement.dataset.type;
   const id = e.target.parentElement.dataset.id;
 
-  const activeCardId = document.querySelector(".card-tile.active").dataset.id;
+  let activeCardId;
+  if (document.querySelector(".card-tile.active")) {
+    activeCardId = document.querySelector(".card-tile.active").dataset.id;
+  }
 
   deleteItem(type, id);
 

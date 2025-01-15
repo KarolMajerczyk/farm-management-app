@@ -38,6 +38,7 @@ export async function handleMapSearchFormSubmit(e) {
     return;
   }
 
+  eventBus.emit("emptyLayerSelected", id);
   const layer = renderFieldOnMap(map, polygon);
   setActiveLayer(layer);
 }

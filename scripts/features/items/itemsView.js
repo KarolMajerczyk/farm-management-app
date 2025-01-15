@@ -39,7 +39,7 @@ function generateHerdItemsList(herds) {
 
   herds.reverse().forEach((herd) => {
     html += `<div class="card-tile" data-id="${herd.id}" data-type="herds">
-    <button data-action="delete">
+    <button class="delete">
         <i class="card-image fa-solid fa-trash"></i>
       </button>
       <div class="card-content">
@@ -65,7 +65,7 @@ function generateMachineItemsList(machines) {
 
   machines.reverse().forEach((machine) => {
     html += `<div class="card-tile" data-id="${machine.id}" data-type="machines">
-    <button data-action="delete">
+    <button class="delete">
         <i class="card-image fa-solid fa-trash"></i>
       </button>
       <div class="card-content">          

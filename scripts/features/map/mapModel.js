@@ -2,6 +2,10 @@ const mapLayers = [];
 let activeLayer;
 
 export function createMapObject() {
+  if (!document.querySelector("#map")) {
+    return { map: null, bounds: null };
+  }
+
   const map = L.map("map").setView([51.919, 19.134], 7);
 
   const bounds = [

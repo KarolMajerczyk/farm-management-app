@@ -73,7 +73,7 @@ export function createFieldItem(data) {
 export function createHerdItem() {
   return {
     id: generateRandomId(),
-    name: "",
+    name: "Nazwa stada",
     image: "./images/animal.png",
     animal: "",
     species: "",
@@ -87,10 +87,10 @@ export function createHerdItem() {
 export function createMachineItem() {
   return {
     id: generateRandomId(),
-    name: "",
+    name: "Nazwa maszyny",
     image: "./images/machine.png",
-    plate: "",
-    type: "",
+    plate: "XXXXXXXX",
+    type: "Typ maszyny",
     hoursUsed: 0,
 
     files: [],

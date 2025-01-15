@@ -4,6 +4,7 @@ import { initItemsController } from "./features/items/itemsController.js";
 import { initTodosController } from "./features/todos/todoController.js";
 import { initBudgetController } from "./features/budget/budgetController.js";
 import { initContentController } from "./features/content/contentController.js";
+import { initPanelController } from "./features/panel/panelController.js";
 
 document.addEventListener("DOMContentLoaded", (e) => {
   // localStorage.clear();
@@ -12,6 +13,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     initMapController();
   }
 
+  initPanelController();
   initItemsController();
 
   // initTodosController();
