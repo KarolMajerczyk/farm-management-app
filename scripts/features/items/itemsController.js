@@ -3,8 +3,7 @@ import { handleItemCardAdd } from "./handlers/handleItemCardAdd.js";
 import { handleItemCardDelete } from "./handlers/handleItemCardDelete.js";
 import { handleItemsListRender } from "./handlers/handleItemsListRender.js";
 import { handleItemCardSelect } from "./handlers/handleItemCardSelect.js";
-import { handleItemDataReset } from "./handlers/handleItemDataReset.js";
-import { handleItemDataLoad } from "./handlers/handleItemDataLoad.js";
+import { handleItemCardUnselect } from "./handlers/handleItemCardUnselect.js";
 
 export function initItemsController() {
   handleItemsListRender();
@@ -15,7 +14,7 @@ export function initItemsController() {
 
   document.querySelector("#items-list").addEventListener("click", (e) => {
     if (e.target.classList.contains("card-tile")) {
-      handleItemCardSelect(e);
+      handleItemCardSelect({ e });
     }
 
     if (e.target.classList.contains("delete")) {
@@ -23,6 +22,9 @@ export function initItemsController() {
     }
   });
 
-  eventBus.on("fieldLayerSelected", (id) => handleItemDataLoad(id));
-  eventBus.on("emptyLayerSelected", handleItemDataReset);
+  eventBus.on("fieldLayerSelected", (id) =>
+    handleItemCardSelect({ type: "fields", id })
+  );
+
+  eventBus.on("emptyLayerSelected", handleItemCardUnselect);
 }

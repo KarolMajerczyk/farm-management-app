@@ -37,5 +37,7 @@ export async function handleItemCardAdd(e) {
   const items = getItems(type);
 
   renderItemsList(type, items);
+
   toggleItemCardActive(obj.id);
+  eventBus.emit("itemCardSelected", obj);
 }

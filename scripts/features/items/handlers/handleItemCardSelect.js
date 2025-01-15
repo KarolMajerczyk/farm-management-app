@@ -2,9 +2,11 @@ import { eventBus } from "../../../shared/eventBus.js";
 import { getItemById } from "../itemsModel.js";
 import { hideItemsListAddButton, toggleItemCardActive } from "../itemsView.js";
 
-export function handleItemCardSelect(e) {
-  const type = e.target.dataset.type;
-  const id = e.target.dataset.id;
+export function handleItemCardSelect({ e, type, id }) {
+  if (e) {
+    type = e.target.dataset.type;
+    id = e.target.dataset.id;
+  }
 
   const obj = getItemById(type, id);
 
@@ -14,6 +16,5 @@ export function handleItemCardSelect(e) {
   }
 
   toggleItemCardActive(id);
-
   eventBus.emit("itemCardSelected", obj);
 }
