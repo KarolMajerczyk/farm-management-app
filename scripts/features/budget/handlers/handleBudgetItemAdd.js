@@ -1,4 +1,4 @@
-export function handleAddBudgetFormSubmit(e) {
+export function handleBudgetItemAdd(e) {
   e.preventDefault();
 
   const cardData = document.querySelector(".card-tile.active").dataset;
