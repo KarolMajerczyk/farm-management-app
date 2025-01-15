@@ -17,13 +17,13 @@
   transform: scale(0.9);
 }
 
-#add-itsem {
+#add-item {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 }
 
-#add-itesm.visible {
+#add-item.visible {
   opacity: 1;
   visibility: visible;
   pointer-events: all;

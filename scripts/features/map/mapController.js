@@ -23,11 +23,11 @@ export function initMapController() {
 
   eventBus.on("fieldsListLoaded", (fields) => {
     handleFieldLayersRender(fields);
-    handleFieldLayerFocus(fields[0].location);
+    handleFieldLayerFocus(fields[0].id, fields[0].location);
   });
 
-  eventBus.on("fieldCardSelected", (location) =>
-    handleFieldLayerFocus(location)
+  eventBus.on("fieldCardSelected", ({ id, location }) =>
+    handleFieldLayerFocus(id, location)
   );
 
   eventBus.on("fieldAdded", ({ id, location }) =>

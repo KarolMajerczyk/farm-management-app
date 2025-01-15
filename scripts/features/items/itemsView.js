@@ -85,3 +85,25 @@ function generateMachineItemsList(machines) {
 
   return html;
 }
+
+export function toggleItemCardActive(el) {
+  if (document.querySelector(".card-tile.active")) {
+    document.querySelector(".card-tile.active").classList.remove("active");
+  }
+
+  if (!el) {
+    el = document.querySelectorAll(".card-tile")[0];
+  }
+
+  console.log(el);
+
+  el.classList.add("active");
+}
+
+export function showItemsListAddButton() {
+  document.querySelector("#add-item").classList.add("visible");
+}
+
+export function hideItemsListAddButton() {
+  document.querySelector("#add-item").classList.remove("visible");
+}

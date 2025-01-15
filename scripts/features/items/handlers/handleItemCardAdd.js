@@ -9,9 +9,13 @@ import {
   getItems,
 } from "../itemsModel.js";
 
-import { renderItemsList } from "../itemsView.js";
+import {
+  hideItemsListAddButton,
+  renderItemsList,
+  toggleItemCardActive,
+} from "../itemsView.js";
 
-export async function handleAddItemClick(e) {
+export async function handleItemCardAdd(e) {
   const type = e.target.dataset.type;
   let obj;
 
@@ -21,6 +25,8 @@ export async function handleAddItemClick(e) {
 
     obj = createFieldItem(data);
     eventBus.emit("fieldAdded", { id, location: obj.location });
+
+    hideItemsListAddButton();
   } else if (type === "herds") {
     obj = createHerdItem();
   } else if (type === "machines") {
@@ -32,13 +38,6 @@ export async function handleAddItemClick(e) {
 
   renderItemsList(type, items);
 
-  // const objCard = document.querySelector(`[data-id="${obj.id}"]`);
-
-  // toggleElementActive(objCard, true);
-  // toggleElementVisibility(DOM.sidePanel, true);
-  // renderOverview(obj, objType);
-
-  // if (objType !== "fields") {
-  //   renderContentList(obj, objType);
-  // }
+  const objCard = document.querySelector(`[data-id="${obj.id}"]`);
+  toggleItemCardActive(objCard);
 }
