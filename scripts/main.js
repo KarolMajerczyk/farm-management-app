@@ -5,6 +5,7 @@ import { initOverviewController } from "./features/overview/overviewController.j
 import { initBudgetController } from "./features/budget/budgetController.js";
 import { initTodosController } from "./features/todos/todoController.js";
 import { initContentController } from "./features/content/contentController.js";
+import { initPanelController } from "./features/panel/panelController.js";
 
 document.addEventListener("DOMContentLoaded", (e) => {
   // localStorage.clear();
@@ -13,6 +14,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     initMapController();
   }
 
+  initPanelController();
   initOverviewController();
   initItemsController();
 
