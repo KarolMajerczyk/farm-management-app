@@ -14,4 +14,6 @@ export function handleItemCardSelect(e) {
   }
 
   toggleItemCardActive(id);
+
+  eventBus.emit("itemCardSelected", obj);
 }

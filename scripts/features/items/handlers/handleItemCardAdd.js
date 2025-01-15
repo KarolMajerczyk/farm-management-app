@@ -37,7 +37,5 @@ export async function handleItemCardAdd(e) {
   const items = getItems(type);
 
   renderItemsList(type, items);
-
-  const card = document.querySelector(`[data-id="${obj.id}"]`);
-  toggleItemCardActive(card);
+  toggleItemCardActive(obj.id);
 }
