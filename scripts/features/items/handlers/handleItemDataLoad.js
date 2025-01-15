@@ -1,6 +1,6 @@
-import { hideItemsListAddButton } from "../itemsView.js";
+import { hideItemsListAddButton, toggleItemCardActive } from "../itemsView.js";
 
-export function handleItemDataLoad() {
+export function handleItemDataLoad(id) {
+  toggleItemCardActive(id);
   hideItemsListAddButton();
-
 }

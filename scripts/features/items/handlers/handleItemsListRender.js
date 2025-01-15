@@ -13,7 +13,7 @@ export function handleItemsListRender() {
   }
 
   renderItemsList(type, data);
-  toggleItemCardActive();
+  toggleItemCardActive(data[0].id);
 
   if (type === "fields" && data.length !== 0) {
     eventBus.emit("fieldsListLoaded", data);

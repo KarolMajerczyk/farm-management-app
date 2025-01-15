@@ -13,5 +13,5 @@ export function handleItemCardSelect(e) {
     hideItemsListAddButton();
   }
 
-  toggleItemCardActive(e.target);
+  toggleItemCardActive(id);
 }

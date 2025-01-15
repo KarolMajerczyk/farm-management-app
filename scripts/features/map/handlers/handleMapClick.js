@@ -45,7 +45,7 @@ export async function handleMapClick(e) {
     return;
   }
 
-  eventBus.emit("emptyLayerSelected");
+  eventBus.emit("emptyLayerSelected", id);
   const layer = renderFieldOnMap(map, polygon);
   setActiveLayer(layer);
 }

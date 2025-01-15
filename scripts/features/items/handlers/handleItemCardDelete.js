@@ -5,11 +5,9 @@ import { renderItemsList, toggleItemCardActive } from "../itemsView.js";
 export function handleItemCardDelete(e) {
   const type = e.target.parentElement.dataset.type;
   const id = e.target.parentElement.dataset.id;
-  let card;
 
-  if (!e.target.classList.contains("active")) {
-    card = document.querySelector(".card-tile.active");
-  }
+  // jeśli to inna karta to zostaw active
+  if (e.target)
 
   deleteItem(type, id);
 
@@ -17,10 +15,7 @@ export function handleItemCardDelete(e) {
     eventBus.emit("fieldDeleted", id);
   }
 
-  // inną to zostaw active na tej której jesteś
-
   const objArr = getItems(type);
 
   renderItemsList(type, objArr);
-  toggleItemCardActive(card);
 }

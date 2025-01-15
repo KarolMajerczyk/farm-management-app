@@ -86,18 +86,18 @@ function generateMachineItemsList(machines) {
   return html;
 }
 
-export function toggleItemCardActive(el) {
+export function toggleItemCardActive(id) {
   if (document.querySelector(".card-tile.active")) {
     document.querySelector(".card-tile.active").classList.remove("active");
   }
 
-  if (!el) {
-    el = document.querySelectorAll(".card-tile")[0];
+  if (id) {
+    document.querySelector(`[data-id="${id}"]`).classList.add("active");
   }
+}
 
-  console.log(el);
-
-  el.classList.add("active");
+export function removeItemCardActive() {
+  document.querySelector(".card-tile.active").classList.remove("active");
 }
 
 export function showItemsListAddButton() {
