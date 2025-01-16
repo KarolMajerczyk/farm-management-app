@@ -1,3 +1,7 @@
+import { getTodoItems } from "../todosModel.js";
+import { renderTodoItems } from "../todosView.js";
+
 export function handleTodosDateChange(e) {
-  console.log(e.target.value);
+  const todos = getTodoItems(e.target.value);
+  renderTodoItems(todos);
 }

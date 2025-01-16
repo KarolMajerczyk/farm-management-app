@@ -1,3 +1,4 @@
+import { getCurrentDate } from "../../../utils/getCurrentDate.js";
 import {
   calculateBudgetSummary,
   calculateRemainingTodos,
@@ -12,7 +13,8 @@ import {
 export function handleOverviewSectionRender(obj) {
   const type = document.querySelector("#items-list").dataset.type;
 
-  const todosLeft = calculateRemainingTodos(obj);
+  const date = getCurrentDate();
+  const todosLeft = calculateRemainingTodos(obj, date);
   const { income, expense } = calculateBudgetSummary(obj);
 
   renderObjectSummary(type, obj);

@@ -3,6 +3,7 @@ import { handleTodosSectionRender } from "./handlers/handleTodosSectionRender.js
 import { handleTodoItemAdd } from "./handlers/handleTodoItemAdd.js";
 import { handleTodoItemDelete } from "./handlers/handleTodoItemDelete.js";
 import { handleTodosDateChange } from "./handlers/handleTodosDateChange.js";
+import { handleTodoItemCheckboxChange } from "./handlers/handleTodoItemCheckboxChange.js";
 
 export function initTodosController() {
   eventBus.on("todosSectionSelected", (obj) => {
@@ -16,6 +17,12 @@ export function initTodosController() {
   document.querySelector("#todos-list").addEventListener("click", (e) => {
     if (e.target.classList.contains("delete")) {
       handleTodoItemDelete(e);
+    }
+  });
+
+  document.querySelector("#todos-list").addEventListener("change", (e) => {
+    if (e.target.type === "checkbox") {
+      handleTodoItemCheckboxChange(e);
     }
   });
 

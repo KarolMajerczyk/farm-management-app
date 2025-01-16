@@ -6,11 +6,12 @@ export const getActiveObject = () => activeObject;
 
 export const setActiveObject = (obj) => (activeObject = obj);
 
-export const createTodoItem = (description) => {
+export const createTodoItem = (description, date) => {
   return {
     id: generateRandomId(),
     description,
     status: "pending",
+    date: date,
   };
 };
 
@@ -26,9 +27,20 @@ export const deleteTodoItem = (id) => {
   return activeObject.todos;
 };
 
-export const getBudgetItems = (filter) => {
-  if (filter) {
+export const getTodoItems = (date) => {
+  if (!date) {
+    date = getCurrentDate();
   }
 
-  return activeObject.todos;
+  return activeObject.todos.filter((item) => item.date === date);
+};
+
+export const toggleTodoItemStatus = (id) => {
+  const ind = activeObject.todos.findIndex((item) => item.id === id);
+
+  if (activeObject.todos[ind].status === "pending") {
+    activeObject.todos[ind].status = "done";
+  } else {
+    activeObject.todos[ind].status = "pending";
+  }
 };

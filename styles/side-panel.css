@@ -37,3 +37,12 @@
 .side-panel section .card-tile {
   transform: none;
 }
+
+#todos-list .list-item {
+  padding-left: 12px;
+}
+
+#todos-list .list-item p {
+  padding: 12px;
+  margin-right: auto;
+}

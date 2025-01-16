@@ -1,5 +1,10 @@
 import { eventBus } from "../../../shared/eventBus.js";
-import { addTodoItem, createTodoItem, getActiveObject } from "../todosModel.js";
+import {
+  addTodoItem,
+  createTodoItem,
+  getActiveObject,
+  getTodoItems,
+} from "../todosModel.js";
 
 import { renderTodoItems } from "../todosView.js";
 
@@ -13,9 +18,12 @@ export function handleTodoItemAdd(e) {
 
   form.reset();
 
-  const item = createTodoItem(description);
-  const todo = addTodoItem(item);
+  const date = document.querySelector(".todos #date-picker").value;
 
-  renderTodoItems(todo);
+  const item = createTodoItem(description, date);
+  addTodoItem(item);
+
+  const todos = getTodoItems(date);
+  renderTodoItems(todos);
   eventBus.emit("itemUpdated", getActiveObject());
 }

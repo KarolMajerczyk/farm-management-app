@@ -11,12 +11,12 @@ export function initContentController() {
       setActiveObject(obj);
 
       const type = document.querySelector(".content").dataset.type;
+      document.querySelector(".content .items-list").innerHTML = "";
 
       if (type === "animals") {
         handleContentListRender(obj);
       }
 
-      document.querySelector(".content .items-list").innerHTML = "";
       if (type === "files" && obj.files.length > 0) {
         displayFiles(obj.files);
       }

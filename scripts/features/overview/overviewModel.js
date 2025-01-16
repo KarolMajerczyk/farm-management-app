@@ -1,5 +1,7 @@
-export function calculateRemainingTodos(obj) {
-  return obj.todos.filter((todo) => todo.status === "pending").length;
+export function calculateRemainingTodos(obj, date) {
+  return obj.todos.filter(
+    (todo) => todo.status === "pending" && todo.date === date
+  ).length;
 }
 
 export function calculateBudgetSummary(obj) {
