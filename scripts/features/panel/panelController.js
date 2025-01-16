@@ -4,11 +4,11 @@ import { handlePanelLoad } from "./handlers/handlePanelLoad.js";
 import { hideSidePanel } from "./panelView.js";
 
 export function initPanelController() {
+  eventBus.on("itemCardSelected", (obj) => handlePanelLoad(obj));
+
   document
     .querySelector("#side-menu")
     .addEventListener("click", (e) => handlePanelMenuSelect(e));
-
-  eventBus.on("itemCardSelected", (obj) => handlePanelLoad(obj));
 
   eventBus.on("itemCardUnselected", hideSidePanel);
 }

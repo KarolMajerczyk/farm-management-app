@@ -4,7 +4,7 @@ export const renderBudgetItems = (budget) => {
   budget.forEach((item) => {
     html += `
       <li class="list-item" data-id="${item.id}">
-      <button>
+      <button class="delete">
         <i class="card-image fa-solid fa-trash"></i>
       </button>
       <i class="fa-solid fa-sack-dollar item-image ${

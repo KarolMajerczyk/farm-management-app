@@ -1,9 +1,10 @@
-import {
-  saveToLocalStorage,
-  loadFromLocalStorage,
-} from "../../shared/storage.js";
-
 import { generateRandomId } from "../../utils/generateRandomId.js";
+
+let activeObject = null;
+
+export const getActiveObject = () => activeObject;
+
+export const setActiveObject = (obj) => (activeObject = obj);
 
 export const createBudgetItem = (description, amount) => {
   return {
@@ -13,20 +14,23 @@ export const createBudgetItem = (description, amount) => {
   };
 };
 
-export const getBudgetItems = (type, id) => {
-  const data = loadFromLocalStorage(type);
-  const obj = data.find((item) => item.id === id);
-
-  return obj.budget;
+export const addBudgetItem = (item) => {
+  activeObject.budget.push(item);
+  return activeObject.budget;
 };
 
-export const addBudgetItem = (type, id, item) => {
-  const data = loadFromLocalStorage(type);
+export const deleteBudgetItem = (id) => {
+  const ind = activeObject.budget.findIndex((item) => item.id === id);
+  activeObject.budget.splice(ind, 1)[0];
 
-  const index = data.findIndex((item) => item.id === id);
-  data[index].budget.push(item);
-
-  saveToLocalStorage(type, data);
+  return activeObject.budget;
 };
 
-// export const removeBudgetItem = (id) => {};
+export const getBudgetItems = (filter) => {
+  
+  if (filter) {
+    
+  }
+
+  return activeObject.budget;
+};

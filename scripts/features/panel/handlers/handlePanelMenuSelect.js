@@ -1,12 +1,16 @@
 import { eventBus } from "../../../shared/eventBus.js";
 import { getActiveObject } from "../panelModel.js";
-import { togglePanelSectionVisibility } from "../panelView.js";
+import {
+  togglePanelSectionVisible,
+  toggleMenuItemActive,
+} from "../panelView.js";
 
 export function handlePanelMenuSelect(e) {
   const obj = getActiveObject();
 
   const page = e.target.dataset.page;
-  togglePanelSectionVisibility(page);
+  togglePanelSectionVisible(page);
+  toggleMenuItemActive(page);
 
   switch (page) {
     case "overview":

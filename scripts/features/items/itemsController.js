@@ -4,6 +4,7 @@ import { handleItemCardDelete } from "./handlers/handleItemCardDelete.js";
 import { handleItemsListRender } from "./handlers/handleItemsListRender.js";
 import { handleItemCardSelect } from "./handlers/handleItemCardSelect.js";
 import { handleItemCardUnselect } from "./handlers/handleItemCardUnselect.js";
+import { handleItemUpdate } from "./handlers/handleItemUpdate.js";
 
 export function initItemsController() {
   handleItemsListRender();
@@ -27,4 +28,6 @@ export function initItemsController() {
   );
 
   eventBus.on("emptyLayerSelected", handleItemCardUnselect);
+
+  eventBus.on("itemUpdated", (obj) => handleItemUpdate(obj));
 }

@@ -1,11 +1,8 @@
-export function handleTodosSectionRender(e) {
-  const menuItemSection = e.target.dataset.page;
+import { setActiveObject } from "../todosModel.js";
+import { renderTodoItems } from "../todosView.js";
 
-  if (menuItemSection === "todos") {
-    const cardData = document.querySelector(".card-tile.active").dataset;
-    const { type, id } = cardData;
-
-    const todos = getTodoItems(type, id);
-    renderTodoItems(todos);
-  }
+export function handleTodosSectionRender(obj) {
+  setActiveObject(obj);
+  renderTodoItems(obj.todos);
 }
+

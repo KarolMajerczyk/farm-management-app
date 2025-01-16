@@ -29,10 +29,10 @@ export const deleteItem = async (dbName, id) => {
   return obj.id;
 };
 
-export const editField = (dbName, id, item) => {
+export const updateItem = (dbName, item) => {
   const db = loadFromLocalStorage(dbName);
 
-  const objInd = db.findIndex((obj) => obj.id === id);
+  const objInd = db.findIndex((obj) => obj.id === item.id);
   db[objInd] = item;
 
   saveToLocalStorage(dbName, db);

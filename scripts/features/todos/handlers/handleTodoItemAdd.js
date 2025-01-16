@@ -1,18 +1,21 @@
+import { eventBus } from "../../../shared/eventBus.js";
+import { addTodoItem, createTodoItem, getActiveObject } from "../todosModel.js";
+
+import { renderTodoItems } from "../todosView.js";
+
 export function handleTodoItemAdd(e) {
   e.preventDefault();
 
-  const cardData = document.querySelector(".card-tile.active").dataset;
-  const { type, id } = cardData;
-
   const form = e.target;
   const data = new FormData(form);
+
   const description = data.get("description");
 
-  const todo = createTodoItem(description);
-  addTodoItem(type, id, todo);
-
-  const todos = getTodoItems(type, id);
-  renderTodoItems(todos);
-
   form.reset();
+
+  const item = createTodoItem(description);
+  const todo = addTodoItem(item);
+
+  renderTodoItems(todo);
+  eventBus.emit("itemUpdated", getActiveObject());
 }

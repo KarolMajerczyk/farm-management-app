@@ -1,15 +1,14 @@
+import { eventBus } from "../../../shared/eventBus.js";
 import {
   addBudgetItem,
   createBudgetItem,
-  getBudgetItems,
+  getActiveObject,
 } from "../budgetModel.js";
 
 import { renderBudgetItems } from "../budgetView.js";
 
 export function handleBudgetItemAdd(e) {
   e.preventDefault();
-
-  const cardData = document.querySelector(".card-tile.active").dataset;
 
   const form = e.target;
   const data = new FormData(form);
@@ -19,10 +18,9 @@ export function handleBudgetItemAdd(e) {
 
   form.reset();
 
-  const budgetItem = createBudgetItem(description, amount);
-  const obj = get;
-  // addBudgetItem(type, id, budgetItem);
+  const item = createBudgetItem(description, amount);
+  const budget = addBudgetItem(item);
 
-  // const budget = getBudgetItems(type, id);
-  renderBudgetItems(obj.budget);
+  renderBudgetItems(budget);
+  eventBus.emit("itemUpdated", getActiveObject());
 }

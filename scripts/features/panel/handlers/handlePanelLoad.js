@@ -1,10 +1,15 @@
 import { eventBus } from "../../../shared/eventBus.js";
 import { setActiveObject } from "../panelModel.js";
-import { showSidePanel, togglePanelSectionVisibility } from "../panelView.js";
+import {
+  showSidePanel,
+  toggleMenuItemActive,
+  togglePanelSectionVisible,
+} from "../panelView.js";
 
 export function handlePanelLoad(obj) {
   showSidePanel();
-  togglePanelSectionVisibility("overview");
+  togglePanelSectionVisible("overview");
+  toggleMenuItemActive("overview");
   setActiveObject(obj);
   eventBus.emit("overviewSectionSelected", obj);
 }
