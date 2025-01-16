@@ -8,6 +8,10 @@ import {
 export function handlePanelMenuSelect(e) {
   const obj = getActiveObject();
 
+  if (!e.target.classList.contains("nav-item")) {
+    return;
+  }
+
   const page = e.target.dataset.page;
   togglePanelSectionVisible(page);
   toggleMenuItemActive(page);
