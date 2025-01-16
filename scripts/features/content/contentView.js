@@ -85,6 +85,7 @@ export function showContentListAddButton() {
   if (document.querySelector(".content #add-item")) {
     document.querySelector(".content #add-item").classList.add("visible");
   }
+  console.log("dsa");
 }
 
 export function hideContentListAddButton() {

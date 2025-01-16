@@ -1,5 +1,6 @@
 import { getItems } from "../itemsModel.js";
 import {
+  hideItemsListAddButton,
   renderItemsList,
   showItemsListAddButton,
   toggleItemCardActive,
@@ -10,11 +11,12 @@ import { eventBus } from "../../../shared/eventBus.js";
 export function handleItemsListRender() {
   const type = document.querySelector("#items-list").dataset.type;
 
-  if (type !== "fields") {
-    showItemsListAddButton();
-  }
-
   const data = getItems(type);
+  showItemsListAddButton();
+
+  if (type === "fields" && data) {
+    hideItemsListAddButton();
+  }
 
   if (data.length <= 0) {
     return;
