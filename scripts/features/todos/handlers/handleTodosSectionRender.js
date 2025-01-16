@@ -1,5 +1,4 @@
 import { getTodoItems, setActiveObject } from "../todosModel.js";
-
 import { renderTodoItems } from "../todosView.js";
 import { getCurrentDate } from "../../../utils/getCurrentDate.js";
 

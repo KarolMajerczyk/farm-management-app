@@ -6,9 +6,7 @@ import { handleTodosDateChange } from "./handlers/handleTodosDateChange.js";
 import { handleTodoItemCheckboxChange } from "./handlers/handleTodoItemCheckboxChange.js";
 
 export function initTodosController() {
-  eventBus.on("todosSectionSelected", (obj) => {
-    handleTodosSectionRender(obj);
-  });
+  eventBus.on("todosSectionSelected", handleTodosSectionRender);
 
   document
     .querySelector("#todos-form")
@@ -30,3 +28,5 @@ export function initTodosController() {
     .querySelector(".todos #date-picker")
     .addEventListener("change", (e) => handleTodosDateChange(e));
 }
+
+//
