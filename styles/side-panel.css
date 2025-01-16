@@ -1,6 +1,6 @@
 .side-panel {
   height: 100vh;
-  max-width: 437px;
+  width: 450px;
 
   display: grid;
   grid-template-rows: auto 1fr auto;

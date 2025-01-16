@@ -25,7 +25,9 @@ export function initContentController() {
 
   eventBus.on("itemCardUnselected", () => {
     hideContentListAddButton();
-    document.querySelector(".content .items-list").innerHTML = "";
+    if (document.querySelector(".content")) {
+      document.querySelector(".content .items-list").innerHTML = "";
+    }
   });
 
   if (document.querySelector(".content #add-item")) {
