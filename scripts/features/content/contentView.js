@@ -18,9 +18,15 @@ function generateAnimalCardsHTML(animals) {
 
   animals.reverse().forEach((animal) => {
     html += `<div class="card-tile" data-id="${animal.id}">
-      <button>
+    <div>
+    <button>
+          <i class="card-image fa-solid fa-pen"></i>
+        </button>
+    <button>
           <i class="card-image fa-solid fa-trash"></i>
         </button>
+    </div>
+   
         <div class="card-content">
   
                 <div class="card-header">
