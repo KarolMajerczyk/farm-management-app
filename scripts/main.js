@@ -14,14 +14,13 @@ document.addEventListener("DOMContentLoaded", (e) => {
     initMapController();
   }
 
+  initContentController();
   initPanelController();
   initOverviewController();
   initItemsController();
 
   initBudgetController();
   initTodosController();
-
-  // initContentController();
 });
 
 // Można pierwsze pozbierać init dla eventów on.

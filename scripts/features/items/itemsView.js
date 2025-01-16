@@ -101,9 +101,9 @@ export function removeItemCardActive() {
 }
 
 export function showItemsListAddButton() {
-  document.querySelector("#add-item").classList.add("visible");
+  document.querySelector(".items-panel #add-item").classList.add("visible");
 }
 
 export function hideItemsListAddButton() {
-  document.querySelector("#add-item").classList.remove("visible");
+  document.querySelector(".items-panel #add-item").classList.remove("visible");
 }

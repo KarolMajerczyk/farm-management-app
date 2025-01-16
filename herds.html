@@ -52,10 +52,12 @@
         </aside>
 
         <!-- MAP CONTAINER -->
-        <section class="content">
+        <section class="content" data-type="animals">
           <h2 class="secondary-heading">Zwierzęta w stadzie</h2>
           <ul id="animals-list" class="items-list"></ul>
-          <button id="add-animal" class="button">Dodaj zwierzę</button>
+          <button id="add-item" class="button" data-type="animals">
+            Dodaj zwierzę
+          </button>
         </section>
 
         <!-- DETAILS PANEL -->
@@ -63,19 +65,19 @@
           <h2 class="secondary-heading"></h2>
 
           <!-- OVERVIEW -->
-          <section class="overview visible"></section>
+          <section class="overview"></section>
 
           <!-- BUDGET -->
           <section class="budget">
             <select id="dropdown" name="dropdown">
-              <option value="plus">Wszystkie</option>
-              <option value="plus">Przychody</option>
-              <option value="minus">Wydatki</option>
+              <option value="all">Wszystkie</option>
+              <option value="income">Przychody</option>
+              <option value="expense">Wydatki</option>
             </select>
 
             <ul id="budget-list" class="items-list"></ul>
 
-            <form id="add-budget-form" action="">
+            <form id="budget-form" action="">
               <input name="description" type="text" required />
               <input name="amount" type="number" required />
               <button type="submit">Dodaj</button>
@@ -88,7 +90,7 @@
 
             <ul id="todos-list" class="items-list"></ul>
 
-            <form id="add-todo-form" action="">
+            <form id="todos-form" action="">
               <input name="description" type="text" required />
               <button type="submit">Dodaj</button>
             </form>

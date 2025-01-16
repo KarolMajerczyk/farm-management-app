@@ -30,3 +30,13 @@
 .content .items-list {
   margin: 16px 16px 16px;
 }
+
+#animals-list,
+#files-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#animals-list .card-tile,
+#files-list .card-tile {
+}
