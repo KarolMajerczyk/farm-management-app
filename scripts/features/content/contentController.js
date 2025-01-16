@@ -34,7 +34,12 @@ export function initContentController() {
   }
 
   if (document.querySelector(".content")) {
+    document.querySelector(".content").addEventListener("dragover", (e) => {
+      e.preventDefault();
+    });
+
     document.querySelector(".content").addEventListener("drop", (e) => {
+      console.log(e);
       e.preventDefault();
       const obj = getActiveObject();
 
