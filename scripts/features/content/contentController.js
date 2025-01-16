@@ -1,7 +1,7 @@
 import { eventBus } from "../../shared/eventBus.js";
 import { generateRandomId } from "../../utils/generateRandomId.js";
 import { getActiveObject, setActiveObject } from "./contentModel.js";
-import { hideContentListAddButton } from "./contentView.js";
+import { hideContentListAddButton, renderContentItems } from "./contentView.js";
 import { handleContentItemAdd } from "./handlers/handleContentItemAdd.js";
 import { handleContentListRender } from "./handlers/handleContentListRender.js";
 
@@ -23,7 +23,10 @@ export function initContentController() {
     }
   });
 
-  eventBus.on("itemCardUnselected", hideContentListAddButton);
+  eventBus.on("itemCardUnselected", () => {
+    hideContentListAddButton();
+    document.querySelector(".content .items-list").innerHTML = "";
+  });
 
   if (document.querySelector(".content #add-item")) {
     document
