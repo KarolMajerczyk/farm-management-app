@@ -27,9 +27,10 @@ export const deleteBudgetItem = (id) => {
 };
 
 export const getBudgetItems = (filter) => {
-  
-  if (filter) {
-    
+  if (filter === "income") {
+    return activeObject.budget.filter((item) => item.amount >= 0);
+  } else if (filter === "expense") {
+    return activeObject.budget.filter((item) => item.amount < 0);
   }
 
   return activeObject.budget;

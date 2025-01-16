@@ -51,3 +51,39 @@
   height: 100%;
   object-fit: cover;
 }
+
+#budget-form,
+#todos-form {
+  display: flex;
+  gap: 12px;
+}
+
+#budget-form > div {
+  display: grid;
+  gap: 12px;
+}
+
+#budget-form .form-group,
+#todos-form .form-group {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.budget #dropdown {
+  background-color: var(--clr-700);
+  color: var(--clr-100);
+  border: 1px solid var(--clr-800);
+  padding: 8px 12px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  border-radius: 4px;
+  appearance: none;
+
+  text-align: center;
+}
+
+.budget #dropdown:focus {
+  outline: none;
+  border-color: var(--clr-900);
+}
