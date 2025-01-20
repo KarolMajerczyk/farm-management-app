@@ -1,3 +1,9 @@
+let activeObject = null;
+
+export const getActiveObject = () => activeObject;
+
+export const setActiveObject = (obj) => (activeObject = obj);
+
 export function calculateRemainingTodos(obj, date) {
   return obj.todos.filter(
     (todo) => todo.status === "pending" && todo.date === date

@@ -1,7 +1,11 @@
 const generator = {
-  fields: generateFieldOverview,
+  fields: generateFieldSummary,
   herds: generateHerdSummary,
   machines: generateMachineSummary,
+};
+
+const edits = {
+  fields: generateFieldSummaryEdit,
 };
 
 export function renderObjectSummary(type, obj) {
@@ -11,6 +15,105 @@ export function renderObjectSummary(type, obj) {
 
   let html = generator[type](obj);
   document.querySelector(".overview").innerHTML = html;
+}
+
+export function renderObjectSummaryEdit(type, obj) {
+  let html = edits[type](obj);
+  document.querySelector(".overview").innerHTML = html;
+}
+
+function generateFieldSummary(field) {
+  return `
+    <div class="card-tile">
+    <button class="edit-btn">
+          <i class="card-image fa-solid fa-pen"></i>
+        </button>
+        
+        <div class="card-content">
+  
+        <div class="card-header">
+          <p class="card-title">Informacje</p>
+        </div>
+         <hr class="card-separator" />
+        <div class="card-details">
+          <p class="card-image"><img src="./images/field.png"></p>
+          <p>Nazwa pola: <span>${field.name}</span></p>
+        </div>
+        <hr class="card-separator" />
+        <div class="card-details">
+          <p class="card-image"><img src="${field.image}"></p>
+          <p>Rodzaj uprawy: <span>${field.plant}</span></p>
+        </div>
+        <hr class="card-separator" />
+        <div class="card-details">
+          <i class="card-image fa-solid fa-circle-info"></i>
+          <p>Gatunek: <span>${field.seed}</span></p>
+        </div>
+      </div>
+      </div>
+  
+      <div class="card-tile">
+        <div class="card-content">
+  
+        <div class="card-header">
+          <p class="card-title">Dane o działce</p>
+        </div>
+        <hr class="card-separator" />
+        <div class="card-details">
+          <i class="card-image fa-solid fa-location-crosshairs"></i>
+          <p>Numer działki: <span>${field.number}</span></p>
+        </div>
+        <hr class="card-separator" />
+        <div class="card-details">
+          <i class="card-image fa-solid fa-earth-europe"></i>
+          <p>Miejscowość: <span>${field.region}</span></p>
+        </div>
+        <hr class="card-separator" />
+        <div class="card-details">
+          <i class="card-image fa-solid fa-expand"></i>
+          <p>Rozmiar: <span>${field.area} ha</span></p>
+        </div>
+      </div>
+      </div>
+    `;
+}
+
+function generateFieldSummaryEdit(field) {
+  return `
+  <div class="card-tile">
+  <div>
+<button class="save-btn">
+        <i class="card-image fa-solid fa-check"></i>
+      </button>
+      <button class="save-btn">
+        <i class="card-image fa-solid fa-check"></i>
+      </button>
+  </div>
+    
+      
+      <div class="card-content">
+
+      <div class="card-header">
+        <p class="card-title">Informacje</p>
+      </div>
+       <hr class="card-separator" />
+      <div class="card-details">
+        <p class="card-image"><img src="./images/field.png"></p>
+        <p>Nazwa pola: <input type="text" value="${field.name}"></p>
+      </div>
+      <hr class="card-separator" />
+      <div class="card-details">
+        <i class="card-image fa-solid fa-circle-info"></i>
+        <p>Rodzaj uprawy: <input type="text" value="${field.plant}"></p>
+      </div>
+      <hr class="card-separator" />
+      <div class="card-details">
+        <i class="card-image fa-solid fa-circle-info"></i>
+        <p>Gatunek: <input type="text" value="${field.seed}"></p>
+      </div>
+    </div>
+    </div>
+  `;
 }
 
 export function renderBudgetSummary(income, expense) {
@@ -59,61 +162,6 @@ export function renderTodosSummary(todosLeft) {
     `;
 
   document.querySelector(".overview").insertAdjacentHTML("beforeend", html);
-}
-
-function generateFieldOverview(field) {
-  return `
-    <div class="card-tile">
-    <button>
-          <i class="card-image fa-solid fa-pen"></i>
-        </button>
-        <div class="card-content">
-  
-        <div class="card-header">
-          <p class="card-title">Informacje</p>
-        </div>
-         <hr class="card-separator" />
-        <div class="card-details">
-          <p class="card-image"><img src="./images/field.png"></p>
-          <p>Nazwa pola: <span>${field.name}</span></p>
-        </div>
-        <hr class="card-separator" />
-        <div class="card-details">
-          <p class="card-image"><img src="${field.image}"></p>
-          <p>Rodzaj uprawy: <span>${field.plant}</span></p>
-        </div>
-        <hr class="card-separator" />
-        <div class="card-details">
-          <i class="card-image fa-solid fa-circle-info"></i>
-          <p>Gatunek: <span>${field.seed}</span></p>
-        </div>
-      </div>
-      </div>
-  
-      <div class="card-tile">
-        <div class="card-content">
-  
-        <div class="card-header">
-          <p class="card-title">Dane o działce</p>
-        </div>
-        <hr class="card-separator" />
-        <div class="card-details">
-          <i class="card-image fa-solid fa-location-crosshairs"></i>
-          <p>Numer działki: <span>${field.number}</span></p>
-        </div>
-        <hr class="card-separator" />
-        <div class="card-details">
-          <i class="card-image fa-solid fa-earth-europe"></i>
-          <p>Miejscowość: <span>${field.region}</span></p>
-        </div>
-        <hr class="card-separator" />
-        <div class="card-details">
-          <i class="card-image fa-solid fa-expand"></i>
-          <p>Rozmiar: <span>${field.area} ha</span></p>
-        </div>
-      </div>
-      </div>
-    `;
 }
 
 function generateHerdSummary(herd) {

@@ -87,3 +87,14 @@
   outline: none;
   border-color: var(--clr-900);
 }
+
+.overview button {
+  display: none;
+}
+
+.overview button.visible {
+}
+
+.save-btn {
+  display: block;
+}

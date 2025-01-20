@@ -14,12 +14,10 @@ export function initItemsController() {
     .addEventListener("click", (e) => handleItemCardAdd(e));
 
   document.querySelector("#items-list").addEventListener("click", (e) => {
-    if (e.target.classList.contains("card-tile")) {
-      handleItemCardSelect({ e });
-    }
-
     if (e.target.classList.contains("delete")) {
       handleItemCardDelete(e);
+    } else {
+      handleItemCardSelect({ e });
     }
   });
 
