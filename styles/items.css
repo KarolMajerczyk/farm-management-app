@@ -1,11 +1,11 @@
-.items-panel {
+#items {
   display: flex;
   flex-direction: column;
 
   max-height: 100vh;
 }
 
-.items-list {
+.list {
   flex: 1;
 
   display: flex;
@@ -15,3 +15,4 @@
   gap: 16px;
   padding: 24px;
 }
+

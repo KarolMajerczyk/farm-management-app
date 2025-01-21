@@ -15,16 +15,22 @@
         <img class="app-logo" src="./images/logo.webp" alt="" />
 
         <!-- NAVIGATION -->
-        <nav class="nav">
+        <nav class="nav" id="main-nav">
           <ul class="nav-list">
             <li class="nav-item" data-page="fields">
-              <a href="./index.html"><i class="fa-solid fa-wheat-awn"></i></a>
+              <a class="nav-link" href="./index.html">
+                <img src="./images/field.svg" alt="" />
+              </a>
             </li>
             <li class="nav-item" data-page="herds">
-              <a href="./herds.html"><i class="fa-solid fa-cow"></i></a>
+              <a class="nav-link" href="./herds.html">
+                <img src="./images/animal.svg" alt="" />
+              </a>
             </li>
             <li class="nav-item active" data-page="machines">
-              <a href="#"><i class="fa-solid fa-tractor"></i></a>
+              <a class="nav-link" href="#">
+                <img src="./images/tractor.svg" alt="" />
+              </a>
             </li>
           </ul>
         </nav>
@@ -35,21 +41,10 @@
       <!-- APP CONTENT -->
       <main class="app-content">
         <!-- ITEMS PANEL -->
-        <aside class="items-panel">
-          <h2 class="secondary-heading">Maszyny</h2>
-          <ul
-            id="items-list"
-            class="cards-list items-list"
-            data-type="machines"
-          ></ul>
-          <button
-            id="add-item"
-            class="button"
-            data-action="add"
-            data-type="machines"
-          >
-            Dodaj maszynę
-          </button>
+        <aside id="items">
+          <h2 class="secondary-heading">Pola</h2>
+          <ul id="items-list" class="list"></ul>
+          <button id="add-item" class="button">Dodaj do listy</button>
         </aside>
 
         <!-- MAP CONTAINER -->
@@ -120,10 +115,6 @@
         </aside>
       </main>
     </div>
-    <script
-      src="https://kit.fontawesome.com/dc197bfaa7.js"
-      crossorigin="anonymous"
-    ></script>
     <script src="./scripts/main.js" type="module"></script>
   </body>
 </html>

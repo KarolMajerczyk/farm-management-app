@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 100px 1fr;
 
-  max-height: 100vh;
+  height: 100vh;
 
   color: var(--clr-100);
   background-color: var(--clr-800);
@@ -19,7 +19,7 @@
 
 .app-content {
   display: grid;
-  grid-template-columns: 352px 1fr 450px;
+  grid-template-columns: 400px 1fr 400px;
 
   max-height: 100vh;
 }

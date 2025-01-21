@@ -17,6 +17,8 @@ export function initOverviewController() {
       renderObjectSummaryEdit("fields", getActiveObject());
     } else if (e.target.classList.contains("save-btn")) {
       renderObjectSummary("fields", getActiveObject());
+    } else if (e.target.classList.contains("close-btn")) {
+      renderObjectSummary("fields", getActiveObject());
     }
   });
 }

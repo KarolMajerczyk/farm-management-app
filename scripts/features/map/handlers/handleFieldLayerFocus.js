@@ -1,3 +1,6 @@
+import { getItemById } from "../../../shared/storage.js";
+import { getCurrentState } from "../../../shared/state.js";
+
 import { convertWKTToGeoJSON } from "../../../utils/converter.js";
 import { getActiveLayer, map } from "../mapModel.js";
 import {
@@ -6,8 +9,15 @@ import {
   setMapSearchFormValue,
 } from "../mapView.js";
 
-export function handleFieldLayerFocus(id, location) {
-  const polygon = convertWKTToGeoJSON(location);
+export function handleFieldLayerFocus() {
+  const id = getCurrentState().id;
+  if (!id) {
+    return;
+  }
+
+  const field = getItemById("fields", id);
+
+  const polygon = convertWKTToGeoJSON(field.location);
 
   flyToFieldBounds(map, polygon);
 

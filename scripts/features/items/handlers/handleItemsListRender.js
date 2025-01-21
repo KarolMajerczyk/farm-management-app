@@ -1,33 +1,37 @@
-import { getItems } from "../itemsModel.js";
-import {
-  hideItemsListAddButton,
-  renderItemsList,
-  showItemsListAddButton,
-  toggleItemCardActive,
-} from "../itemsView.js";
+import { getCurrentState, setCurrentState } from "../../../shared/state.js";
+import { getItems } from "../../../shared/storage.js";
 
-import { eventBus } from "../../../shared/eventBus.js";
+import { showElement } from "../../../utils/showElement.js";
+import { hideElement } from "../../../utils/hideElement.js";
+import { renderItemsList } from "../itemsView.js";
+import { toggleElementActive } from "../../../utils/toggleElementActive.js";
 
 export function handleItemsListRender() {
-  const type = document.querySelector("#items-list").dataset.type;
+  const page = getCurrentState().page;
 
-  const data = getItems(type);
-  showItemsListAddButton();
+  const items = getItems(page);
+  showElement(document.querySelector("#add-item"));
 
-  if (type === "fields" && data) {
-    hideItemsListAddButton();
+  if (page === "fields" && items) {
+    hideElement(document.querySelector("#add-item"));
   }
 
-  if (data.length <= 0) {
+  if (items.length <= 0) {
     return;
   }
 
-  renderItemsList(type, data);
-  toggleItemCardActive(data[0].id);
+  renderItemsList(page, items);
 
-  if (type === "fields" && data.length !== 0) {
-    eventBus.emit("fieldsListLoaded", data);
-  }
+  const firstItem = document.querySelectorAll(".card")[0];
+  toggleElementActive(firstItem);
+  setCurrentState({ id: firstItem.dataset.id });
 
-  eventBus.emit("itemCardSelected", data[0]);
+  //
+  // toggleItemCardActive(items[0].id);
+
+  // if (page === "fields" && items.length !== 0) {
+  //   eventBus.emit("fieldsListLoaded", items);
+  // }
+
+  // eventBus.emit("itemCardSelected", items[0]);
 }

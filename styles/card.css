@@ -1,0 +1,117 @@
+.card {
+  background: var(--clr-700);
+  width: 100%;
+
+  display: flex;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.card.active {
+  border-left: 12px solid var(--clr-accent-1);
+}
+
+.card-line {
+  border: 1px solid var(--clr-800);
+}
+
+.card:hover {
+  background-color: var(--clr-600);
+  transform: scale(1.02);
+}
+
+.card span {
+  font-weight: 900;
+  margin-left: 4px;
+}
+
+.card button i {
+  pointer-events: none;
+}
+
+.card-btn {
+  display: none;
+  padding: 8px 16px;
+  background: var(--clr-700);
+  color: var(--clr-100);
+
+  border: none;
+  border-radius: 0px;
+
+  font-size: 20px;
+  cursor: pointer;
+
+  transition: all 0.5s ease;
+}
+
+.card:hover .card-btn {
+  display: block;
+}
+
+.btn-delete:hover,
+.btn-close:hover {
+  background: rgb(175, 69, 69);
+}
+
+.btn-edit:hover {
+  background: rgb(64, 97, 168);
+}
+
+.btn-save:hover {
+  background: rgb(80, 187, 80);
+}
+
+.card-section {
+  flex: 1;
+  padding-inline: 16px;
+  font-weight: 300;
+
+  pointer-events: none;
+}
+
+.card-header {
+  padding: 16px 8px;
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.card-row {
+  padding: 16px 8px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.card-icon {
+  font-size: 24px;
+
+  width: 25px;
+  pointer-events: none;
+}
+
+.card input {
+  width: 100%;
+  background: var(--clr-600);
+  padding: 8px 16px;
+  border-radius: 4px;
+
+  appearance: none;
+  border: none;
+
+  font-size: 14px;
+  color: inherit;
+}
+
+.card-btn-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-inline: -16px;
+}
+
+.card-btn-group .card-btn {
+  display: block;
+}
+
+.card-cover {
+  margin-inline: -16px;
+}

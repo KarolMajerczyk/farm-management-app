@@ -1,43 +1,44 @@
+import { getCurrentState, setCurrentState } from "../../../shared/state.js";
+import { getItems, addItem } from "../../../shared/storage.js";
+
 import { eventBus } from "../../../shared/eventBus.js";
 import { getFieldData } from "../../../shared/getFieldData.js";
 
 import {
-  addItem,
   createFieldItem,
   createHerdItem,
   createMachineItem,
-  getItems,
 } from "../itemsModel.js";
 
-import {
-  hideItemsListAddButton,
-  renderItemsList,
-  toggleItemCardActive,
-} from "../itemsView.js";
+import { renderItemsList } from "../itemsView.js";
+import { hideElement } from "../../../utils/hideElement.js";
+import { toggleElementActive } from "../../../utils/toggleElementActive.js";
 
 export async function handleItemCardAdd(e) {
-  const type = e.target.dataset.type;
+  const page = getCurrentState().page;
   let obj;
 
-  if (type === "fields") {
+  if (page === "fields") {
     const id = document.querySelector("#map-search input").value;
     const data = await getFieldData({ id });
 
     obj = createFieldItem(data);
-    eventBus.emit("fieldAdded", { id, location: obj.location });
+    hideElement(document.querySelector("#add-item"));
 
-    hideItemsListAddButton();
-  } else if (type === "herds") {
+    eventBus.emit("fieldAdded", { id, location: obj.location });
+  } else if (page === "herds") {
     obj = createHerdItem();
-  } else if (type === "machines") {
+  } else if (page === "machines") {
     obj = createMachineItem();
   }
 
-  addItem(type, obj);
-  const items = getItems(type);
+  addItem(page, obj);
+  const items = getItems(page);
 
-  renderItemsList(type, items);
+  renderItemsList(page, items);
 
-  toggleItemCardActive(obj.id);
+  const el = document.querySelector(`.card[data-id="${obj.id}"]`);
+  toggleElementActive(el);
   eventBus.emit("itemCardSelected", obj);
+  setCurrentState({ id: obj.id });
 }

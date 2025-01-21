@@ -1,0 +1,120 @@
+.details {
+  height: 100vh;
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.details.visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.details section {
+  border-top: 1px solid var(--clr-600);
+  border-bottom: 1px solid var(--clr-600);
+  display: none;
+}
+
+.details section.visible {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 28px;
+}
+
+/* TEMP */
+
+.details section .img {
+  width: 50px;
+}
+
+.details section .card-tile {
+  transform: none;
+}
+
+#todos-list .list-item,
+#budget-list .list-item {
+  padding: 12px 16px;
+}
+
+#todos-list .list-item p,
+#budget-list .item-content {
+  margin-right: auto;
+}
+
+.details .todos.visible,
+.details .budget.visible {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.details .list {
+  padding: 0px;
+  border-top: none;
+
+  cursor: pointer;
+
+  box-shadow: 0px 0px 8px rgb(32, 32, 32);
+
+  font-weight: 300;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+}
+
+.details .list-item {
+  border-bottom: 2px solid var(--clr-800);
+  display: flex;
+  gap: 16px;
+
+  align-items: center;
+  background-color: var(--clr-700);
+}
+
+.details .list-item button {
+  display: none;
+  padding: 8px 16px;
+  color: rgb(201, 72, 72);
+  background: var(--clr-900) !important;
+  border: none;
+  border-radius: 0px !important;
+}
+
+.details .list-item:hover button {
+  display: block;
+}
+
+.details .list-item div {
+  display: grid;
+  gap: 8px;
+}
+
+.details .list-item .item-image {
+  font-size: 32px;
+  text-align: center;
+}
+
+.details .list-item .item-image.income {
+  color: rgb(43, 148, 43);
+}
+
+.details .list-item .item-image.expense {
+  color: rgb(179, 68, 68);
+}
+
+.details .list-item span {
+  margin-left: 4px;
+  font-weight: 900;
+}
+
+.details .list-item input[type="checkbox"]:checked + p {
+  text-decoration: line-through;
+}

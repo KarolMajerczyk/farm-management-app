@@ -35,16 +35,22 @@
         <img class="app-logo" src="./images/logo.webp" alt="" />
 
         <!-- NAVIGATION -->
-        <nav class="nav">
+        <nav class="nav" id="main-nav">
           <ul class="nav-list">
             <li class="nav-item active" data-page="fields">
-              <a href="#"><i class="fa-solid fa-wheat-awn"></i></a>
+              <a class="nav-link" href="#">
+                <img src="./images/field.svg" alt="" />
+              </a>
             </li>
             <li class="nav-item" data-page="herds">
-              <a href="./herds.html"><i class="fa-solid fa-cow"></i></a>
+              <a class="nav-link" href="./herds.html">
+                <img src="./images/animal.svg" alt="" />
+              </a>
             </li>
             <li class="nav-item" data-page="machines">
-              <a href="./machines.html"><i class="fa-solid fa-tractor"></i></a>
+              <a class="nav-link" href="./machines.html">
+                <img src="./images/tractor.svg" alt="" />
+              </a>
             </li>
           </ul>
         </nav>
@@ -56,21 +62,10 @@
       <!-- APP CONTENT -->
       <main class="app-content">
         <!-- ITEMS PANEL -->
-        <aside class="items-panel">
+        <aside id="items">
           <h2 class="secondary-heading">Pola</h2>
-          <ul
-            id="items-list"
-            class="cards-list items-list"
-            data-type="fields"
-          ></ul>
-          <button
-            id="add-item"
-            class="button"
-            data-action="add"
-            data-type="fields"
-          >
-            Dodaj do listy
-          </button>
+          <ul id="items-list" class="list"></ul>
+          <button id="add-item" class="button">Dodaj do listy</button>
         </aside>
 
         <!-- MAP CONTAINER -->
@@ -92,7 +87,7 @@
         </section>
 
         <!-- DETAILS PANEL -->
-        <aside class="side-panel">
+        <aside class="details">
           <h2 class="secondary-heading"></h2>
 
           <!-- OVERVIEW -->
@@ -155,10 +150,6 @@
     </div>
 
     <!-- SCRIPTS -->
-    <script
-      src="https://kit.fontawesome.com/dc197bfaa7.js"
-      crossorigin="anonymous"
-    ></script>
     <script src="./scripts/main.js" type="module"></script>
   </body>
 </html>

@@ -13,6 +13,9 @@ export function initMapController() {
   map.on("drag", handleMapDrag);
   map.on("click", (e) => handleMapClick(e));
 
+  handleFieldLayersRender();
+  handleFieldLayerFocus();
+
   document
     .querySelector("#map-search")
     .addEventListener("click", (e) => e.stopPropagation());
@@ -20,11 +23,6 @@ export function initMapController() {
   document
     .querySelector("#map-search")
     .addEventListener("submit", (e) => handleMapSearchFormSubmit(e));
-
-  eventBus.on("fieldsListLoaded", (fields) => {
-    handleFieldLayersRender(fields);
-    handleFieldLayerFocus(fields[0].id, fields[0].location);
-  });
 
   eventBus.on("fieldCardSelected", ({ id, location }) =>
     handleFieldLayerFocus(id, location)

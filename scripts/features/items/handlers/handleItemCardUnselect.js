@@ -1,9 +1,15 @@
-import { eventBus } from "../../../shared/eventBus.js";
-import { showItemsListAddButton, toggleItemCardActive } from "../itemsView.js";
+import { resetCurrentState } from "../../../shared/state.js";
+import { showElement } from "../../../utils/showElement.js";
+import { toggleElementActive } from "../../../utils/toggleElementActive.js";
 
 export function handleItemCardUnselect() {
-  toggleItemCardActive();
-  showItemsListAddButton();
+  showElement(document.querySelector("#add-item"));
+  resetCurrentState("id");
 
-  eventBus.emit("itemCardUnselected");
+  const el = document.querySelector(".card.active");
+  if (!el) {
+    return;
+  }
+
+  toggleElementActive(el, true);
 }

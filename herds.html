@@ -14,16 +14,22 @@
         <img class="app-logo" src="./images/logo.webp" alt="" />
 
         <!-- NAVIGATION -->
-        <nav class="nav">
+        <nav class="nav" id="main-nav">
           <ul class="nav-list">
             <li class="nav-item" data-page="fields">
-              <a href="./index.html"><i class="fa-solid fa-wheat-awn"></i></a>
+              <a class="nav-link" href="./index.html">
+                <img src="./images/field.svg" alt="" />
+              </a>
             </li>
             <li class="nav-item active" data-page="herds">
-              <a href="#"><i class="fa-solid fa-cow"></i></a>
+              <a class="nav-link" href="#">
+                <img src="./images/animal.svg" alt="" />
+              </a>
             </li>
             <li class="nav-item" data-page="machines">
-              <a href="./machines.html"><i class="fa-solid fa-tractor"></i></a>
+              <a class="nav-link" href="./machines.html">
+                <img src="./images/tractor.svg" alt="" />
+              </a>
             </li>
           </ul>
         </nav>
@@ -34,27 +40,174 @@
       <!-- APP CONTENT -->
       <main class="app-content">
         <!-- ITEMS PANEL -->
-        <aside class="items-panel">
-          <h2 class="secondary-heading">Stada</h2>
-          <ul
-            id="items-list"
-            class="cards-list items-list"
-            data-type="herds"
-          ></ul>
-          <button
-            id="add-item"
-            class="button"
-            data-action="add"
-            data-type="herds"
-          >
-            Utwórz stado
-          </button>
+        <aside id="items">
+          <h2 class="secondary-heading">Pola</h2>
+          <ul id="items-list" class="list"></ul>
+          <button id="add-item" class="button">Dodaj do listy</button>
         </aside>
 
         <!-- MAP CONTAINER -->
         <section class="content" data-type="animals">
           <h2 class="secondary-heading">Zwierzęta w stadzie</h2>
           <ul id="animals-list" class="items-list"></ul>
+
+          <!--  -->
+          <div class="sep"></div>
+          <!--  -->
+          <!-- <div class="card active">
+            <button class="card-btn btn-delete">
+              <i class="card-icon fa-solid fa-trash"></i>
+            </button>
+            <div class="card-section">
+              <div class="card-row">
+                <img class="card-icon" src="./images/field-icon.png" alt="" />
+                <p>Nazwa: <span>Bolsęgowo</span></p>
+              </div>
+              <hr class="card-line" />
+              <div class="card-row">
+                <i class="card-icon fa-solid fa-circle-info"></i>
+                <p>Numer: <span>97</span></p>
+              </div>
+            </div>
+          </div> -->
+          <!--  -->
+          <div class="sep"></div>
+          <!--  -->
+          <!-- <div class="card">
+            <button class="card-btn btn-edit">
+              <i class="card-icon fa-solid fa-pen"></i>
+            </button>
+            <div class="card-section">
+              <div class="card-header">Dane o działce</div>
+              <hr class="card-line" />
+              <div class="card-row">
+                <i class="card-icon fa-solid fa-circle-info"></i>
+                <p>Numer: <span>196/1</span></p>
+              </div>
+              <hr class="card-line" />
+              <div class="card-row">
+                <i class="card-icon fa-solid fa-earth-europe"></i>
+                <p>Miejscowość: <span>Byszewy</span></p>
+              </div>
+              <hr class="card-line" />
+              <div class="card-row">
+                <i class="card-icon fa-solid fa-expand"></i>
+                <p>Rozmiar: <span>0.5 ha</span></p>
+              </div>
+            </div>
+          </div> -->
+
+          <!--  -->
+          <div class="sep"></div>
+          <!--  -->
+          <!-- <div class="card">
+            <button class="card-btn btn-edit">
+              <i class="card-icon fa-solid fa-pen"></i>
+            </button>
+            <div class="card-section">
+              <div class="card-cover">
+                <img class="card-image" src="./images/krowa1.jpeg" alt="" />
+              </div>
+              <div class="card-row">
+                <i class="card-icon fa-solid fa-signature"></i>
+                <p>Nazwa: <span>Mućka</span></p>
+              </div>
+              <hr class="card-line" />
+              <div class="card-row">
+                <i class="card-icon fa-solid fa-fingerprint"></i>
+                <p>Numer: <span>PL 005010937117</span></p>
+              </div>
+              <hr class="card-line" />
+              <div class="card-row">
+                <i class="card-icon fa-solid fa-circle-info"></i>
+                <p>Rasa: <span>Polska czerwona</span></p>
+              </div>
+              <hr class="card-line" />
+              <div class="card-row">
+                <i class="card-icon fa-solid fa-circle-info"></i>
+                <p>Wiek: <span>5 lat</span></p>
+              </div>
+            </div>
+          </div> -->
+          <!--  -->
+          <div class="sep"></div>
+          <!--  -->
+          <!-- <div class="card">
+            <div class="card-section">
+              <div class="card-cover">
+                <img class="card-image" src="./images/krowa1.jpeg" alt="" />
+              </div>
+              <form class="card-form" action="">
+                <div class="card-row">
+                  <i class="card-icon fa-solid fa-image"></i>
+                  <input type="file" name="" id="" />
+                </div>
+                <hr class="card-line" />
+                <div class="card-row">
+                  <i class="card-icon fa-solid fa-signature"></i>
+                  <input type="text" name="" id="" value="Mućka" />
+                </div>
+                <hr class="card-line" />
+                <div class="card-row">
+                  <i class="card-icon fa-solid fa-circle-info"></i>
+                  <input type="text" name="" id="" value="PL005010937117" />
+                </div>
+                <hr class="card-line" />
+                <div class="card-row">
+                  <i class="card-icon fa-solid fa-circle-info"></i>
+                  <input type="text" name="" id="" value="5" />
+                </div>
+                <div class="card-btn-group">
+                  <button class="card-btn btn-save" type="submit">
+                    <i class="card-icon fa-solid fa-check"></i>
+                  </button>
+                  <button class="card-btn btn-close" type="button">
+                    <i class="card-icon fa-solid fa-close"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div> -->
+          <!--  -->
+          <div class="sep"></div>
+          <!--  -->
+          <!-- <div class="card">
+            <div class="card-section">
+              <div class="card-header">Dane o działce</div>
+              <hr class="card-line" />
+              <form class="card-form" action="">
+                <div class="card-row">
+                  <i class="card-icon fa-solid fa-image"></i>
+                  <input type="file" name="" id="" />
+                </div>
+                <hr class="card-line" />
+                <div class="card-row">
+                  <i class="card-icon fa-solid fa-signature"></i>
+                  <input type="text" name="" id="" value="Bolsęgowo" />
+                </div>
+                <hr class="card-line" />
+                <div class="card-row">
+                  <i class="card-icon fa-solid fa-seedling"></i>
+                  <input type="text" name="" id="" value="Pszenica" />
+                </div>
+                <hr class="card-line" />
+                <div class="card-row">
+                  <i class="card-icon fa-solid fa-circle-info"></i>
+                  <input type="text" name="" id="" value="Gatunek" />
+                </div>
+                <div class="card-btn-group">
+                  <button class="card-btn btn-save" type="submit">
+                    <i class="card-icon fa-solid fa-check"></i>
+                  </button>
+                  <button class="card-btn btn-close" type="button">
+                    <i class="card-icon fa-solid fa-close"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div> -->
+          <!--  -->
+
           <button id="add-item" class="button" data-type="animals">
             Dodaj zwierzę
           </button>
@@ -122,10 +275,6 @@
         </aside>
       </main>
     </div>
-    <script
-      src="https://kit.fontawesome.com/dc197bfaa7.js"
-      crossorigin="anonymous"
-    ></script>
     <script src="./scripts/main.js" type="module"></script>
   </body>
 </html>

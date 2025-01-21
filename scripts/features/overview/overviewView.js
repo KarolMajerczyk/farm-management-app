@@ -4,8 +4,8 @@ const generator = {
   machines: generateMachineSummary,
 };
 
-const edits = {
-  fields: generateFieldSummaryEdit,
+const forms = {
+  fields: generateFieldSummaryEditForm,
 };
 
 export function renderObjectSummary(type, obj) {
@@ -18,100 +18,89 @@ export function renderObjectSummary(type, obj) {
 }
 
 export function renderObjectSummaryEdit(type, obj) {
-  let html = edits[type](obj);
+  let html = forms[type](obj);
   document.querySelector(".overview").innerHTML = html;
 }
 
 function generateFieldSummary(field) {
   return `
-    <div class="card-tile">
-    <button class="edit-btn">
-          <i class="card-image fa-solid fa-pen"></i>
-        </button>
-        
-        <div class="card-content">
+    <div class="card">
+      <button class="card-btn btn-edit">
+        <img class="card-icon" src="./images/edit.svg" alt="">
+      </button>
+      <div class="card-section">
+        <div class="card-header">Informacje</div>
+        <hr class="card-line" />
+        <div class="card-row">
+          <img class="card-icon" src="./images/signature.svg" alt="">
+          <p>Nazwa: <span>${field.name}</span></p>
+        </div>
+        <hr class="card-line" />
+        <div class="card-row">
+          <img class="card-icon" src="./images/plant.svg" alt="">
+          <p>Uprawa: <span>${field.plant}</span></p>
+        </div>
+        <hr class="card-line" />
+        <div class="card-row">
+          <img class="card-icon" src="./images/grain.svg" alt="">
+          <p>Gatunek: <span>${field.seed}</span></p>
+        </div>
+      </div>
+    </div>
   
+    <div class="card">
+      <div class="card-section">
+        <div class="card-header">Dane o działce</div>
+        <hr class="card-line" />
+        <div class="card-row">
+          <img class="card-icon" src="./images/info.svg" alt="">
+          <p>Numer: <span>196/1</span></p>
+        </div>
+        <hr class="card-line" />
+        <div class="card-row">
+          <img class="card-icon" src="./images/city.svg" alt="">
+          <p>Miejscowość: <span>Byszewy</span></p>
+        </div>
+        <hr class="card-line" />
+        <div class="card-row">
+          <img class="card-icon" src="./images/size.svg" alt="">
+          <p>Rozmiar: <span>0.5 ha</span></p>
+        </div>
+      </div>
+    </div>`;
+}
+
+function generateFieldSummaryEditForm(field) {
+  return `
+    <div class="card-tile">
+      <div class="card-content">
         <div class="card-header">
           <p class="card-title">Informacje</p>
         </div>
-         <hr class="card-separator" />
-        <div class="card-details">
-          <p class="card-image"><img src="./images/field.png"></p>
-          <p>Nazwa pola: <span>${field.name}</span></p>
-        </div>
         <hr class="card-separator" />
         <div class="card-details">
-          <p class="card-image"><img src="${field.image}"></p>
-          <p>Rodzaj uprawy: <span>${field.plant}</span></p>
+          <p class="card-image"><img src="./images/field.png"></p>
+          <p class="p-form">Nazwa pola: <input type="text" value="${field.name}"></p>
         </div>
         <hr class="card-separator" />
         <div class="card-details">
           <i class="card-image fa-solid fa-circle-info"></i>
-          <p>Gatunek: <span>${field.seed}</span></p>
-        </div>
-      </div>
-      </div>
-  
-      <div class="card-tile">
-        <div class="card-content">
-  
-        <div class="card-header">
-          <p class="card-title">Dane o działce</p>
+          <p class="p-form">Rodzaj uprawy: <input type="text" value="${field.plant}"></p>
         </div>
         <hr class="card-separator" />
         <div class="card-details">
-          <i class="card-image fa-solid fa-location-crosshairs"></i>
-          <p>Numer działki: <span>${field.number}</span></p>
+          <i class="card-image fa-solid fa-circle-info"></i>
+          <p class="p-form">Gatunek: <input type="text" value="${field.seed}"></p>
         </div>
-        <hr class="card-separator" />
-        <div class="card-details">
-          <i class="card-image fa-solid fa-earth-europe"></i>
-          <p>Miejscowość: <span>${field.region}</span></p>
-        </div>
-        <hr class="card-separator" />
-        <div class="card-details">
-          <i class="card-image fa-solid fa-expand"></i>
-          <p>Rozmiar: <span>${field.area} ha</span></p>
+         <div class="btn-container">
+          <button class="save-btn">
+              <i class="card-image fa-solid fa-check"></i>
+            </button>
+            <button class="close-btn">
+              <i class="card-image fa-solid fa-close"></i>
+            </button>
         </div>
       </div>
-      </div>
-    `;
-}
-
-function generateFieldSummaryEdit(field) {
-  return `
-  <div class="card-tile">
-  <div>
-<button class="save-btn">
-        <i class="card-image fa-solid fa-check"></i>
-      </button>
-      <button class="save-btn">
-        <i class="card-image fa-solid fa-check"></i>
-      </button>
-  </div>
-    
-      
-      <div class="card-content">
-
-      <div class="card-header">
-        <p class="card-title">Informacje</p>
-      </div>
-       <hr class="card-separator" />
-      <div class="card-details">
-        <p class="card-image"><img src="./images/field.png"></p>
-        <p>Nazwa pola: <input type="text" value="${field.name}"></p>
-      </div>
-      <hr class="card-separator" />
-      <div class="card-details">
-        <i class="card-image fa-solid fa-circle-info"></i>
-        <p>Rodzaj uprawy: <input type="text" value="${field.plant}"></p>
-      </div>
-      <hr class="card-separator" />
-      <div class="card-details">
-        <i class="card-image fa-solid fa-circle-info"></i>
-        <p>Gatunek: <input type="text" value="${field.seed}"></p>
-      </div>
-    </div>
     </div>
   `;
 }

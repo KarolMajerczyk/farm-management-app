@@ -1,11 +1,11 @@
-const listTypes = {
+const pages = {
   fields: generateFieldItemsList,
   herds: generateHerdItemsList,
   machines: generateMachineItemsList,
 };
 
-export function renderItemsList(type, data) {
-  document.querySelector("#items-list").innerHTML = listTypes[type](data);
+export function renderItemsList(page, items) {
+  document.querySelector("#items-list").innerHTML = pages[page](items);
 }
 
 function generateFieldItemsList(fields) {
@@ -13,22 +13,22 @@ function generateFieldItemsList(fields) {
 
   fields.reverse().forEach((field) => {
     html += `
-    <div class="card-tile" data-id="${field.id}" data-type="fields">
-      <button class="delete">
-        <i class="card-image fa-solid fa-trash"></i>
-      </button>
-      <div class="card-content">
-        <div class="card-header">
-          <p class="card-image"><img src="${field.image}"></p>
-          <p>${field.name}</p>
+      <div class="card" data-id="${field.id}">
+        <button class="card-btn btn-delete">
+            <img class="card-icon" src="./images/delete.svg" alt="" />
+        </button>
+        <div class="card-section">
+          <div class="card-row">
+            <img class="card-icon" src="${field.image}" alt="" />
+            <p>Nazwa: <span>${field.name}</span></p>
+          </div>
+          <hr class="card-line" />
+          <div class="card-row">
+            <i class="card-icon fa-solid fa-circle-info"></i>
+            <p>Numer: <span>${field.number}</span></p>
+          </div>
         </div>
-        <hr class="card-separator" />
-        <div class="card-details">
-          <i class="card-image fa-solid fa-location-crosshairs"></i>
-          <p>Działka nr. <span>${field.number}</span></p>
-        </div>  
-      </div>        
-    </div>            `;
+      </div>`;
   });
 
   return html;
@@ -38,23 +38,23 @@ function generateHerdItemsList(herds) {
   let html = "";
 
   herds.reverse().forEach((herd) => {
-    html += `<div class="card-tile" data-id="${herd.id}" data-type="herds">
-    <button class="delete">
-        <i class="card-image fa-solid fa-trash"></i>
-      </button>
-      <div class="card-content">
-              <div class="card-header">
-                <img src="${herd.image}" />
-                <p>${herd.name}</p>
-              </div>
-              <hr class="card-separator" />
-              <div class="card-details">
-                <img src="./images/count.png" />
-                <p>Liczba sztuk: <span>${herd.animals.length}</span></p>
-              </div>
-            </div>
-            </div> 
-            `;
+    html += `
+      <div class="card" data-id="${herd.id}">
+        <button class="card-btn btn-delete">
+          <img class="card-icon" src="./images/delete.svg" alt="" />
+        </button>
+        <div class="card-section">
+          <div class="card-row">
+            <img class="card-icon" src="${herd.image}" alt="" />
+            <p>Nazwa: <span>${herd.name}</span></p>
+          </div>
+          <hr class="card-line" />
+          <div class="card-row">
+            <img class="card-icon" src="./images/count.png" />
+            <p>Liczba: <span>${herd.animals.length}</span></p>
+          </div>
+        </div>
+      </div>`;
   });
 
   return html;
@@ -64,46 +64,25 @@ function generateMachineItemsList(machines) {
   let html = "";
 
   machines.reverse().forEach((machine) => {
-    html += `<div class="card-tile" data-id="${machine.id}" data-type="machines">
-    <button class="delete">
-        <i class="card-image fa-solid fa-trash"></i>
-      </button>
-      <div class="card-content">          
-    <div class="card-header">
-                <img src="${machine.image}" />
-                <p>${machine.name}</p>
-              </div>
-              <hr class="card-separator" />
-              <div class="card-details">
-                <img src="./images/license-plate.png" />
-                <p>Tablica nr. <span>${machine.plate}</span></p>
-              </div>
-            </div>
-            </div>
-            `;
+    html += `
+      <div class="card" data-id="${machine.id}">
+        <button class="card-btn btn-delete">
+          <img class="card-icon" src="./images/delete.svg" alt="" />
+        </button>
+        <div class="card-section">
+          <div class="card-row">
+            <img class="card-icon" src="${machine.image}" alt="" />
+            <p>Nazwa: <span>${machine.name}</span></p>
+          </div>
+          <hr class="card-line" />
+          <div class="card-row">
+            <img class="card-icon" src="./images/license-plate.png" />
+            <p>Tablica: <span>${machine.plate}</span></p>
+          </div>
+        </div>
+      </div>`;
   });
 
   return html;
 }
 
-export function toggleItemCardActive(id) {
-  if (document.querySelector(".card-tile.active")) {
-    document.querySelector(".card-tile.active").classList.remove("active");
-  }
-
-  if (id) {
-    document.querySelector(`[data-id="${id}"]`).classList.add("active");
-  }
-}
-
-export function removeItemCardActive() {
-  document.querySelector(".card-tile.active").classList.remove("active");
-}
-
-export function showItemsListAddButton() {
-  document.querySelector(".items-panel #add-item").classList.add("visible");
-}
-
-export function hideItemsListAddButton() {
-  document.querySelector(".items-panel #add-item").classList.remove("visible");
-}

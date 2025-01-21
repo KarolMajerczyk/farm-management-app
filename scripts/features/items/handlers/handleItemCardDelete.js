@@ -1,29 +1,28 @@
 import { eventBus } from "../../../shared/eventBus.js";
-import { deleteItem, getItems } from "../itemsModel.js";
-import { renderItemsList, toggleItemCardActive } from "../itemsView.js";
+import { getCurrentState, resetCurrentState } from "../../../shared/state.js";
+import { deleteItem, getItems } from "../../../shared/storage.js";
+import { toggleElementActive } from "../../../utils/toggleElementActive.js";
+import { renderItemsList } from "../itemsView.js";
 
 export function handleItemCardDelete(e) {
-  const type = e.target.parentElement.dataset.type;
+  const page = getCurrentState().page;
   const id = e.target.parentElement.dataset.id;
 
-  let activeCardId;
-  if (document.querySelector(".card-tile.active")) {
-    activeCardId = document.querySelector(".card-tile.active").dataset.id;
-  }
+  deleteItem(page, id);
 
-  deleteItem(type, id);
-
-  if (type === "fields") {
+  if (page === "fields") {
     eventBus.emit("fieldDeleted", id);
   }
 
-  const objArr = getItems(type);
+  const items = getItems(page);
+  renderItemsList(page, items);
 
-  renderItemsList(type, objArr);
-
-  if (id === activeCardId) {
+  if (id === getCurrentState().id) {
     eventBus.emit("itemCardUnselected");
-  } else {
-    toggleItemCardActive(activeCardId);
+    resetCurrentState("id");
+  } else if (getCurrentState().id) {
+    const id = getCurrentState().id;
+    const el = document.querySelector(`.card[data-id="${id}"]`);
+    toggleElementActive(el);
   }
 }
