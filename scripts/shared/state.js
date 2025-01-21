@@ -1,22 +1,10 @@
-const state = {
-  page: null,
-  id: null,
-};
-
-export function setCurrentState({ page, id }) {
-  if (page) {
-    state.page = page;
-  }
-
-  if (id) {
-    state.id = id;
-  }
-}
-
 export function getCurrentState() {
-  return state;
-}
+  const page = document.querySelector("#main-nav .active").dataset.page;
 
-export function resetCurrentState(key) {
-  state[key] = null;
+  const activeItem = document.querySelector("#items .active");
+  const id = activeItem ? activeItem.dataset.id : null;
+
+  const section = document.querySelector("#side-menu .active").dataset.section;
+
+  return { page, id, section };
 }

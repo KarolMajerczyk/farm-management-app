@@ -1,5 +1,5 @@
 import { eventBus } from "../../../shared/eventBus.js";
-import { getCurrentState, resetCurrentState } from "../../../shared/state.js";
+import { getCurrentState } from "../../../shared/state.js";
 import { deleteItem, getItems } from "../../../shared/storage.js";
 import { toggleElementActive } from "../../../utils/toggleElementActive.js";
 import { renderItemsList } from "../itemsView.js";
@@ -19,7 +19,6 @@ export function handleItemCardDelete(e) {
 
   if (id === getCurrentState().id) {
     eventBus.emit("itemCardUnselected");
-    resetCurrentState("id");
   } else if (getCurrentState().id) {
     const id = getCurrentState().id;
     const el = document.querySelector(`.card[data-id="${id}"]`);

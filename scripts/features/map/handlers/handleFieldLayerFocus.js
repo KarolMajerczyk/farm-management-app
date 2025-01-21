@@ -10,7 +10,8 @@ import {
 } from "../mapView.js";
 
 export function handleFieldLayerFocus() {
-  const id = getCurrentState().id;
+  const { id } = getCurrentState();
+
   if (!id) {
     return;
   }

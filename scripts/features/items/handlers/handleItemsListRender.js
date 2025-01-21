@@ -1,4 +1,4 @@
-import { getCurrentState, setCurrentState } from "../../../shared/state.js";
+import { getCurrentState } from "../../../shared/state.js";
 import { getItems } from "../../../shared/storage.js";
 
 import { showElement } from "../../../utils/showElement.js";
@@ -24,14 +24,4 @@ export function handleItemsListRender() {
 
   const firstItem = document.querySelectorAll(".card")[0];
   toggleElementActive(firstItem);
-  setCurrentState({ id: firstItem.dataset.id });
-
-  //
-  // toggleItemCardActive(items[0].id);
-
-  // if (page === "fields" && items.length !== 0) {
-  //   eventBus.emit("fieldsListLoaded", items);
-  // }
-
-  // eventBus.emit("itemCardSelected", items[0]);
 }

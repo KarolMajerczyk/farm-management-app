@@ -1,6 +1,20 @@
 import { generateRandomId } from "../../utils/generateRandomId.js";
 
-export function createFieldItem(data) {
+const models = {
+  fields: createFieldItem,
+  herds: createHerdItem,
+  machines: createMachineItem,
+};
+
+export function createListItem(type, data) {
+  if (data) {
+    return models[type](data);
+  }
+
+  return models[type]();
+}
+
+function createFieldItem(data) {
   return {
     id: data.id,
     name: "Nazwa pola",
@@ -20,7 +34,7 @@ export function createFieldItem(data) {
   };
 }
 
-export function createHerdItem() {
+function createHerdItem() {
   return {
     id: generateRandomId(),
     name: "Nazwa stada",
@@ -34,7 +48,7 @@ export function createHerdItem() {
   };
 }
 
-export function createMachineItem() {
+function createMachineItem() {
   return {
     id: generateRandomId(),
     name: "Nazwa maszyny",

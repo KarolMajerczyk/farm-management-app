@@ -1,5 +1,5 @@
 import { eventBus } from "../../../shared/eventBus.js";
-import { getCurrentState, setCurrentState } from "../../../shared/state.js";
+import { getCurrentState } from "../../../shared/state.js";
 import { getItemById } from "../../../shared/storage.js";
 import { hideElement } from "../../../utils/hideElement.js";
 import { toggleElementActive } from "../../../utils/toggleElementActive.js";
@@ -7,8 +7,6 @@ import { toggleElementActive } from "../../../utils/toggleElementActive.js";
 export function handleItemCardSelect(e) {
   const page = getCurrentState().page;
   const id = e.target.dataset.id;
-
-  setCurrentState({ id });
 
   const obj = getItemById(page, id);
 
