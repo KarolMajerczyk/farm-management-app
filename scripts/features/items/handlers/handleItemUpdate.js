@@ -3,12 +3,12 @@ import { getItems } from "../../../shared/storage.js";
 import { toggleElementActive } from "../../../utils/toggleElementActive.js";
 import { renderItemsList } from "../itemsView.js";
 
-export function handleItemUpdate(obj) {
-  const page = getCurrentState().page;
+export function handleItemUpdate() {
+  const { page, id } = getCurrentState();
 
-  const data = getItems(page);
-  renderItemsList(page, data);
+  const items = getItems(page);
+  renderItemsList(page, items);
 
-  const el = document.querySelector(`.card[data-id="${obj.id}"]`);
+  const el = document.querySelector(`.card[data-id="${id}"]`);
   toggleElementActive(el);
 }
