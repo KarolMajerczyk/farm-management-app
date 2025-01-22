@@ -5,7 +5,7 @@ import { toggleElementActive } from "../../../utils/toggleElementActive.js";
 import { renderItemsList } from "../itemsView.js";
 
 export function handleItemCardDelete(e) {
-  const page = getCurrentState().page;
+  const { page } = getCurrentState();
   const id = e.target.parentElement.dataset.id;
 
   deleteItem(page, id);

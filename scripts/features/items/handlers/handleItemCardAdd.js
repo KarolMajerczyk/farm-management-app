@@ -11,7 +11,7 @@ import { hideElement } from "../../../utils/hideElement.js";
 import { toggleElementActive } from "../../../utils/toggleElementActive.js";
 
 export async function handleItemCardAdd(e) {
-  const page = getCurrentState().page;
+  const { page } = getCurrentState();
   let obj;
 
   if (page === "fields") {
@@ -20,8 +20,6 @@ export async function handleItemCardAdd(e) {
 
     obj = createListItem(page, data);
     hideElement(document.querySelector("#add-item"));
-
-    eventBus.emit("fieldAdded", { id, location: obj.location });
   } else {
     obj = createListItem(page);
   }
@@ -33,5 +31,10 @@ export async function handleItemCardAdd(e) {
 
   const el = document.querySelector(`.card[data-id="${obj.id}"]`);
   toggleElementActive(el);
-  eventBus.emit("itemCardSelected", obj);
+
+  eventBus.emit("itemCardSelected");
+
+  if (page === "fields") {
+    eventBus.emit("fieldAdded");
+  }
 }

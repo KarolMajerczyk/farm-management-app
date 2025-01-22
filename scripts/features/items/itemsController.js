@@ -17,11 +17,11 @@ export function initItemsController() {
     if (e.target.classList.contains("btn-delete")) {
       handleItemCardDelete(e);
     } else {
-      handleItemCardSelect(e);
+      handleItemCardSelect({ e });
     }
   });
 
   eventBus.on("fieldLayerSelected", handleItemCardSelect);
   eventBus.on("emptyLayerSelected", handleItemCardUnselect);
-  eventBus.on("itemUpdated", (obj) => handleItemUpdate(obj));
+  eventBus.on("itemUpdated", handleItemUpdate);
 }

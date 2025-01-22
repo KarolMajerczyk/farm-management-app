@@ -7,7 +7,7 @@ import { renderItemsList } from "../itemsView.js";
 import { toggleElementActive } from "../../../utils/toggleElementActive.js";
 
 export function handleItemsListRender() {
-  const page = getCurrentState().page;
+  const { page } = getCurrentState();
 
   const items = getItems(page);
   showElement(document.querySelector("#add-item"));

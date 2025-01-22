@@ -17,13 +17,12 @@ export function handleFieldLayerFocus() {
   }
 
   const field = getItemById("fields", id);
-
   const polygon = convertWKTToGeoJSON(field.location);
 
   flyToFieldBounds(map, polygon);
+  setMapSearchFormValue(id);
 
   const activeLayer = getActiveLayer();
-  setMapSearchFormValue(id);
 
   if (activeLayer) {
     removeFieldFromMap(map, activeLayer);

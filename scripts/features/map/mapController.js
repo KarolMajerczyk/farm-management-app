@@ -24,13 +24,7 @@ export function initMapController() {
     .querySelector("#map-search")
     .addEventListener("submit", (e) => handleMapSearchFormSubmit(e));
 
-  eventBus.on("fieldCardSelected", ({ id, location }) =>
-    handleFieldLayerFocus(id, location)
-  );
-
-  eventBus.on("fieldAdded", ({ id, location }) =>
-    handleFieldLayerAdd(id, location)
-  );
-
+  eventBus.on("fieldCardSelected", handleFieldLayerFocus);
+  eventBus.on("fieldAdded", handleFieldLayerAdd);
   eventBus.on("fieldDeleted", (id) => handleFieldLayerDelete(id));
 }

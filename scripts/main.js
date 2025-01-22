@@ -10,6 +10,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
     initMapController();
   }
 
-  initContentController();
-  initDetailsController();
+  // initContentController();
+  // initDetailsController();
 });

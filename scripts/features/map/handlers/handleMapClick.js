@@ -41,11 +41,11 @@ export async function handleMapClick(e) {
   }
 
   if (getMapLayer(id)) {
-    eventBus.emit("fieldLayerSelected", id);
+    eventBus.emit("fieldLayerSelected", { id });
     return;
   }
 
-  eventBus.emit("emptyLayerSelected", id);
+  eventBus.emit("emptyLayerSelected");
   const layer = renderFieldOnMap(map, polygon);
   setActiveLayer(layer);
 }
