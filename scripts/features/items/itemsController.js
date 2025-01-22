@@ -3,7 +3,6 @@ import { handleItemCardAdd } from "./handlers/handleItemCardAdd.js";
 import { handleItemCardDelete } from "./handlers/handleItemCardDelete.js";
 import { handleItemsListRender } from "./handlers/handleItemsListRender.js";
 import { handleItemCardSelect } from "./handlers/handleItemCardSelect.js";
-import { handleFieldCardSelect } from "./handlers/handleFieldCardSelect.js";
 import { handleItemCardUnselect } from "./handlers/handleItemCardUnselect.js";
 import { handleItemUpdate } from "./handlers/handleItemUpdate.js";
 
@@ -22,7 +21,7 @@ export function initItemsController() {
     }
   });
 
-  eventBus.on("fieldLayerSelected", handleFieldCardSelect);
+  eventBus.on("fieldLayerSelected", handleItemCardSelect);
   eventBus.on("emptyLayerSelected", handleItemCardUnselect);
   eventBus.on("itemUpdated", (obj) => handleItemUpdate(obj));
 }

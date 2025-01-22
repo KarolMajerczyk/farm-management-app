@@ -8,12 +8,25 @@ export function handleItemCardSelect(e) {
   const page = getCurrentState().page;
   const id = e.target.dataset.id;
 
-  const obj = getItemById(page, id);
+  const item = getItemById(page, id);
 
   if (page === "fields") {
-    eventBus.emit("fieldCardSelected", { id, location: obj.location });
+    eventBus.emit("fieldCardSelected", { id, location: item.location });
     hideElement(document.querySelector("#add-item"));
   }
+
+  const el = document.querySelector(`.card[data-id="${id}"]`);
+  toggleElementActive(el);
+
+  eventBus.emit("itemCardSelected", item);
+}
+
+export function handleFieldCardSelect(id) {
+  const page = getCurrentState().page;
+
+  const obj = getItemById(page, id);
+
+  hideElement(document.querySelector("#add-item"));
 
   const el = document.querySelector(`.card[data-id="${id}"]`);
   toggleElementActive(el);
