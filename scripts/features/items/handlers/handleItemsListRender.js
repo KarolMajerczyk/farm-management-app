@@ -5,6 +5,7 @@ import { showElement } from "../../../utils/showElement.js";
 import { hideElement } from "../../../utils/hideElement.js";
 import { renderItemsList } from "../itemsView.js";
 import { toggleElementActive } from "../../../utils/toggleElementActive.js";
+import { eventBus } from "../../../shared/eventBus.js";
 
 export function handleItemsListRender() {
   const { page } = getCurrentState();
@@ -24,4 +25,5 @@ export function handleItemsListRender() {
 
   const firstItem = document.querySelectorAll(".card")[0];
   toggleElementActive(firstItem);
+  eventBus.emit("itemCardSelected");
 }

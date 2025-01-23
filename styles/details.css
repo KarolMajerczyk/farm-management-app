@@ -25,18 +25,10 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 28px;
+  padding: 24px 28px;
 }
 
 /* TEMP */
-
-.details section .img {
-  width: 50px;
-}
-
-.details section .card-tile {
-  transform: none;
-}
 
 #todos-list .list-item,
 #budget-list .list-item {

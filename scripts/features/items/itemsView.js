@@ -24,7 +24,7 @@ function generateFieldItemsList(fields) {
           </div>
           <hr class="card-line" />
           <div class="card-row">
-            <i class="card-icon fa-solid fa-circle-info"></i>
+            <img class="card-icon" src="./images/info.svg" alt="" />
             <p>Numer: <span>${field.number}</span></p>
           </div>
         </div>
@@ -85,4 +85,3 @@ function generateMachineItemsList(machines) {
 
   return html;
 }
-

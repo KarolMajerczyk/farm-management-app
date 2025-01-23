@@ -38,3 +38,7 @@
 .nav-link {
   padding: 16px;
 }
+
+.nav img {
+  pointer-events: none;
+}

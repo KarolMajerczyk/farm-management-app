@@ -4,7 +4,5 @@ export function getCurrentState() {
   const activeItem = document.querySelector("#items .active");
   const id = activeItem ? activeItem.dataset.id : null;
 
-  const section = document.querySelector("#side-menu .active").dataset.section;
-
-  return { page, id, section };
+  return { page, id };
 }

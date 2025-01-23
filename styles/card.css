@@ -63,20 +63,20 @@
 
 .card-section {
   flex: 1;
-  padding-inline: 16px;
   font-weight: 300;
+  padding-inline: 24px;
 
   pointer-events: none;
 }
 
 .card-header {
-  padding: 16px 8px;
+  padding-block: 12px;
   font-weight: 300;
   font-size: 18px;
 }
 
 .card-row {
-  padding: 16px 8px;
+  padding-block: 12px;
   display: flex;
   align-items: center;
   gap: 16px;
