@@ -1,9 +1,13 @@
 import { eventBus } from "../../shared/eventBus.js";
 import { handleBudgetItemAdd } from "./handlers/handleBudgetItemAdd.js";
+import { handleBudgetItemDelete } from "./handlers/handleBudgetItemDelete.js";
 
 import { handleBudgetSectionRender } from "./handlers/handleBudgetSectionRender.js";
 import { handleOverviewSectionRender } from "./handlers/handleOverviewSectionRender.js";
+import { handleOverviewSectionUpdate } from "./handlers/handleOverviewSectionUpdate.js";
 import { handleTodosItemAdd } from "./handlers/handleTodosItemAdd.js";
+import { handleTodosItemDelete } from "./handlers/handleTodosItemDelete.js";
+import { handleTodosItemStatusChange } from "./handlers/handleTodosItemStatusChange.js";
 import { handleTodosSectionRender } from "./handlers/handleTodosSectionRender.js";
 
 export function initDetailsController() {
@@ -25,24 +29,21 @@ export function initDetailsController() {
   });
 
   // OVERVIEW
-  // document.querySelector("#overview").addEventListener("click", (e) => {
-  //   const el = e.target;
+  document.querySelector("#overview").addEventListener("click", (e) => {
+    if (e.target.classList.contains("btn-edit")) {
+      handleOverviewSectionRender("edit");
+      return;
+    }
 
-  //   if (el.classList.contains("btn-edit")) {
-  //     renderObjectSummaryEdit();
-  //     return;
-  //   }
+    if (e.target.classList.contains("btn-close")) {
+      handleOverviewSectionRender();
+      return;
+    }
+  });
 
-  //   if (el.classList.contains("btn-save")) {
-  //     handleDetailsItemEdit();
-  //     return;
-  //   }
-
-  //   if (el.classList.contains("btn-close")) {
-  //     handleOverviewSectionRender();
-  //     return;
-  //   }
-  // });
+  document.querySelector("#overview").addEventListener("submit", (e) => {
+    handleOverviewSectionUpdate(e);
+  });
 
   // BUDGET
   document
@@ -51,13 +52,11 @@ export function initDetailsController() {
       handleBudgetSectionRender(e.target.value)
     );
 
-  // document.querySelector("#budget").addEventListener("click", (e) => {
-  //   const el = e.target;
-
-  //   if (el.classList.contains("btn-delete")) {
-  //     handleBudgetItemDelete(e);
-  //   }
-  // });
+  document.querySelector("#budget-list").addEventListener("click", (e) => {
+    if (e.target.classList.contains("btn-delete")) {
+      handleBudgetItemDelete(e);
+    }
+  });
 
   document
     .querySelector("#budget-form")
@@ -70,19 +69,17 @@ export function initDetailsController() {
       handleTodosSectionRender(e.target.value)
     );
 
-  // document.querySelector("#todos").addEventListener("click", (e) => {
-  //   const el = e.target;
+  document.querySelector("#todos").addEventListener("click", (e) => {
+    if (e.target.classList.contains("btn-delete")) {
+      handleTodosItemDelete(e);
+      return;
+    }
 
-  //   if (el.classList.contains("btn-delete")) {
-  //     handleTodosItemDelete(e);
-  //     return;
-  //   }
-
-  //   if (el.classList.contains("checkbox")) {
-  //     handleTodosItemStatusChange();
-  //     return;
-  //   }
-  // });
+    if (e.target.tagName === "INPUT" && e.target.type === "checkbox") {
+      handleTodosItemStatusChange(e);
+      return;
+    }
+  });
 
   document
     .querySelector("#todos-form")
@@ -90,10 +87,6 @@ export function initDetailsController() {
 
   // OTHERS
   eventBus.on("itemCardSelected", handleOverviewSectionRender);
+  eventBus.on("itemUpdated", handleOverviewSectionRender);
   // eventBus.on("itemCardUnselected", hideSidePanel);
 }
-
-// export function handleTodoItemCheckboxChange(e) {
-//   const todoId = e.target.parentElement.dataset.id;
-//   toggleTodoItemStatus(todoId);
-// }

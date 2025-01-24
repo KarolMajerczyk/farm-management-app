@@ -11,7 +11,7 @@ import {
   renderOverviewSection,
 } from "../detailsView.js";
 
-export function handleOverviewSectionRender(e) {
+export function handleOverviewSectionRender(mode) {
   prepareDetailsSection("Podsumowanie", "overview");
 
   const { page, id } = getCurrentState();
@@ -22,5 +22,9 @@ export function handleOverviewSectionRender(e) {
   const date = getCurrentDate();
   const todosLeft = calculateRemainingTodos(item.todos, date);
 
-  renderOverviewSection(page, item, income, expense, todosLeft);
+  if (mode === "edit") {
+    renderOverviewSection(page, item, income, expense, todosLeft, true);
+  } else {
+    renderOverviewSection(page, item, income, expense, todosLeft);
+  }
 }

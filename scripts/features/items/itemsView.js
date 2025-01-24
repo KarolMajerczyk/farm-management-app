@@ -14,9 +14,6 @@ function generateFieldItemsList(fields) {
   fields.reverse().forEach((field) => {
     html += `
       <div class="card" data-id="${field.id}">
-        <button class="card-btn btn-delete">
-            <img class="card-icon" src="./images/delete.svg" alt="" />
-        </button>
         <div class="card-section">
           <div class="card-row">
             <img class="card-icon" src="${field.image}" alt="" />
@@ -28,6 +25,9 @@ function generateFieldItemsList(fields) {
             <p>Numer: <span>${field.number}</span></p>
           </div>
         </div>
+         <button class="card-btn btn-delete">
+            <img class="card-icon" src="./images/delete.svg" alt="" />
+        </button>
       </div>`;
   });
 
@@ -40,9 +40,6 @@ function generateHerdItemsList(herds) {
   herds.reverse().forEach((herd) => {
     html += `
       <div class="card" data-id="${herd.id}">
-        <button class="card-btn btn-delete">
-          <img class="card-icon" src="./images/delete.svg" alt="" />
-        </button>
         <div class="card-section">
           <div class="card-row">
             <img class="card-icon" src="${herd.image}" alt="" />
@@ -54,6 +51,9 @@ function generateHerdItemsList(herds) {
             <p>Liczba: <span>${herd.animals.length}</span></p>
           </div>
         </div>
+        <button class="card-btn btn-delete">
+          <img class="card-icon" src="./images/delete.svg" alt="" />
+        </button>
       </div>`;
   });
 
@@ -65,10 +65,7 @@ function generateMachineItemsList(machines) {
 
   machines.reverse().forEach((machine) => {
     html += `
-      <div class="card" data-id="${machine.id}">
-        <button class="card-btn btn-delete">
-          <img class="card-icon" src="./images/delete.svg" alt="" />
-        </button>
+      <div class="card" data-id="${machine.id}"> 
         <div class="card-section">
           <div class="card-row">
             <img class="card-icon" src="${machine.image}" alt="" />
@@ -80,6 +77,9 @@ function generateMachineItemsList(machines) {
             <p>Tablica: <span>${machine.plate}</span></p>
           </div>
         </div>
+        <button class="card-btn btn-delete">
+          <img class="card-icon" src="./images/delete.svg" alt="" />
+        </button>
       </div>`;
   });
 

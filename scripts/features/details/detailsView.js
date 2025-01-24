@@ -4,57 +4,95 @@ const pages = {
   machines: renderMachineOverview,
 };
 
-export function renderOverviewSection(page, item, income, expense, todosLeft) {
+export function renderOverviewSection(
+  page,
+  item,
+  income,
+  expense,
+  todosLeft,
+  editMode
+) {
   let html = "";
 
-  html += pages[page](item);
+  if (editMode) {
+    html += pages[page](item, true);
+  } else {
+    html += pages[page](item);
+  }
+
   html += renderBudgetOverview(income, expense);
   html += renderTodosOverview(todosLeft);
 
   document.querySelector("#overview").innerHTML = html;
 }
 
-function renderFieldOverview(field) {
+function renderFieldOverview(field, editMode) {
   return `
-    <div class="card">
-      <button class="card-btn btn-edit">
-        <img class="card-icon" src="./images/edit.svg" alt="">
-      </button>
+    <div class="card">   
+    ${editMode ? `<form class="card-form" action="">` : ``}
       <div class="card-section">
         <div class="card-header">Dane o działce</div>
         <hr class="card-line" />
-        <div class="card-row">
-          <img class="card-icon" src="./images/signature.svg" alt="">
-          <p>Nazwa: <span>${field.name}</span></p>
-        </div>
-        <hr class="card-line" />
-        <div class="card-row">
-          <img class="card-icon" src="./images/plant.svg" alt="">
-          <p>Uprawa: <span>${field.plant}</span></p>
-        </div>
-        <hr class="card-line" />
-        <div class="card-row">
-          <img class="card-icon" src="./images/grain.svg" alt="">
-          <p>Gatunek: <span>${field.seed}</span></p>
-        </div>
-        <hr class="card-line" />
-        <div class="card-row">
-          <img class="card-icon" src="./images/info.svg" alt="">
-          <p>Numer: <span>${field.number}</span></p>
-        </div>
-        <hr class="card-line" />
-        <div class="card-row">
-          <img class="card-icon" src="./images/city.svg" alt="">
-          <p>Miejscowość: <span>${field.region}</span></p>
-        </div>
-        <hr class="card-line" />
-        <div class="card-row">
-          <img class="card-icon" src="./images/size.svg" alt="">
-          <p>Rozmiar: <span>${field.area} ha</span></p>
-        </div>
-      </div>
+          <div class="card-row">
+            <img class="card-icon" src="./images/signature.svg" alt="">
+            ${
+              editMode
+                ? `<input type="text" name="name" value="${field.name}" required />`
+                : `<p>Nazwa: <span>${field.name}</span></p>`
+            }
+          </div>
+          <hr class="card-line" />
+          <div class="card-row">
+            <img class="card-icon" src="./images/plant.svg" alt="">
+            ${
+              editMode
+                ? `<input type="text" name="plant" value="${field.plant}" required />`
+                : `<p>Uprawa: <span>${field.plant}</span></p>`
+            }
+          </div>
+          <hr class="card-line" />
+          <div class="card-row">
+            <img class="card-icon" src="./images/grain.svg" alt="">
+            ${
+              editMode
+                ? `<input type="text" name="seed" value="${field.seed}" required />`
+                : `<p>Gatunek: <span>${field.seed}</span></p>`
+            }     
+          </div>
+          <hr class="card-line" />
+          <div class="card-row">
+            <img class="card-icon" src="./images/info.svg" alt="">
+            <p>Numer: <span>${field.number}</span></p>
+          </div>
+          <hr class="card-line" />
+          <div class="card-row">
+            <img class="card-icon" src="./images/city.svg" alt="">
+            <p>Miejscowość: <span>${field.region}</span></p>
+          </div>
+          <hr class="card-line" />
+          <div class="card-row">
+            <img class="card-icon" src="./images/size.svg" alt="">
+            <p>Rozmiar: <span>${field.area} ha</span></p>
+          </div>
+          </div>
+          ${
+            editMode
+              ? `<div class="card-btn-group">
+            <button class="card-btn btn-save" type="submit">
+            <img class="card-icon" src="./images/check.svg" alt="">
+            </button>
+              <button class="card-btn btn-close" type="button">
+                <img class="card-icon" src="./images/close.svg" alt="">
+              </button>
+              </div>`
+              : `<button class="card-btn btn-edit">
+              <img class="card-icon" src="./images/edit.svg" alt="">
+              </button>`
+          }
+            
+            ${editMode ? `</form>` : ``}
     </div>
-`;
+  `;
 }
 
 function renderHerdOverview(herd) {
@@ -161,14 +199,13 @@ export function renderTodosOverview(todosLeft) {
         </div>
       </div>
     </div>
-    `;
+  `;
 }
 
 export function renderBudgetSection(budget) {
-  // Tudaj można dać init filter
   let html = "";
 
-  budget.forEach((item) => {
+  budget.reverse().forEach((item) => {
     html += renderBudgetItem(item);
   });
 
@@ -177,24 +214,29 @@ export function renderBudgetSection(budget) {
 
 export const renderBudgetItem = (item) => {
   return `
-      <li class="list-item" data-id="${item.id}">
-
-      <i class="fa-solid fa-sack-dollar item-image ${
-        item.amount > 0 ? "income" : "expense"
-      }"></i>
-        <div class="item-content">
-            <p>${item.description}</p>
-            <p>Kwota: <span>${item.amount} zł</span></p>
+    <div class="card" data-id="${item.id}">
+  
+      <div class="card-section">
+        <div class="card-row">
+          <img class="card-icon" src="./images/signature.svg" alt="">
+          <p>${item.description}</p>
         </div>
-         <button class="delete">
-        <i class="card-image fa-solid fa-trash"></i>
+        <hr class="card-line" />
+        <div class="card-row">
+          <img class="card-icon" src="./images/${
+            item.amount > 0 ? "income" : "expense"
+          }.svg" alt="">
+          <p><span>${item.amount} zł</span></p>
+        </div>
+      </div>
+      <button class="card-btn btn-delete">
+        <img class="card-icon" src="./images/delete.svg" alt="">
       </button>
-      </li>
-    `;
+    </div>
+  `;
 };
 
 export function renderTodosSection(todos) {
-  // Tudaj można dać init date
   let html = "";
 
   todos.forEach((item) => {
@@ -206,15 +248,18 @@ export function renderTodosSection(todos) {
 
 export const renderTodosItem = (item) => {
   return `
-        <li class="list-item" data-id="${item.id}">
-
-            <input type="checkbox" ${item.status === "done" ? "checked" : ""} />
-            <p>${item.description}</p>
-             <button class="delete">
-        <i class="card-image fa-solid fa-trash"></i>
+    <div class="card" data-id="${item.id}">
+      <div class="card-section">
+        <div class="card-row">
+          <input type="checkbox" ${item.status === "done" ? "checked" : ""} />
+          <p>${item.description}</p>
+        </div>
+      </div>
+      <button class="card-btn btn-delete">
+        <img class="card-icon" src="./images/delete.svg" alt="">
       </button>
-        </li>
-      `;
+    </div>
+  `;
 };
 
 export function prepareDetailsSection(title, section) {
