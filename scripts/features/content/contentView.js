@@ -1,101 +1,136 @@
-export function renderContentItems(type, obj) {
-  let html = "";
-
-  switch (type) {
-    case "animals":
-      html = generateAnimalCardsHTML(obj.animals);
-      break;
-    case "files":
-      html = generateFileCardsHTML(obj.files);
-      break;
-  }
-
-  document.querySelector(`#${type}-list`).innerHTML = html;
+export function showContentContainer() {
+  document.querySelector("#content").classList.add("visible");
 }
 
-function generateAnimalCardsHTML(animals) {
+export function hideContentContainer() {
+  document.querySelector("#content").classList.remove("visible");
+}
+
+const pages = {
+  herds: renderAnimalCard,
+  machines: renderFileCard,
+};
+
+export function renderContentList(page, items) {
   let html = "";
 
-  animals.reverse().forEach((animal) => {
-    html += `<div class="card-tile" data-id="${animal.id}">
-    <div>
-    <button>
-          <i class="card-image fa-solid fa-pen"></i>
-        </button>
-    <button>
-          <i class="card-image fa-solid fa-trash"></i>
-        </button>
+  items.reverse().forEach((item) => {
+    html += pages[page](item);
+  });
+
+  document.querySelector("#content-list").innerHTML = html;
+}
+
+function renderAnimalCard(animal, editMode) {
+  return `<div class="card">   
+    ${editMode ? `<form class="card-form" action="">` : ``}
+      <div class="card-section">
+        <div class="card-row">
+            ${
+              editMode
+                ? `<input type="file" name="name" value="${animal.image}" required />`
+                : `<img src="./images/krowa1.jpeg" class="card-cover" />`
+            }
+          </div>
+          <div class="card-row">
+            <img class="card-icon" src="./images/signature.svg" alt="">
+            ${
+              editMode
+                ? `<input type="text" name="name" value="${animal.name}" required />`
+                : `<p>Imię: <span>${animal.name}</span></p>`
+            }
+          </div>
+          <hr class="card-line" />
+          <div class="card-row">
+            <img class="card-icon" src="./images/plant.svg" alt="">
+            ${
+              editMode
+                ? `<input type="text" name="plant" value="${animal.plate}" required />`
+                : `<p>ID: <span>${animal.plate}</span></p>`
+            }
+          </div>
+          <hr class="card-line" />
+          <div class="card-row">
+            <img class="card-icon" src="./images/grain.svg" alt="">
+            ${
+              editMode
+                ? `<input type="text" name="seed" value="${animal.age}" required />`
+                : `<p>Wiek: <span>${animal.age}</span></p>`
+            }     
+          </div>
+          </div>
+          ${
+            editMode
+              ? `<div class="card-btn-group">
+            <button class="card-btn btn-save" type="submit">
+            <img class="card-icon" src="./images/check.svg" alt="">
+            </button>
+              <button class="card-btn btn-close" type="button">
+                <img class="card-icon" src="./images/close.svg" alt="">
+              </button>
+              </div>`
+              : `<div class="card-btn-group">
+                <button class="card-btn btn-edit" type="submit">
+                  <img class="card-icon" src="./images/edit.svg" alt="">
+                </button>
+                <button class="card-btn btn-delete" type="button">
+                  <img class="card-icon" src="./images/delete.svg" alt="">
+                </button>
+              </div>`
+          }
+            
+            ${editMode ? `</form>` : ``}
     </div>
-   
-        <div class="card-content">
-  
-                <div class="card-header">
-                  <img src="./images/krowa1.jpeg" class="card-photo" />
-                </div>
-                <hr class="card-separator" />
-                <div class="card-details">
-                  <i class="card-image fa-solid fa-location-crosshairs"></i>
-                  <p>Nazwa: <span>${animal.name}</span></p>
-                </div>
-                <hr class="card-separator" />
-                <div class="card-details">
-                  <i class="card-image fa-solid fa-location-crosshairs"></i>
-                  <p>ID nr. <span>${animal.plate}</span></p>
-                </div>
-                <hr class="card-separator" />
-                <div class="card-details">
-                  <i class="card-image fa-solid fa-location-crosshairs"></i>
-                  <p>Wiek: <span>${animal.age}</span></p>
-                </div>
-              </div>
-              
-              </div>
           `;
-  });
-
-  return html;
 }
 
-function generateFileCardsHTML(files) {
-  let html = "";
-
-  files.reverse().forEach((file) => {
-    html += `<div class="card-tile" data-id="${file.id}">
-      <button>
-          <i class="card-image fa-solid fa-trash"></i>
+function renderFileCard(file) {
+  return `
+    <div class="card">   
+      <div class="card-section">
+        <div class="card-row">
+          <img class="card-icon" src="./images/grain.svg" alt="">  
+        </div>
+      </div>
+      <div class="card-btn-group">
+        <button class="card-btn btn-edit" type="submit">
+          <img class="card-icon" src="./images/edit.svg" alt="">
         </button>
-        <div class="card-content">
-  
-                <div class="card-header">
-                  <img src="./images/silnik.jpg" class="card-photo" />
-                </div>
-                <hr class="card-separator" />
-                <div class="card-details">
-                  <i class="card-image fa-solid fa-location-crosshairs"></i>
-                  <p>Nazwa: <span>${file.name}</span></p>
-                </div>
-                <hr class="card-separator" />
-                <div class="card-details">
-                  <i class="card-image fa-solid fa-location-crosshairs"></i>
-                  <p>Data: <span>${file.date}</span></p>
-                </div>
-              </div>
-              </div>
-              `;
+        <button class="card-btn btn-delete" type="button">
+          <img class="card-icon" src="./images/delete.svg" alt="">
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+export function displayFiles(files) {
+  document.querySelector("#content-list").innerHTML = "";
+
+  files.forEach((file) => {
+    const div = document.createElement("div");
+    div.classList.add("file-item");
+
+    if (file.type.startsWith("image/")) {
+      const img = document.createElement("img");
+      img.src = file.data;
+      div.appendChild(img);
+    } else if (file.type.startsWith("video/")) {
+      const video = document.createElement("video");
+      video.src = file.data;
+      video.controls = true;
+      div.appendChild(video);
+    } else if (file.type.startsWith("audio/")) {
+      const audio = document.createElement("audio");
+      audio.src = file.data;
+      audio.controls = true;
+      div.appendChild(audio);
+    } else {
+      const p = document.createElement("p");
+      p.textContent = `File: ${file.name}`;
+      div.appendChild(p);
+    }
+
+    document.querySelector("#content-list").appendChild(div);
   });
-
-  return html;
-}
-
-export function showContentListAddButton() {
-  if (document.querySelector(".content #add-item")) {
-    document.querySelector(".content #add-item").classList.add("visible");
-  }
-  console.log("dsa");
-}
-
-export function hideContentListAddButton() {
-  if (document.querySelector(".content #add-item")) {
-    document.querySelector(".content #add-item").classList.remove("visible");
-  }
 }

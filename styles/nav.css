@@ -1,5 +1,7 @@
 .nav {
   padding: 16px;
+  background-color: var(--clr-700);
+  
 }
 
 .nav-list {
@@ -18,7 +20,7 @@
   text-align: center;
 
   border-radius: 8px;
-  border: 1px solid var(--clr-600);
+  border: 2px solid var(--clr-800);
   transition: all 0.3s ease;
 
   display: grid;
@@ -26,13 +28,13 @@
 }
 
 .nav-item.active {
-  border: 1px solid var(--clr-accent-1);
+  border: 2px solid var(--clr-accent-1);
   background: var(--clr-accent-1);
 }
 
 .nav-item:hover {
+  border: 2px solid var(--clr-accent-1);
   transform: scale(1.1);
-  border: 1px solid var(--clr-accent-1);
 }
 
 .nav-link {

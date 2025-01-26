@@ -116,9 +116,17 @@
 }
 
 .card-cover {
-  margin-inline: -16px;
 }
 
 .card-form {
   display: flex;
+}
+
+#content .card-btn-group {
+  display: none;
+}
+
+#content .card:hover .card-btn-group {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
 }

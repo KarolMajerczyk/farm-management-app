@@ -5,7 +5,7 @@
   height: 100vh;
 
   color: var(--clr-100);
-  background-color: var(--clr-800);
+  background-color: var(--clr-900);
 }
 
 .app-header {
@@ -14,7 +14,9 @@
   justify-content: space-between;
   align-items: center;
 
-  border-right: 1px solid var(--clr-600);
+  border-right: 2px solid var(--clr-800);
+  background-color: var(--clr-700);
+
 }
 
 .app-content {

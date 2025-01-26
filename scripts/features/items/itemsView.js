@@ -1,18 +1,21 @@
 const pages = {
-  fields: generateFieldItemsList,
-  herds: generateHerdItemsList,
-  machines: generateMachineItemsList,
+  fields: renderFieldCard,
+  herds: renderHerdCard,
+  machines: renderMachineCard,
 };
 
 export function renderItemsList(page, items) {
-  document.querySelector("#items-list").innerHTML = pages[page](items);
-}
-
-function generateFieldItemsList(fields) {
   let html = "";
 
-  fields.reverse().forEach((field) => {
-    html += `
+  items.reverse().forEach((item) => {
+    html += pages[page](item);
+  });
+
+  document.querySelector("#items-list").innerHTML = html;
+}
+
+function renderFieldCard(field) {
+  return `
       <div class="card" data-id="${field.id}">
         <div class="card-section">
           <div class="card-row">
@@ -29,16 +32,10 @@ function generateFieldItemsList(fields) {
             <img class="card-icon" src="./images/delete.svg" alt="" />
         </button>
       </div>`;
-  });
-
-  return html;
 }
 
-function generateHerdItemsList(herds) {
-  let html = "";
-
-  herds.reverse().forEach((herd) => {
-    html += `
+function renderHerdCard(herd) {
+  return `
       <div class="card" data-id="${herd.id}">
         <div class="card-section">
           <div class="card-row">
@@ -55,16 +52,10 @@ function generateHerdItemsList(herds) {
           <img class="card-icon" src="./images/delete.svg" alt="" />
         </button>
       </div>`;
-  });
-
-  return html;
 }
 
-function generateMachineItemsList(machines) {
-  let html = "";
-
-  machines.reverse().forEach((machine) => {
-    html += `
+function renderMachineCard(machine) {
+  return `
       <div class="card" data-id="${machine.id}"> 
         <div class="card-section">
           <div class="card-row">
@@ -81,7 +72,4 @@ function generateMachineItemsList(machines) {
           <img class="card-icon" src="./images/delete.svg" alt="" />
         </button>
       </div>`;
-  });
-
-  return html;
 }
