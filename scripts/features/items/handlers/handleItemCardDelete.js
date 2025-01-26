@@ -5,27 +5,22 @@ import { toggleElementActive } from "../../../utils/toggleElementActive.js";
 import { renderItemsList } from "../itemsView.js";
 
 export function handleItemCardDelete(e) {
-  const { page, currId } = getCurrentState();
-  const id = e.target.parentElement.dataset.id;
+  const { page, id } = getCurrentState();
+  const elId = e.target.parentElement.dataset.id;
 
-  deleteItem(page, id);
+  deleteItem(page, elId);
 
   if (page === "fields") {
-    eventBus.emit("fieldDeleted", id);
+    eventBus.emit("fieldDeleted", elId);
   }
 
   const items = getItems(page);
   renderItemsList(page, items);
 
-  console.log(id, currId);
-  
-  if (id === getCurrentState().id) {
+  if (elId === id) {
     eventBus.emit("itemCardUnselected");
-  } else if (getCurrentState().id) {
-    const id = getCurrentState().id;
+  } else if (id) {
     const el = document.querySelector(`.card[data-id="${id}"]`);
     toggleElementActive(el);
   }
-
-  eventBus.emit("itemCardUnselected");
 }
