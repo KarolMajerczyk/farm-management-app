@@ -9,28 +9,13 @@
 
   cursor: pointer;
   transition: all 0.3s ease;
-
-  margin: 10px;
 }
 
 .button:hover {
   transform: scale(0.9);
+  background: var(--clr-accent-1);
 }
 
-#add-item {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-#add-item.visible {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: all;
-}
-
-.content .button {
-  width: 200px;
-  margin: 0 auto;
-  margin-bottom: 10px;
+#items .button {
+  margin: 10px;
 }

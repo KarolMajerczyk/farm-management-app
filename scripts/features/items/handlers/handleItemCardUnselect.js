@@ -1,3 +1,4 @@
+import { eventBus } from "../../../shared/eventBus.js";
 import { getCurrentState } from "../../../shared/state.js";
 import { showElement } from "../../../utils/showElement.js";
 import { toggleElementActive } from "../../../utils/toggleElementActive.js";
@@ -11,4 +12,5 @@ export function handleItemCardUnselect() {
   }
 
   showElement(document.querySelector("#add-item"));
+  eventBus.emit("itemCardUnselected");
 }

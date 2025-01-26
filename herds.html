@@ -37,6 +37,7 @@
         <!-- USER Avatar -->
         <img class="user-avatar" src="./images/account.webp" alt="" />
       </header>
+
       <!-- APP CONTENT -->
       <main class="app-content">
         <!-- ITEMS PANEL -->
@@ -208,67 +209,88 @@
           </div> -->
           <!--  -->
 
-          <button id="add-item" class="button" data-type="animals">
+          <button id="add-file" class="button" data-type="animals">
             Dodaj zwierzę
           </button>
         </section>
 
         <!-- DETAILS PANEL -->
-        <aside class="side-panel">
-          <h2 class="secondary-heading"></h2>
+        <aside id="details" class="details visible">
+          <h2 id="section-title" class="secondary-heading"></h2>
 
           <!-- OVERVIEW -->
-          <section class="overview"></section>
+          <section id="overview" class="visible"></section>
 
           <!-- BUDGET -->
-          <section class="budget">
-            <select id="dropdown" name="dropdown">
-              <option value="all">Wszystkie</option>
+          <section id="budget">
+            <select id="budget-filter" name="dropdown">
+              <option value="all" selected>Wszystkie</option>
               <option value="income">Przychody</option>
               <option value="expense">Wydatki</option>
             </select>
 
-            <ul id="budget-list" class="items-list"></ul>
+            <ul id="budget-list" class="list"></ul>
 
-            <form id="budget-form" action="">
-              <div>
+            <form id="budget-form" class="form" action="">
+              <div class="form-container">
                 <div class="form-group">
-                  Nazwa: <input name="description" type="text" required />
+                  Nazwa:
+                  <input
+                    class="form-input"
+                    name="description"
+                    type="text"
+                    required
+                  />
                 </div>
                 <div class="form-group">
                   Kwota:
-                  <input name="amount" type="number" required />
+                  <input
+                    class="form-input"
+                    name="amount"
+                    type="number"
+                    required
+                  />
                 </div>
               </div>
-              <button type="submit">Dodaj</button>
+              <button class="button" type="submit">
+                <img src="./images/plus.svg" alt="" />
+              </button>
             </form>
           </section>
 
           <!-- TODO -->
-          <section id="todos" class="todos">
-            <input id="date-picker" type="date" />
+          <section id="todos">
+            <input id="todos-calendar" type="date" />
 
-            <ul id="todos-list" class="items-list"></ul>
+            <ul id="todos-list" class="list"></ul>
 
-            <form id="todos-form" action="">
+            <form id="todos-form" class="form" action="">
               <div class="form-group">
-                Nazwa: <input name="description" type="text" required />
+                Nazwa:
+                <input
+                  class="form-input"
+                  name="description"
+                  type="text"
+                  required
+                />
               </div>
-              <button type="submit">Dodaj</button>
+              <button class="button" type="submit">
+                <img src="./images/plus.svg" alt="" />
+              </button>
             </form>
           </section>
 
           <!-- MENU -->
           <nav id="side-menu" class="nav menu">
             <ul class="nav-list nav-list-horizontal">
-              <li class="nav-item active" data-page="overview">
-                <i class="fa-solid fa-chart-pie"></i>
+              <li class="nav-item active" data-section="overview">
+                <img class="nav-link" src="./images/overview.svg" alt="" />
               </li>
-              <li class="nav-item" data-page="budget">
-                <i class="fa-solid fa-wallet"></i>
+              <li class="nav-item" data-section="budget">
+                <img class="nav-link" src="./images/payments.svg" alt="" />
               </li>
-              <li class="nav-item" data-page="todos">
-                <i class="fa-solid fa-list-ul"></i>
+              <li class="nav-item" data-section="todos">
+                <img class="nav-link" src="./images/checklist.svg" alt="" />
               </li>
             </ul>
           </nav>

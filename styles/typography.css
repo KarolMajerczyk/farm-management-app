@@ -7,7 +7,7 @@ body {
 
 .secondary-heading {
   text-align: center;
-  padding: 20px;
+  padding: 12px;
   background: var(--clr-800);
   border-bottom: 1px solid var(--clr-600);
 }

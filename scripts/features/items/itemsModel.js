@@ -17,17 +17,17 @@ export function createListItem(type, data) {
 function createFieldItem(data) {
   return {
     id: data.id,
-    name: "Nazwa pola",
+    name: "",
     number: data.parcel,
     area: 0.5,
-    image: "./images/field.png",
+    image: "./images/field.svg",
 
     region: data.region,
     voivodeship: data.voivodeship,
     location: data.location,
 
-    plant: "Typ uprawy",
-    seed: "Typ sadzonki",
+    plant: "",
+    seed: "",
 
     budget: [],
     todos: [],
@@ -37,8 +37,8 @@ function createFieldItem(data) {
 function createHerdItem() {
   return {
     id: generateRandomId(),
-    name: "Nazwa stada",
-    image: "./images/animal.png",
+    name: "",
+    image: "./images/pet.svg",
     animal: "",
     species: "",
 
@@ -51,10 +51,10 @@ function createHerdItem() {
 function createMachineItem() {
   return {
     id: generateRandomId(),
-    name: "Nazwa maszyny",
-    image: "./images/machine.png",
-    plate: "XXXXXXXX",
-    type: "Typ maszyny",
+    name: "",
+    image: "./images/tractor.svg",
+    plate: "",
+    type: "",
     hoursUsed: 0,
 
     files: [],

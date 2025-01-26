@@ -1,4 +1,4 @@
-.details {
+#details {
   height: 100vh;
 
   display: grid;
@@ -9,104 +9,51 @@
   pointer-events: none;
 }
 
-.details.visible {
+#details.visible {
   opacity: 1;
   visibility: visible;
   pointer-events: all;
 }
 
-.details section {
+#details section {
   border-top: 1px solid var(--clr-600);
   border-bottom: 1px solid var(--clr-600);
   display: none;
 }
 
-.details section.visible {
+#details section.visible {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 24px 28px;
+  padding: 20px 24px;
 }
 
-/* TEMP */
-
-#todos-list .list-item,
-#budget-list .list-item {
-  padding: 12px 16px;
-}
-
-#todos-list .list-item p,
-#budget-list .item-content {
-  margin-right: auto;
-}
-
-.details .todos.visible,
-.details .budget.visible {
+#budget-form > div {
   display: grid;
-  grid-template-rows: auto 1fr auto;
-}
-
-.details .list {
-  padding: 0px;
-  border-top: none;
-
-  cursor: pointer;
-
-  box-shadow: 0px 0px 8px rgb(32, 32, 32);
-
-  font-weight: 300;
-
-  display: flex;
-  flex-direction: column;
   gap: 12px;
-  overflow-y: auto;
 }
 
-.details .list-item {
-  border-bottom: 2px solid var(--clr-800);
+#budget-form .form-group,
+#todos-form .form-group {
   display: flex;
-  gap: 16px;
-
+  gap: 12px;
   align-items: center;
+}
+
+#budget-filter,
+#todos-calendar {
   background-color: var(--clr-700);
-}
-
-.details .list-item button {
-  display: none;
-  padding: 8px 16px;
-  color: rgb(201, 72, 72);
-  background: var(--clr-900) !important;
-  border: none;
-  border-radius: 0px !important;
-}
-
-.details .list-item:hover button {
-  display: block;
-}
-
-.details .list-item div {
-  display: grid;
-  gap: 8px;
-}
-
-.details .list-item .item-image {
-  font-size: 32px;
+  color: var(--clr-100);
+  border: 1px solid var(--clr-800);
+  padding: 8px 12px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  border-radius: 4px;
+  appearance: none;
   text-align: center;
 }
 
-.details .list-item .item-image.income {
-  color: rgb(43, 148, 43);
-}
-
-.details .list-item .item-image.expense {
-  color: rgb(179, 68, 68);
-}
-
-.details .list-item span {
-  margin-left: 4px;
-  font-weight: 900;
-}
-
-.details .list-item input[type="checkbox"]:checked + p {
-  text-decoration: line-through;
+#budget-filter:focus {
+  outline: none;
+  border-color: var(--clr-900);
 }

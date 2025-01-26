@@ -87,7 +87,7 @@
         </section>
 
         <!-- DETAILS PANEL -->
-        <aside id="details" class="details visible">
+        <aside id="details" class="">
           <h2 id="section-title" class="secondary-heading"></h2>
 
           <!-- OVERVIEW -->
@@ -103,17 +103,30 @@
 
             <ul id="budget-list" class="list"></ul>
 
-            <form id="budget-form" action="">
-              <div>
+            <form id="budget-form" class="form" action="">
+              <div class="form-container">
                 <div class="form-group">
-                  Nazwa: <input name="description" type="text" required />
+                  Nazwa:
+                  <input
+                    class="form-input"
+                    name="description"
+                    type="text"
+                    required
+                  />
                 </div>
                 <div class="form-group">
                   Kwota:
-                  <input name="amount" type="number" required />
+                  <input
+                    class="form-input"
+                    name="amount"
+                    type="number"
+                    required
+                  />
                 </div>
               </div>
-              <button type="submit">Dodaj</button>
+              <button class="button" type="submit">
+                <img src="./images/plus.svg" alt="" />
+              </button>
             </form>
           </section>
 
@@ -123,11 +136,19 @@
 
             <ul id="todos-list" class="list"></ul>
 
-            <form id="todos-form" action="">
+            <form id="todos-form" class="form" action="">
               <div class="form-group">
-                Nazwa: <input name="description" type="text" required />
+                Nazwa:
+                <input
+                  class="form-input"
+                  name="description"
+                  type="text"
+                  required
+                />
               </div>
-              <button type="submit">Dodaj</button>
+              <button class="button" type="submit">
+                <img src="./images/plus.svg" alt="" />
+              </button>
             </form>
           </section>
 

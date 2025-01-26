@@ -9,9 +9,11 @@ import {
 import {
   prepareDetailsSection,
   renderOverviewSection,
+  showDetailsPanel,
 } from "../detailsView.js";
 
 export function handleOverviewSectionRender(mode) {
+  showDetailsPanel();
   prepareDetailsSection("Podsumowanie", "overview");
 
   const { page, id } = getCurrentState();

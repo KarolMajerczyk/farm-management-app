@@ -3,6 +3,7 @@ import { handleBudgetItemAdd } from "./handlers/handleBudgetItemAdd.js";
 import { handleBudgetItemDelete } from "./handlers/handleBudgetItemDelete.js";
 
 import { handleBudgetSectionRender } from "./handlers/handleBudgetSectionRender.js";
+import { handleDetailsPanelVisibilityToggle } from "./handlers/handleDetailsPanelVisibilityToggle.js";
 import { handleOverviewSectionRender } from "./handlers/handleOverviewSectionRender.js";
 import { handleOverviewSectionUpdate } from "./handlers/handleOverviewSectionUpdate.js";
 import { handleTodosItemAdd } from "./handlers/handleTodosItemAdd.js";
@@ -88,5 +89,5 @@ export function initDetailsController() {
   // OTHERS
   eventBus.on("itemCardSelected", handleOverviewSectionRender);
   eventBus.on("itemUpdated", handleOverviewSectionRender);
-  // eventBus.on("itemCardUnselected", hideSidePanel);
+  eventBus.on("itemCardUnselected", handleDetailsPanelVisibilityToggle);
 }

@@ -59,20 +59,85 @@ function renderFieldOverview(field, editMode) {
                 : `<p>Gatunek: <span>${field.seed}</span></p>`
             }     
           </div>
+          </div>
+          ${
+            editMode
+              ? `<div class="card-btn-group">
+            <button class="card-btn btn-save" type="submit">
+            <img class="card-icon" src="./images/check.svg" alt="">
+            </button>
+              <button class="card-btn btn-close" type="button">
+                <img class="card-icon" src="./images/close.svg" alt="">
+              </button>
+              </div>`
+              : `<button class="card-btn btn-edit">
+              <img class="card-icon" src="./images/edit.svg" alt="">
+              </button>`
+          }
+            
+            ${editMode ? `</form>` : ``}
+    </div>
+
+    <div class="card">   
+      <div class="card-section">
+        <div class="card-header">Dane o działce</div>
+        <hr class="card-line" />
+        <div class="card-row">
+          <img class="card-icon" src="./images/info.svg" alt="">
+          <p>Numer: <span>${field.number}</span></p>
+        </div>
+        <hr class="card-line" />
+        <div class="card-row">
+          <img class="card-icon" src="./images/city.svg" alt="">
+          <p>Miejscowość: <span>${field.region}</span></p>
+        </div>
+        <hr class="card-line" />
+        <div class="card-row">
+          <img class="card-icon" src="./images/size.svg" alt="">
+          <p>Rozmiar: <span>${field.area} ha</span></p>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderHerdOverview(herd, editMode) {
+  return `
+    <div class="card">   
+    ${editMode ? `<form class="card-form" action="">` : ``}
+      <div class="card-section">
+        <div class="card-header">Dane o stadzie</div>
+        <hr class="card-line" />
+          <div class="card-row">
+            <img class="card-icon" src="./images/signature.svg" alt="">
+            ${
+              editMode
+                ? `<input type="text" name="name" value="${herd.name}" required />`
+                : `<p>Nazwa: <span>${herd.name}</span></p>`
+            }
+          </div>
+          <hr class="card-line" />
+          <div class="card-row">
+            <img class="card-icon" src="./images/pet.svg" alt="">
+            ${
+              editMode
+                ? `<input type="text" name="animal" value="${herd.animal}" required />`
+                : `<p>Zwierzę: <span>${herd.animal}</span></p>`
+            }
+          </div>
           <hr class="card-line" />
           <div class="card-row">
             <img class="card-icon" src="./images/info.svg" alt="">
-            <p>Numer: <span>${field.number}</span></p>
+            ${
+              editMode
+                ? `<input type="text" name="species" value="${herd.species}" required />`
+                : `<p>Gatunek: <span>${herd.species}</span></p>`
+            }     
           </div>
           <hr class="card-line" />
           <div class="card-row">
-            <img class="card-icon" src="./images/city.svg" alt="">
-            <p>Miejscowość: <span>${field.region}</span></p>
-          </div>
-          <hr class="card-line" />
-          <div class="card-row">
-            <img class="card-icon" src="./images/size.svg" alt="">
-            <p>Rozmiar: <span>${field.area} ha</span></p>
+            <img class="card-icon" src="./images/info.svg" alt="">
+            <p>Ilość: <span>${herd.animals.length}</span></p>   
           </div>
           </div>
           ${
@@ -95,69 +160,65 @@ function renderFieldOverview(field, editMode) {
   `;
 }
 
-function renderHerdOverview(herd) {
+function renderMachineOverview(machine, editMode) {
   return `
-    <div class="card-tile">
-    <button>
-          <i class="card-image fa-solid fa-pen"></i>
-        </button>
-        <div class="card-content">
-
-      <div class="card-header">
-        <p class="card-title">Informacje</p>
-      </div>
-      <hr class="card-separator" />
-      <div class="card-details">
-        <i class="card-image fa-solid fa-location-crosshairs"></i>
-        <p>Nazwa stada: <span>${herd.name}</span></p>
-      </div>
-      <hr class="card-separator" />
-      <div class="card-details">
-        <i class="card-image fa-solid fa-earth-europe"></i>
-        <p>Zwierzę: <span>${herd.animal}</span></p>
-      </div>
-      <hr class="card-separator" />
-      <div class="card-details">
-        <i class="card-image fa-solid fa-earth-europe"></i>
-        <p>Gatunek: <span>${herd.species}</span></p>
-      </div>
-    </div>
-    </div>
-  `;
-}
-
-function renderMachineOverview(machine) {
-  return `
-    <div class="card-tile">
-    <button>
-          <i class="card-image fa-solid fa-pen"></i>
-        </button>
-        <div class="card-content">
-
-      <div class="card-header">
-        <p class="card-title">Informacje</p>
-      </div>
-      <hr class="card-separator" />
-      <div class="card-details">
-        <i class="card-image fa-solid fa-location-crosshairs"></i>
-        <p>Nazwa maszyny: <span>${machine.name}</span></p>
-      </div>
-      <hr class="card-separator" />
-      <div class="card-details">
-        <i class="card-image fa-solid fa-earth-europe"></i>
-        <p>Typ maszyny: <span>${machine.type}</span></p>
-      </div>
-      <hr class="card-separator" />
-      <div class="card-details">
-        <i class="card-image fa-solid fa-earth-europe"></i>
-        <p>Tablica rejestracyjna: <span>${machine.plate}</span></p>
-      </div>
-      <hr class="card-separator" />
-      <div class="card-details">
-        <i class="card-image fa-solid fa-expand"></i>
-        <p>Motogodziny: <span>${machine.hoursUsed} ha</span></p>
-      </div>
-    </div>
+    <div class="card">   
+    ${editMode ? `<form class="card-form" action="">` : ``}
+      <div class="card-section">
+        <div class="card-header">Dane o maszynie</div>
+        <hr class="card-line" />
+          <div class="card-row">
+            <img class="card-icon" src="./images/signature.svg" alt="">
+            ${
+              editMode
+                ? `<input type="text" name="name" value="${machine.name}" required />`
+                : `<p>Nazwa: <span>${machine.name}</span></p>`
+            }
+          </div>
+          <hr class="card-line" />
+          <div class="card-row">
+            <img class="card-icon" src="./images/info.svg" alt="">
+            ${
+              editMode
+                ? `<input type="text" name="type" value="${machine.type}" required />`
+                : `<p>Typ: <span>${machine.type}</span></p>`
+            }
+          </div>
+          <hr class="card-line" />
+          <div class="card-row">
+            <img class="card-icon" src="./images/plate.svg" alt="">
+            ${
+              editMode
+                ? `<input type="text" name="plate" value="${machine.plate}" required />`
+                : `<p>Tablica: <span>${machine.plate}</span></p>`
+            }     
+          </div>
+          <hr class="card-line" />
+          <div class="card-row">
+            <img class="card-icon" src="./images/info.svg" alt="">
+            ${
+              editMode
+                ? `<input type="text" name="hoursUsed" value="${machine.hoursUsed}" required />`
+                : `<p>Motogodziny: <span>${machine.hoursUsed}</span> mth</p>`
+            }     
+          </div>
+          </div>
+          ${
+            editMode
+              ? `<div class="card-btn-group">
+            <button class="card-btn btn-save" type="submit">
+            <img class="card-icon" src="./images/check.svg" alt="">
+            </button>
+              <button class="card-btn btn-close" type="button">
+                <img class="card-icon" src="./images/close.svg" alt="">
+              </button>
+              </div>`
+              : `<button class="card-btn btn-edit">
+              <img class="card-icon" src="./images/edit.svg" alt="">
+              </button>`
+          }
+            
+            ${editMode ? `</form>` : ``}
     </div>
   `;
 }
@@ -276,4 +337,12 @@ export function prepareDetailsSection(title, section) {
   document
     .querySelector(`#side-menu [data-section="${section}"]`)
     .classList.add("active");
+}
+
+export function showDetailsPanel() {
+  document.querySelector("#details").classList.add("visible");
+}
+
+export function hideDetailsPanel() {
+  document.querySelector("#details").classList.remove("visible");
 }

@@ -5,7 +5,7 @@ import { toggleElementActive } from "../../../utils/toggleElementActive.js";
 import { renderItemsList } from "../itemsView.js";
 
 export function handleItemCardDelete(e) {
-  const { page } = getCurrentState();
+  const { page, currId } = getCurrentState();
   const id = e.target.parentElement.dataset.id;
 
   deleteItem(page, id);
@@ -17,6 +17,8 @@ export function handleItemCardDelete(e) {
   const items = getItems(page);
   renderItemsList(page, items);
 
+  console.log(id, currId);
+  
   if (id === getCurrentState().id) {
     eventBus.emit("itemCardUnselected");
   } else if (getCurrentState().id) {
@@ -24,4 +26,6 @@ export function handleItemCardDelete(e) {
     const el = document.querySelector(`.card[data-id="${id}"]`);
     toggleElementActive(el);
   }
+
+  eventBus.emit("itemCardUnselected");
 }

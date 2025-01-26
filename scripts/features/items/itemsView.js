@@ -47,7 +47,7 @@ function generateHerdItemsList(herds) {
           </div>
           <hr class="card-line" />
           <div class="card-row">
-            <img class="card-icon" src="./images/count.png" />
+            <img class="card-icon" src="./images/info.svg" />
             <p>Liczba: <span>${herd.animals.length}</span></p>
           </div>
         </div>
@@ -73,7 +73,7 @@ function generateMachineItemsList(machines) {
           </div>
           <hr class="card-line" />
           <div class="card-row">
-            <img class="card-icon" src="./images/license-plate.png" />
+            <img class="card-icon" src="./images/plate.svg" />
             <p>Tablica: <span>${machine.plate}</span></p>
           </div>
         </div>

@@ -1,4 +1,4 @@
 #map {
-  height: 100%;
+  height: 100vh;
   background-color: var(--clr-900);
 }
