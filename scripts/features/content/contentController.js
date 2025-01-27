@@ -5,6 +5,7 @@ import { handleContentRender } from "./handlers/handleContentRender.js";
 import { handleContentVisibilityToggle } from "./handlers/handleContentVisibilityToggle.js";
 import { handleAnimalItemDelete } from "./handlers/handleAnimalItemDelete.js";
 import { handleAnimalItemUpdate } from "./handlers/handleAnimalItemUpdate.js";
+import { handleFileItemDelete } from "./handlers/handleFileItemDelete.js";
 
 export function initContentController() {
   if (document.querySelector("#add-animal")) {
@@ -18,6 +19,11 @@ export function initContentController() {
     eventBus.on("itemCardUnselected", handleContentVisibilityToggle);
 
     document.querySelector("#content-list").addEventListener("click", (e) => {
+      if (e.target.classList.contains("file-delete")) {
+        handleFileItemDelete(e);
+        return;
+      }
+
       if (e.target.classList.contains("btn-delete")) {
         handleAnimalItemDelete(e);
       }
