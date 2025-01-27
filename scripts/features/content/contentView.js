@@ -102,32 +102,61 @@ function renderAnimalCard(animal, editMode) {
 
 function renderFileCard(file) {
   if (file.type.startsWith("image/")) {
-    img.src = file.data;
-  } else if (file.type.startsWith("video/")) {
-    video.src = file.data;
-    video.controls = true;
-  } else if (file.type.startsWith("audio/")) {
-    audio.src = file.data;
-    audio.controls = true;
-  } else {
-    p.textContent = `File: ${file.name}`;
+    return `
+   <div class="file image-file">
+   <div class="file-content">
+    <a href="${file.data}" download="${file.name}">
+      <img src="${file.data}" alt="${file.name}" style="max-width: 100%; height: auto;">
+    </a>
+    
+    </div>
+     <button class="btn-delete" type="button">
+        <img class="card-icon" src="./images/delete.svg" alt="">
+      </button>
+    </div>`;
+  }
+
+  if (file.type.startsWith("video/")) {
+    return `<div class="file video-file">
+    <video controls style="max-width: 85%; height: 100%;">
+              <source src="${file.data}" type="${file.type}">
+              Your browser does not support the video tag.
+            </video>
+            <button class="btn-delete" type="button">
+        <img class="card-icon" src="./images/delete.svg" alt="">
+      </button>
+            </div>`;
+  }
+
+  if (file.type.startsWith("audio/")) {
+    return `
+    <div class="file audio-file">
+     <div class="file-content">
+      <img class="file-icon" src="./images/audio.svg" alt="">
+      ${file.name}
+
+    <audio controls class="file audio-file">
+              <source src="${file.data}" type="${file.type}">
+              Your browser does not support the audio tag.
+            </audio>
+            </div>
+
+            <button class="btn-delete" type="button">
+        <img class="card-icon" src="./images/delete.svg" alt="">
+      </button>
+            </div>`;
   }
 
   return `
-    <div class="card">   
-      <div class="card-section">
-        <div class="card-row">
-          <img class="card-icon" src="./images/grain.svg" alt="">  
-        </div>
+    <div class="file text-file">
+    <div class="file-content">
+    <a href="${file.data}" download="${file.name}">
+      <img class="file-icon" src="./images/text-file.svg" alt="">
+      </a>
+      ${file.name}
       </div>
-      <div class="card-btn-group">
-        <button class="card-btn btn-edit" type="submit">
-          <img class="card-icon" src="./images/edit.svg" alt="">
-        </button>
-        <button class="card-btn btn-delete" type="button">
-          <img class="card-icon" src="./images/delete.svg" alt="">
-        </button>
-      </div>
-    </div>
-  `;
+      <button class="btn-delete" type="button">
+        <img src="./images/delete.svg" alt="">
+      </button>
+    </div>`;
 }

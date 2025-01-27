@@ -5,22 +5,35 @@ import { renderContentList } from "../contentView.js";
 
 export function handleFileItemAdd(e) {
   const { page, id } = getCurrentState();
-
   const item = getItemById(page, id);
 
   const files = Array.from(e.dataTransfer.files);
 
-  files.forEach((file) => {
-    const reader = new FileReader();
+  const promises = files.map((file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
 
-    reader.onload = () => {
-      const fileData = createFileItem(file, reader);
-      item.files.push(fileData);
-    };
+      reader.onload = () => {
+        const fileData = createFileItem(file, reader);
+        resolve(fileData);
+      };
 
-    reader.readAsDataURL(file);
+      reader.onerror = () => {
+        reject(new Error(`Failed to read file: ${file.name}`));
+      };
+
+      reader.readAsDataURL(file);
+    });
   });
 
-  updateItem(page, item);
-  renderContentList(page, item.files);
+  Promise.all(promises)
+    .then((fileDataArray) => {
+      const updatedFiles = [...item.files, ...fileDataArray];
+
+      updateItem(page, { ...item, files: updatedFiles });
+      renderContentList(page, updatedFiles);
+    })
+    .catch((error) => {
+      console.error(error.message);
+    });
 }

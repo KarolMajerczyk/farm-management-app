@@ -38,5 +38,72 @@
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   align-content: start;
   justify-content: start;
+  align-items: center;
   gap: 32px;
+}
+
+/*  */
+
+.file {
+  background: var(--clr-800);
+  height: 200px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.file-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  width: 100%;
+
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.file-icon {
+  width: 70px;
+  height: 70px;
+}
+
+.file button {
+  padding: 16px;
+  background: var(--clr-700);
+  border: none;
+  cursor: pointer;
+
+  display: none;
+}
+
+.file button img {
+  width: 30px;
+  height: 30px;
+}
+
+.file:hover button {
+  display: block;
+}
+
+.file a {
+  text-align: center;
+}
+
+.image-file .file-content {
+  padding: 0px;
+}
+
+.audio-file {
+}
+
+.audio-file audio {
+  padding: 0px;
+  width: 100%;
+}
+
+.text-file {
 }

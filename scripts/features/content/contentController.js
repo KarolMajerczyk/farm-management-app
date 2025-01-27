@@ -1,6 +1,6 @@
 import { eventBus } from "../../shared/eventBus.js";
 import { handleAnimalItemAdd } from "./handlers/handleAnimalItemAdd.js";
-// import { handleFileItemAdd } from "./handlers/handleFileItemAdd.js";
+import { handleFileItemAdd } from "./handlers/handleFileItemAdd.js";
 import { handleContentRender } from "./handlers/handleContentRender.js";
 import { handleContentVisibilityToggle } from "./handlers/handleContentVisibilityToggle.js";
 import { handleAnimalItemDelete } from "./handlers/handleAnimalItemDelete.js";
@@ -13,7 +13,7 @@ export function initContentController() {
       .addEventListener("click", handleAnimalItemAdd);
   }
 
-  if (document.querySelector("#content-list")) {
+  if (document.querySelector("#content")) {
     eventBus.on("itemCardSelected", handleContentRender);
     eventBus.on("itemCardUnselected", handleContentVisibilityToggle);
 
@@ -34,18 +34,14 @@ export function initContentController() {
     document.querySelector("#content-list").addEventListener("submit", (e) => {
       handleAnimalItemUpdate(e);
     });
+
+    document.querySelector("#content").addEventListener("dragover", (e) => {
+      e.preventDefault();
+    });
+
+    document.querySelector("#content").addEventListener("drop", (e) => {
+      e.preventDefault();
+      handleFileItemAdd(e);
+    });
   }
-
-  // if (document.querySelector("#content")) {
-  //   document.querySelector("#content").addEventListener("dragover", (e) => {
-  //     e.preventDefault();
-  //   });
-
-  //   document.querySelector("#content").addEventListener("drop", (e) => {
-  //     e.preventDefault();
-  //     handleFileItemAdd(e);
-  //   });
-  // }
 }
-
-// adsads
