@@ -11,25 +11,36 @@ const pages = {
   machines: renderFileCard,
 };
 
-export function renderContentList(page, items) {
+export function renderContentList(page, items, mode, animalId) {
   let html = "";
 
   items.reverse().forEach((item) => {
-    console.log(typeof item);
-    html += pages[page](item);
+    if (mode && item.id === animalId) {
+      html += pages[page](item, true);
+    } else {
+      html += pages[page](item);
+    }
   });
 
   document.querySelector("#content-list").innerHTML = html;
 }
 
 function renderAnimalCard(animal, editMode) {
-  return `<div class="card">   
+  return `<div class="card" data-id="${animal.id}">   
     ${editMode ? `<form class="card-form" action="">` : ``}
       <div class="card-section">
-        <div class="card-row">
+      ${
+        editMode
+          ? `<div class="card-row">
+              <img src="${animal.image}" class="card-cover ccc" />
+            </div>`
+          : ``
+      }
+        <div class="card-row">   
             ${
               editMode
-                ? `<input type="file" name="name" value="${animal.image}" required />`
+                ? `<img class="card-icon" src="./images/image.svg" alt="">
+                <input type="text" name="image" value="${animal.image}" />`
                 : `<img src="${animal.image}" class="card-cover" />`
             }
           </div>
@@ -43,26 +54,26 @@ function renderAnimalCard(animal, editMode) {
           </div>
           <hr class="card-line" />
           <div class="card-row">
-            <img class="card-icon" src="./images/plant.svg" alt="">
+            <img class="card-icon" src="./images/plate.svg" alt="">
             ${
               editMode
-                ? `<input type="text" name="plant" value="${animal.plate}" required />`
+                ? `<input type="text" name="plate" value="${animal.plate}" required />`
                 : `<p>ID: <span>${animal.plate}</span></p>`
             }
           </div>
           <hr class="card-line" />
           <div class="card-row">
-            <img class="card-icon" src="./images/grain.svg" alt="">
+            <img class="card-icon" src="./images/info.svg" alt="">
             ${
               editMode
-                ? `<input type="text" name="seed" value="${animal.age}" required />`
+                ? `<input type="number" name="age" value="${animal.age}" required />`
                 : `<p>Wiek: <span>${animal.age}</span></p>`
             }     
           </div>
           </div>
           ${
             editMode
-              ? `<div class="card-btn-group">
+              ? `<div class="card-btn-group active">
             <button class="card-btn btn-save" type="submit">
             <img class="card-icon" src="./images/check.svg" alt="">
             </button>

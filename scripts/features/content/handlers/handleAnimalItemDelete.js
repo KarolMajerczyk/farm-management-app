@@ -4,7 +4,7 @@ import { getItemById, updateItem } from "../../../shared/storage.js";
 import { renderContentList } from "../contentView.js";
 
 export function handleAnimalItemDelete(e) {
-  const animalItemId = e.target.parentElement.dataset.id;
+  const animalItemId = e.target.closest(".card").dataset.id;
 
   const { page, id } = getCurrentState();
   const item = getItemById(page, id);

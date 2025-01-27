@@ -21,8 +21,6 @@ export function handleFileItemAdd(e) {
     reader.readAsDataURL(file);
   });
 
-  console.log(item.files);
-
   updateItem(page, item);
   renderContentList(page, item.files);
 }

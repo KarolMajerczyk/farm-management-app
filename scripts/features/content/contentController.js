@@ -20,12 +20,18 @@ export function initContentController() {
     if (e.target.classList.contains("btn-delete")) {
       handleAnimalItemDelete(e);
     }
+
+    if (e.target.classList.contains("btn-edit")) {
+      handleContentRender("edit", e);
+    }
+
+    if (e.target.classList.contains("btn-close")) {
+      handleContentRender();
+    }
   });
 
-  document.querySelector("#content-list").addEventListener("click", (e) => {
-    if (e.target.classList.contains("btn-edit")) {
-      handleContentRender(e);
-    }
+  document.querySelector("#content-list").addEventListener("submit", (e) => {
+    handleAnimalItemUpdate(e);
   });
 
   // if (document.querySelector("#content")) {

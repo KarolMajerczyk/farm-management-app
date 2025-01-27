@@ -1,10 +1,11 @@
 .card {
   background: var(--clr-700);
-  width: 100%;
 
   display: flex;
   cursor: pointer;
   transition: all 0.5s ease;
+
+  max-width: 450px;
 }
 
 .card.active {
@@ -116,14 +117,22 @@
 }
 
 .card-cover {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
 }
 
 .card-form {
   display: flex;
+  width: 100%;
 }
 
 #content .card-btn-group {
   display: none;
+}
+
+#content .card-btn-group.active {
+  display: grid;
 }
 
 #content .card:hover .card-btn-group {
