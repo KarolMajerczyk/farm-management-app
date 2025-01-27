@@ -8,5 +8,4 @@ jak przechodzisz do fields, herds albo machines to odpal pierwszy kafelek zeby c
 
 zrób mini js i css do html
 
-
-jak usuwasz pole inne niż zaznaczone to nie usuwaj active z tego carda na którym jesteś
+jak usuwasz pole inne niż zaznaczone to nie usuwaj active z tego carda na którym jesteśsdf
