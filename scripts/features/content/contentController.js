@@ -7,9 +7,6 @@ import { handleAnimalItemDelete } from "./handlers/handleAnimalItemDelete.js";
 import { handleAnimalItemUpdate } from "./handlers/handleAnimalItemUpdate.js";
 
 export function initContentController() {
-  eventBus.on("itemCardSelected", handleContentRender);
-  eventBus.on("itemCardUnselected", handleContentVisibilityToggle);
-
   if (document.querySelector("#add-animal")) {
     document
       .querySelector("#add-animal")
@@ -17,6 +14,9 @@ export function initContentController() {
   }
 
   if (document.querySelector("#content-list")) {
+    eventBus.on("itemCardSelected", handleContentRender);
+    eventBus.on("itemCardUnselected", handleContentVisibilityToggle);
+
     document.querySelector("#content-list").addEventListener("click", (e) => {
       if (e.target.classList.contains("btn-delete")) {
         handleAnimalItemDelete(e);
