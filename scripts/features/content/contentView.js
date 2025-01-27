@@ -1,9 +1,13 @@
 export function showContentContainer() {
-  document.querySelector("#content").classList.add("visible");
+  if (document.querySelector("#content")) {
+    document.querySelector("#content").classList.add("visible");
+  }
 }
 
 export function hideContentContainer() {
-  document.querySelector("#content").classList.remove("visible");
+  if (document.querySelector("#content")) {
+    document.querySelector("#content").classList.remove("visible");
+  }
 }
 
 const pages = {
