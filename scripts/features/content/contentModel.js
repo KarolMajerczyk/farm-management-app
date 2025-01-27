@@ -6,6 +6,7 @@ export function createAnimalItem() {
     name: "",
     plate: "",
     age: 0,
+    image: "./images/image.jpg",
   };
 }
 

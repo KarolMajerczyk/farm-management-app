@@ -1,7 +1,7 @@
 import { getCurrentState } from "../../../shared/state.js";
 import { getItemById, updateItem } from "../../../shared/storage.js";
 import { createFileItem } from "../contentModel.js";
-import { renderContentList, displayFiles } from "../contentView.js";
+import { renderContentList } from "../contentView.js";
 
 export function handleFileItemAdd(e) {
   const { page, id } = getCurrentState();
@@ -21,7 +21,8 @@ export function handleFileItemAdd(e) {
     reader.readAsDataURL(file);
   });
 
+  console.log(item.files);
+
   updateItem(page, item);
-  displayFiles(item.files);
-  //   renderContentList(page, item.files);
+  renderContentList(page, item.files);
 }

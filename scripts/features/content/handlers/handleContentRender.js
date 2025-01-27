@@ -2,7 +2,7 @@ import { getCurrentState } from "../../../shared/state.js";
 import { getItemById } from "../../../shared/storage.js";
 import { renderContentList, showContentContainer } from "../contentView.js";
 
-export function handleContentRender() {
+export function handleContentRender(e) {
   const { page, id } = getCurrentState();
   const item = getItemById(page, id);
 

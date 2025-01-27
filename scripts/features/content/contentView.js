@@ -15,6 +15,7 @@ export function renderContentList(page, items) {
   let html = "";
 
   items.reverse().forEach((item) => {
+    console.log(typeof item);
     html += pages[page](item);
   });
 
@@ -29,7 +30,7 @@ function renderAnimalCard(animal, editMode) {
             ${
               editMode
                 ? `<input type="file" name="name" value="${animal.image}" required />`
-                : `<img src="./images/krowa1.jpeg" class="card-cover" />`
+                : `<img src="${animal.image}" class="card-cover" />`
             }
           </div>
           <div class="card-row">
@@ -85,6 +86,18 @@ function renderAnimalCard(animal, editMode) {
 }
 
 function renderFileCard(file) {
+  if (file.type.startsWith("image/")) {
+    img.src = file.data;
+  } else if (file.type.startsWith("video/")) {
+    video.src = file.data;
+    video.controls = true;
+  } else if (file.type.startsWith("audio/")) {
+    audio.src = file.data;
+    audio.controls = true;
+  } else {
+    p.textContent = `File: ${file.name}`;
+  }
+
   return `
     <div class="card">   
       <div class="card-section">
@@ -102,35 +115,4 @@ function renderFileCard(file) {
       </div>
     </div>
   `;
-}
-
-export function displayFiles(files) {
-  document.querySelector("#content-list").innerHTML = "";
-
-  files.forEach((file) => {
-    const div = document.createElement("div");
-    div.classList.add("file-item");
-
-    if (file.type.startsWith("image/")) {
-      const img = document.createElement("img");
-      img.src = file.data;
-      div.appendChild(img);
-    } else if (file.type.startsWith("video/")) {
-      const video = document.createElement("video");
-      video.src = file.data;
-      video.controls = true;
-      div.appendChild(video);
-    } else if (file.type.startsWith("audio/")) {
-      const audio = document.createElement("audio");
-      audio.src = file.data;
-      audio.controls = true;
-      div.appendChild(audio);
-    } else {
-      const p = document.createElement("p");
-      p.textContent = `File: ${file.name}`;
-      div.appendChild(p);
-    }
-
-    document.querySelector("#content-list").appendChild(div);
-  });
 }
